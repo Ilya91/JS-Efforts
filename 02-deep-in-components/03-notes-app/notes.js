@@ -10,10 +10,26 @@ var Note = React.createClass({
     }
 });
 
+var ColorPanel = React.createClass({
+    render: function () {
+        return (
+            <div>
+                    <input type="radio" id="red" name="color" value="red" onChange={this.props.onChange}/><label htmlFor="red">red</label>
+                    <input type="radio" id="blue" name="color" value="blue" onChange={this.props.onChange}/><label htmlFor="blue">blue</label>
+                    <input type="radio" id="yellow" name="color" value="yellow" onChange={this.props.onChange}/><label htmlFor="yellow">yellow</label>
+                    <input type="radio" id="green" name="color" value="green" onChange={this.props.onChange}/><label htmlFor="green">green</label>
+                    <input type="radio" id="brown" name="color" value="brown" onChange={this.props.onChange}/><label htmlFor="blue">blue</label>
+                    <input type="radio" id="orange" name="color" value="orange" onChange={this.props.onChange}/><label htmlFor="orange">orange</label>
+            </div>
+        );
+    }
+});
+
 var NoteEditor = React.createClass({
     getInitialState: function() {
         return {
-            text: ''
+            text: '',
+            color: ''
         };
     },
 
@@ -21,10 +37,20 @@ var NoteEditor = React.createClass({
         this.setState({ text: event.target.value });
     },
 
+    handleColorChange: function(event) {
+        this.setState({ color: event.target.value });
+        console.log(event.target.value);
+    },
+
+    handleColorPanelChange: function(event) {
+        this.setState({ color: event.target.value });
+        console.log(event.target.value);
+    },
+
     handleNoteAdd: function() {
         var newNote = {
             text: this.state.text,
-            color: 'yellow',
+            color: this.state.color,
             id: Date.now()
         };
 
@@ -42,13 +68,55 @@ var NoteEditor = React.createClass({
                     value={this.state.text}
                     onChange={this.handleTextChange}
                 />
+                <input type="color" onChange={this.handleColorChange}/>
+                <ColorPanel onChange={this.handleColorPanelChange}/>
                 <button className="add-button" onClick={this.handleNoteAdd}>Add</button>
             </div>
         );
     }
 });
 
+var Search = React.createClass({
+render: function() {
+        return (
+            <div className="note-search">
+                <input type="text" style={{ marginLeft: '30%', width: '300px', marginBottom: '50px'}} onChange={this.props.onChange}/>
+            </div>
+        );
+    }
+})
+
+
 var NotesGrid = React.createClass({
+    getInitialState: function() {
+        return {
+            text: '',
+            notes: this.props.notes,
+            search: ''
+        };
+    },
+
+    handleSearch: function (event) {
+
+        var searchQuery = event.target.value.toLowerCase();
+        //this.setState({ text: event.target.value});
+
+        var displayedContacts = this.props.notes.filter(function (note) {
+            var text = note.text.toLowerCase();
+            //console.log(searchQuery);
+            return text.indexOf(searchQuery) !== -1;
+        });
+
+        if(searchQuery === ''){
+            this.setState({ search: ''});
+        }else {
+            this.setState({ notes: displayedContacts, search: 'search'});
+        }
+
+
+        console.log(searchQuery);
+    },
+
     componentDidMount: function() {
         var grid = this.refs.grid;
         this.msnry = new Masonry( grid, {
@@ -68,11 +136,22 @@ var NotesGrid = React.createClass({
 
     render: function() {
         var onNoteDelete = this.props.onNoteDelete;
-
+        //this.props.notes = this.state.notes;
         return (
+            <div>
+                <Search onChange={this.handleSearch}/>
             <div className="notes-grid" ref="grid">
-                {
+                {this.state.search === '' ?
                     this.props.notes.map(function(note){
+                        return (
+                            <Note
+                                key={note.id}
+                                onDelete={onNoteDelete.bind(null, note)}
+                                color={note.color}>
+                                {note.text}
+                            </Note>
+                        );
+                    }) : this.state.notes.map(function(note){
                         return (
                             <Note
                                 key={note.id}
@@ -83,6 +162,7 @@ var NotesGrid = React.createClass({
                         );
                     })
                 }
+            </div>
             </div>
         );
     }

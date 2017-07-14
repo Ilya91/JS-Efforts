@@ -14,7 +14,9 @@
         var Timer = React.createClass({
             getInitialState: function() {
                 return {
-                    seconds: 0
+                    date: 0,
+                    pigs:0,
+                    status: 'pause'
                 };
             },
 
@@ -22,8 +24,34 @@
                 this.timer = setInterval(this.tick, 1000);
             },
 
+            pause: function(){
+                if(this.state.status === 'start'){
+                    this.timer = setInterval(this.tick, 1000);
+                    this.setState({ status: 'pause' });
+                }else{
+                    clearInterval(this.timer);
+                    console.log(this.timer);
+                    this.setState({ status: 'start' });
+                }
+            },
+
+            reload: function(){
+                this.setState({ date: 0, status: 'pause' });
+                if(this.state.status === 'start'){
+                    this.timer = setInterval(this.tick, 1000);
+                }
+            },
+
+            isPaused: function () {
+              return this.state.status === 'start';
+            },
+
             tick: function() {
-                this.setState({ seconds: this.state.seconds + 1 });
+                this.setState({ date: this.state.date + 1 });
+            },
+
+            morePigs: function () {
+                this.setState({ pigs: this.state.pigs + 1 });
             },
 
             componentWillUnmount: function() {
@@ -32,7 +60,11 @@
 
             render: function() {
                 return (
-                    <h4> Уже прошло {this.state.seconds} секунд </h4>
+                    <div>
+                    <h4> <button onClick={this.pause}>{this.state.status}</button> {this.state.date} секунд  <button onClick={this.reload}>Reload</button></h4>
+                    <a onClick={this.morePigs}> Click me</a>
+                        <h1> Уже свиней {this.state.pigs} штук </h1>
+                    </div>
                 );
             }
         });

@@ -7,7 +7,7 @@ export default {
         return new Promise((resolve, reject) => {
             gapi.auth.authorize(
                 {
-                    'client_id': clientId,
+                    'client_id': '968979264459-mai0ml35ocu7hu2n009fr2sgs57g3oh8.apps.googleusercontent.com',
                     'scope': SCOPES,
                     'immediate': params.immediate,
                     'cookie_policy': 'single_host_origin'

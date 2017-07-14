@@ -1,4 +1,4 @@
-const CLIENT_ID = '732588629667-78die8b0im10dkg91o48bo7knds74r92.apps.googleusercontent.com';
+const CLIENT_ID = '968979264459-mai0ml35ocu7hu2n009fr2sgs57g3oh8.apps.googleusercontent.com';
 const SCOPES = ['https://www.googleapis.com/auth/tasks', 'https://www.googleapis.com/auth/plus.me'];
 
 export default {

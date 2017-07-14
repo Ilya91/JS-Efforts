@@ -1,0 +1,1490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1975d891-4e73-4c00-a36b-3c81895b1ad3" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/public/img/desk.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/public/img/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/react-todos/react-todos.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/public/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/autocomplete/dist/assets/img/rowdy.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/finish/dist/assets/img/rowdy.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/monsterlessons/01-redux-intro" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/monsterlessons/02-redux-rendering-elements" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/monsterlessons/03-redux-connecting-redux-and-react" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/monsterlessons/04-firing-actions-redux" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/monsterlessons/05-redux-devtools" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shop/public/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shop/public/images/preloader.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shop/public/images/trash_16x16.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shop/public/uploads/51u6y9Rm8QL._SY300_.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shop/public/uploads/Agnes_Case_for_Samsung_Galaxy_S6_(1)__92643_thumb.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shop/public/uploads/Lumia1520-Front-Back-png.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shop/public/uploads/_35 (1).JPG" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shop/public/uploads/htc-one-m7-802w-dual-sim-silver.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shop/public/uploads/iphone5c-selection-hero-2013.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/react.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/01-introduction-to-react/homework/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/01-introduction-to-react/homework/index2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/04-routing-and-es6/02-routing/src/articles.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/04-routing-and-es6/02-routing/src/components/Article.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/04-routing-and-es6/02-routing/src/components/ArticlePreview.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/04-routing-and-es6/02-routing/src/components/Articles.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/public/build/bundle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/public/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/App.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/actions/SessionActions.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/api/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/components/AboutPage.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/components/AboutPage.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/components/LoggedInLayout.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/components/LoggedInLayout.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/components/LoginPage.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/components/LoginPage.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/components/Task.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/components/Task.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/components/TaskCreateModal.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/components/TaskListCreateModal.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/components/TasklistsPage.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/components/TasklistsPage.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/components/TasksPage.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/components/TasksPage.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/constants/AppConstants.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/dispatcher/AppDispatcher.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/stores/SessionStore.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/styles/base.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/styles/media.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/src/styles/palette.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/05-flux/my-tasks/webpack.config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/async/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/async/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/async/package-lock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/async/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/async/public/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/async/src/actions/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/async/src/components/Picker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/async/src/components/Posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/async/src/containers/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/async/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/async/src/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/counter-vanilla/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/counter/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/counter/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/counter/package-lock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/counter/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/counter/public/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/counter/src/components/Counter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/counter/src/components/Counter.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/counter/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/counter/src/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/counter/src/reducers/index.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/react-todos/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/react-todos/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/react-todos/package-lock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/react-todos/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/react-todos/public/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/react-todos/src/components/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/react-todos/src/components/Filter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/react-todos/src/components/Form.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/react-todos/src/components/Item.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/react-todos/src/components/List.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/react-todos/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/package-lock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/public/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/actions/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/components/Explore.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/components/List.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/components/Repo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/components/User.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/containers/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/containers/DevTools.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/containers/RepoPage.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/containers/Root.dev.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/containers/Root.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/containers/Root.prod.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/containers/UserPage.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/middleware/api.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/reducers/paginate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/store/configureStore.dev.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/store/configureStore.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/real-world/src/store/configureStore.prod.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/package-lock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/public/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/actions/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/api/products.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/api/shop.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/components/Cart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/components/Cart.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/components/Product.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/components/Product.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/components/ProductItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/components/ProductItem.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/components/ProductsList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/components/ProductsList.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/constants/ActionTypes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/containers/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/containers/CartContainer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/containers/ProductsContainer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/reducers/cart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/reducers/cart.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/reducers/index.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/reducers/products.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/shopping-cart/src/reducers/products.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/testAll.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/package-lock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/public/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/actions/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/actions/index.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/components/Footer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/components/Footer.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/components/Header.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/components/Header.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/components/MainSection.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/components/MainSection.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/components/TodoItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/components/TodoItem.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/components/TodoTextInput.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/components/TodoTextInput.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/constants/ActionTypes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/constants/TodoFilters.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/containers/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/reducers/todos.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todomvc/src/reducers/todos.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/.flowconfig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/package-lock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/public/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/components/TodoList.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/components/__snapshots__/TodoList.test.js.snap" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/components/__snapshots__/app.test.js.snap" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/components/__snapshots__/footer.test.js.snap" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/components/__snapshots__/link.test.js.snap" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/components/__snapshots__/todo.test.js.snap" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/components/app.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/components/footer.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/components/link.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/components/todo.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/containers/AddTodo.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/containers/FilterLink.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/containers/VisibleTodoList.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/containers/__snapshots__/AddTodo.test.js.snap" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/containers/__snapshots__/FilterLink.test.js.snap" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/containers/__snapshots__/VisibleTodoList.test.js.snap" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/reducers/index.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/reducers/todos.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/reducers/visibilityFilter.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/__tests__/selectors/todos.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/actions/todos.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/actions/visibilityFilter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/components/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/components/Footer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/components/Link.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/components/Todo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/components/TodoList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/containers/AddTodo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/containers/FilterLink.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/containers/VisibleTodoList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/reducers/todos.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/reducers/visibilityFilter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/selectors/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/types/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/types/todos.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-flow/src/types/visibilityFilter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/package-lock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/public/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/src/actions/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/src/components/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/src/components/Footer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/src/components/Link.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/src/components/Todo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/src/components/TodoList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/src/containers/AddTodo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/src/containers/FilterLink.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/src/containers/UndoRedo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/src/containers/VisibleTodoList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/src/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/src/reducers/todos.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos-with-undo/src/reducers/visibilityFilter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/package-lock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/public/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/src/actions/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/src/actions/index.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/src/components/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/src/components/Footer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/src/components/Link.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/src/components/Todo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/src/components/TodoList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/src/containers/AddTodo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/src/containers/FilterLink.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/src/containers/VisibleTodoList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/src/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/src/reducers/todos.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/src/reducers/todos.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/todos/src/reducers/visibilityFilter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/tree-view/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/tree-view/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/tree-view/package-lock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/tree-view/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/tree-view/public/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/tree-view/src/actions/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/tree-view/src/containers/Node.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/tree-view/src/containers/Node.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/tree-view/src/generateTree.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/tree-view/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/tree-view/src/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/tree-view/src/reducers/index.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/universal/.babelrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/universal/client/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/universal/common/actions/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/universal/common/api/counter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/universal/common/components/Counter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/universal/common/containers/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/universal/common/reducers/counter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/universal/common/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/universal/common/store/configureStore.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/universal/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/universal/package-lock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/universal/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/universal/server/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/universal/server/server.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/universal/webpack.config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_01/finish/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_01/finish/dist/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_01/start/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_02/finish/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_02/finish/dist/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_02/start/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_02/start/dist/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_03/finish/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_03/finish/dist/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_03/start/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_03/start/dist/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_04/finish/dist/bundle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_04/finish/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_04/finish/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_04/finish/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_04/start/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_04/start/dist/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_05/finish/dist/assets/bundle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_05/finish/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_05/finish/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_05/finish/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_05/finish/webpack.config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_05/start/dist/bundle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_05/start/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_05/start/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_05/start/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_06/finish/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_06/finish/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_06/finish/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_06/finish/src/lib.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_06/finish/src/titles.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_06/finish/webpack.config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_06/start/dist/assets/bundle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_06/start/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_06/start/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_06/start/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_06/start/webpack.config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_07/finish/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_07/finish/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_07/finish/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_07/finish/src/lib.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_07/finish/src/stylesheets/goodbye.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_07/finish/src/stylesheets/hello.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_07/finish/src/titles.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_07/finish/webpack.config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_07/start/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_07/start/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_07/start/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_07/start/src/lib.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_07/start/src/titles.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/Ch02/02_07/start/webpack.config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/autocomplete/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/autocomplete/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/autocomplete/src/components/AddDayForm.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/autocomplete/src/components/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/autocomplete/src/components/Menu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/autocomplete/src/components/SkiDayCount.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/autocomplete/src/components/SkiDayList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/autocomplete/src/components/SkiDayRow.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/autocomplete/src/components/Whoops404.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/autocomplete/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/autocomplete/src/stylesheets/globals.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/autocomplete/src/stylesheets/index.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/autocomplete/src/stylesheets/ui.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/autocomplete/webpack.config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/finish/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/finish/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/finish/src/components/AddDayForm.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/finish/src/components/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/finish/src/components/Menu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/finish/src/components/SkiDayCount.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/finish/src/components/SkiDayList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/finish/src/components/SkiDayRow.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/finish/src/components/Whoops404.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/finish/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/finish/src/stylesheets/globals.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/finish/src/stylesheets/index.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/finish/src/stylesheets/ui.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/finish/webpack.config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/lifesicle/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/lifesicle/dist/assets/bundle.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/lifesicle/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/lifesicle/dist/stylesheets/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/lifesicle/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/lifesicle/src/components/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/lifesicle/src/components/ui/About.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/lifesicle/src/components/ui/Home.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/lifesicle/src/components/ui/MainMenu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/lifesicle/src/components/ui/Member.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/lifesicle/src/components/ui/MemberList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/lifesicle/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/lifesicle/src/routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/lifesicle/webpack.config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/member/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/member/dist/assets/bundle.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/member/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/member/dist/stylesheets/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/member/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/member/src/components/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/member/src/components/ui/About.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/member/src/components/ui/Home.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/member/src/components/ui/MainMenu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/member/src/components/ui/Member.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/member/src/components/ui/MemberList.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/member/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/member/src/routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/member/webpack.config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lynda/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project1/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project1/public/build/bundle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project1/public/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project1/src/App.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project1/src/Main.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project1/src/components/About.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project1/src/components/Tasks.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project1/src/main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project1/webpack.config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/.babelrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/.eslintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/05/components/Main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/05/components/PhotoGrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/05/components/Single.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/05/reduxstagram.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/05/styles/_animations.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/05/styles/_normalize.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/05/styles/_typography.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/05/styles/style.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/06/components/Main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/06/components/PhotoGrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/06/components/Single.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/06/data/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/06/data/config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/06/data/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/06/reduxstagram.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/06/store.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/06/styles/_animations.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/06/styles/_normalize.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/06/styles/_typography.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/06/styles/style.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/07/actions/actionCreators.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/07/components/Main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/07/components/PhotoGrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/07/components/Single.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/07/data/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/07/data/config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/07/data/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/07/reduxstagram.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/07/store.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/07/styles/_animations.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/07/styles/_normalize.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/07/styles/_typography.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/07/styles/style.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/08/actions/actionCreators.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/08/components/Main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/08/components/PhotoGrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/08/components/Single.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/08/data/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/08/data/config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/08/data/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/08/reducers/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/08/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/08/reducers/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/08/reduxstagram.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/08/store.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/08/styles/_animations.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/08/styles/_normalize.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/08/styles/_typography.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/08/styles/style.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/10/actions/actionCreators.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/10/components/Main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/10/components/PhotoGrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/10/components/Single.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/10/data/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/10/data/config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/10/data/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/10/reducers/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/10/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/10/reducers/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/10/reduxstagram.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/10/store.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/10/styles/_animations.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/10/styles/_normalize.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/10/styles/_typography.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/10/styles/style.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/actions/actionCreators.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/components/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/components/Comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/components/Main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/components/Photo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/components/PhotoGrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/components/Single.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/data/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/data/config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/data/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/reducers/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/reducers/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/reduxstagram.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/store.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/styles/_animations.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/styles/_normalize.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/styles/_typography.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/13/styles/style.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/actions/actionCreators.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/components/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/components/Comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/components/Main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/components/Photo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/components/PhotoGrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/components/Single.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/data/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/data/config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/data/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/reducers/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/reducers/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/reduxstagram.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/store.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/styles/_animations.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/styles/_normalize.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/styles/_typography.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/14/styles/style.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/actions/actionCreators.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/components/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/components/Comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/components/Main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/components/Photo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/components/PhotoGrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/components/Single.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/data/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/data/config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/data/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/reducers/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/reducers/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/reduxstagram.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/store.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/styles/_animations.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/styles/_normalize.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/styles/_typography.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/15/styles/style.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/actions/actionCreators.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/components/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/components/Comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/components/Main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/components/Photo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/components/PhotoGrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/components/Single.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/data/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/data/config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/data/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/reducers/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/reducers/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/reduxstagram.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/store.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/styles/_animations.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/styles/_normalize.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/styles/_typography.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/16/styles/style.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/actions/actionCreators.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/components/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/components/Comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/components/Main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/components/Photo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/components/PhotoGrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/components/Single.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/data/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/data/config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/data/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/reducers/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/reducers/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/reduxstagram.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/store.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/styles/_animations.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/styles/_normalize.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/styles/_typography.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/17/styles/style.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/actions/actionCreators.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/components/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/components/Comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/components/Main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/components/Photo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/components/PhotoGrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/components/Single.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/data/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/data/config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/data/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/reducers/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/reducers/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/reduxstagram.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/store.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/styles/_animations.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/styles/_normalize.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/styles/_typography.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/18/styles/style.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/actions/actionCreators.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/components/App.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/components/Comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/components/Main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/components/Photo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/components/PhotoGrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/components/Single.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/data/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/data/config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/data/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/reducers/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/reducers/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/reduxstagram.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/store.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/styles/_animations.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/styles/_normalize.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/styles/_typography.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/19/styles/style.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/learn-redux/.babelrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/learn-redux/.eslintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/learn-redux/client/data/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/learn-redux/client/data/config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/learn-redux/client/data/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/learn-redux/client/reduxstagram.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/learn-redux/client/styles/_animations.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/learn-redux/client/styles/_normalize.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/learn-redux/client/styles/_typography.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/learn-redux/client/styles/style.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/learn-redux/devServer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/learn-redux/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/learn-redux/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/learn-redux/readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/learn-redux/webpack.config.dev.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/learn-redux/webpack.config.prod.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/Learn-Redux-Starter-Files-master/readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/client/actions/actionCreators.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/client/components/Main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/client/components/PhotoGrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/client/components/Single.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/client/data/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/client/data/config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/client/data/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/client/reducers/comments.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/client/reducers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/client/reducers/posts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/client/reduxstagram.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/client/store.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/client/styles/_animations.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/client/styles/_normalize.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/client/styles/_typography.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/client/styles/style.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/devServer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/webpack.config.dev.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reduxTagram/webpack.config.prod.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shop/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shop/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shop/public/font-awesome.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shop/public/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shop/src/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shop/src/main.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shop/yarn.lock" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/05-flux/00-tasks-app/npm-debug.log" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/01-introduction-to-react/00-template/index.html" afterPath="$PROJECT_DIR$/01-introduction-to-react/00-template/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/01-introduction-to-react/homework/01.md" afterPath="$PROJECT_DIR$/01-introduction-to-react/homework/01.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/02-deep-in-components/02-timer/index.html" afterPath="$PROJECT_DIR$/02-deep-in-components/02-timer/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/02-deep-in-components/03-notes-app/notes.js" afterPath="$PROJECT_DIR$/02-deep-in-components/03-notes-app/notes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/02-deep-in-components/homework/01.md" afterPath="$PROJECT_DIR$/02-deep-in-components/homework/01.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/02-deep-in-components/homework/03.md" afterPath="$PROJECT_DIR$/02-deep-in-components/homework/03.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/03-environment/00-packages-and-build/package.json" afterPath="$PROJECT_DIR$/03-environment/00-packages-and-build/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/03-environment/00-packages-and-build/public/build/bundle.js" afterPath="$PROJECT_DIR$/03-environment/00-packages-and-build/public/build/bundle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/04-routing-and-es6/02-routing/src/App.jsx" afterPath="$PROJECT_DIR$/04-routing-and-es6/02-routing/src/App.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/04-routing-and-es6/02-routing/src/components/AboutPage.less" afterPath="$PROJECT_DIR$/04-routing-and-es6/02-routing/src/components/AboutPage.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/04-routing-and-es6/02-routing/src/main.js" afterPath="$PROJECT_DIR$/04-routing-and-es6/02-routing/src/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/04-routing-and-es6/README.md" afterPath="$PROJECT_DIR$/04-routing-and-es6/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/05-flux/00-tasks-app/src/api/index.js" afterPath="$PROJECT_DIR$/05-flux/00-tasks-app/src/api/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/06-real-world/00-tasks-app/public/config.js.sample" afterPath="$PROJECT_DIR$/06-real-world/00-tasks-app/public/config.js.sample" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/06-real-world/00-tasks-app/src/api/index.js" afterPath="$PROJECT_DIR$/06-real-world/00-tasks-app/src/api/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/npm-debug.log" afterPath="$PROJECT_DIR$/npm-debug.log" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="react" />
+  </component>
+  <component name="FileColors">
+    <fileColor scope="Non-Project Files (Material Default)" color="2E3C43" />
+    <fileColor scope="Non-Project Files (Material Darker)" color="323232" />
+    <fileColor scope="Non-Project Files (Material Lighter)" color="eae8e8" />
+    <fileColor scope="Non-Project Files (Material Palenight)" color="2f2e43" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="List.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/react-todos/src/components/List.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="217">
+              <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Form.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/react-todos/src/components/Form.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="558">
+              <caret line="18" column="46" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Item.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/react-todos/src/components/Item.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="279">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Todo.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/examples/todos/src/components/Todo.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Filter.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/react-todos/src/components/Filter.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="403">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/todos/src/components/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Link.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/todos/src/components/Link.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="13" column="16" lean-forward="false" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Footer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/todos/src/components/Footer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="6" column="9" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FilterLink.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/todos/src/containers/FilterLink.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="62">
+              <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Google tasks</find>
+      <find>Almost Google Tasks</find>
+      <find>seconds</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>date</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/04-routing-and-es6/02-routing/src/components/Articles.jsx" />
+        <option value="$PROJECT_DIR$/06-real-world/00-tasks-app/public/config.js.sample" />
+        <option value="$PROJECT_DIR$/05-flux/00-tasks-app/src/main.js" />
+        <option value="$PROJECT_DIR$/05-flux/00-tasks-app/src/api/index.js" />
+        <option value="$PROJECT_DIR$/monsterlessons/01-redux-intro/package.json" />
+        <option value="$PROJECT_DIR$/monsterlessons/01-redux-intro/src/index.js" />
+        <option value="$PROJECT_DIR$/monsterlessons/02-redux-rendering-elements/package.json" />
+        <option value="$PROJECT_DIR$/monsterlessons/03-redux-connecting-redux-and-react/package.json" />
+        <option value="$PROJECT_DIR$/monsterlessons/03-redux-connecting-redux-and-react/src/App.js" />
+        <option value="$PROJECT_DIR$/monsterlessons/04-firing-actions-redux/package.json" />
+        <option value="$PROJECT_DIR$/monsterlessons/05-redux-devtools/src/reducers/playlists.js" />
+        <option value="$PROJECT_DIR$/monsterlessons/05-redux-devtools/src/reducers/filterTracks.js" />
+        <option value="$PROJECT_DIR$/monsterlessons/05-redux-devtools/src/actions/tracks.js" />
+        <option value="$PROJECT_DIR$/monsterlessons/05-redux-devtools/src/reducers/index.js" />
+        <option value="$PROJECT_DIR$/monsterlessons/05-redux-devtools/src/About.js" />
+        <option value="$PROJECT_DIR$/monsterlessons/05-redux-devtools/src/Track.js" />
+        <option value="$PROJECT_DIR$/monsterlessons/05-redux-devtools/src/Menu.js" />
+        <option value="$PROJECT_DIR$/monsterlessons/05-redux-devtools/src/index.js" />
+        <option value="$PROJECT_DIR$/monsterlessons/05-redux-devtools/package.json" />
+        <option value="$PROJECT_DIR$/monsterlessons/05-redux-devtools/src/App.js" />
+        <option value="$PROJECT_DIR$/monsterlessons/05-redux-devtools/src/reducers/tracks.js" />
+        <option value="$PROJECT_DIR$/reduxTagram/client/components/PhotoGrid.js" />
+        <option value="$PROJECT_DIR$/reduxTagram/client/components/Single.js" />
+        <option value="$PROJECT_DIR$/reduxTagram/client/components/Main.js" />
+        <option value="$PROJECT_DIR$/reduxTagram/client/store.js" />
+        <option value="$PROJECT_DIR$/reduxTagram/client/reducers/posts.js" />
+        <option value="$PROJECT_DIR$/reduxTagram/client/reducers/comments.js" />
+        <option value="$PROJECT_DIR$/reduxTagram/client/reduxstagram.js" />
+        <option value="$PROJECT_DIR$/reduxTagram/client/reducers/index.js" />
+        <option value="$PROJECT_DIR$/shop/src/index.js" />
+        <option value="$PROJECT_DIR$/shop/src/node_modules/containers/layout/index.js" />
+        <option value="$PROJECT_DIR$/shop/src/node_modules/actions/index.php" />
+        <option value="$PROJECT_DIR$/shop/src/node_modules/actionTypes.js" />
+        <option value="$PROJECT_DIR$/shop/src/node_modules/api/mockPhones.js" />
+        <option value="$PROJECT_DIR$/shop/src/node_modules/actions/index.js" />
+        <option value="$PROJECT_DIR$/shop/src/node_modules/containers/phones/index.js" />
+        <option value="$PROJECT_DIR$/shop/src/node_modules/api/index.js" />
+        <option value="$PROJECT_DIR$/examples/todos/webpack.config.js" />
+        <option value="$PROJECT_DIR$/examples/todos/public/build/bundle.js" />
+        <option value="$PROJECT_DIR$/examples/todos/public/index.html" />
+        <option value="$PROJECT_DIR$/examples/todos/src/index.js" />
+        <option value="$PROJECT_DIR$/examples/todos/package.json" />
+        <option value="$PROJECT_DIR$/examples/todos/src/components/App.js" />
+        <option value="$PROJECT_DIR$/examples/react-todos/src/index.js" />
+        <option value="$PROJECT_DIR$/examples/react-todos/src/components/Footer.js" />
+        <option value="$PROJECT_DIR$/examples/react-todos/src/components/Todo.js" />
+        <option value="$PROJECT_DIR$/examples/react-todos/src/components/Form.js" />
+        <option value="$PROJECT_DIR$/examples/react-todos/src/components/App.js" />
+        <option value="$PROJECT_DIR$/examples/react-todos/src/components/List.js" />
+        <option value="$PROJECT_DIR$/examples/react-todos/src/components/Item.js" />
+        <option value="$PROJECT_DIR$/examples/react-todos/src/components/Filter.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>true</other-services-enabled>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/03-environment/00-packages-and-build/node_modules" />
+    <handled-path value="$PROJECT_DIR$/04-routing-and-es6/02-routing/node_modules" />
+    <handled-path value="$PROJECT_DIR$/05-flux/00-tasks-app/node_modules" />
+    <handled-path value="$PROJECT_DIR$/05-flux/my-tasks/node_modules" />
+    <handled-path value="$PROJECT_DIR$/06-real-world/00-tasks-app/node_modules" />
+    <handled-path value="$PROJECT_DIR$/examples/react-todos/node_modules" />
+    <handled-path value="$PROJECT_DIR$/examples/shopping-cart/node_modules" />
+    <handled-path value="$PROJECT_DIR$/examples/todos/node_modules" />
+    <handled-path value="$PROJECT_DIR$/lynda/autocomplete/node_modules" />
+    <handled-path value="$PROJECT_DIR$/lynda/finish/node_modules" />
+    <handled-path value="$PROJECT_DIR$/lynda/lifesicle/node_modules" />
+    <handled-path value="$PROJECT_DIR$/lynda/member/node_modules" />
+    <handled-path value="$PROJECT_DIR$/lynda/node_modules" />
+    <handled-path value="$PROJECT_DIR$/monsterlessons/01-redux-intro/node_modules" />
+    <handled-path value="$PROJECT_DIR$/monsterlessons/02-redux-rendering-elements/node_modules" />
+    <handled-path value="$PROJECT_DIR$/monsterlessons/03-redux-connecting-redux-and-react/node_modules" />
+    <handled-path value="$PROJECT_DIR$/monsterlessons/04-firing-actions-redux/node_modules" />
+    <handled-path value="$PROJECT_DIR$/monsterlessons/05-redux-devtools/node_modules" />
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+    <handled-path value="$PROJECT_DIR$/project1/node_modules" />
+    <handled-path value="$PROJECT_DIR$/reduxTagram/node_modules" />
+    <handled-path value="$PROJECT_DIR$/shop/node_modules" />
+    <handled-path value="$PROJECT_DIR$/shop/src/node_modules" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1985" />
+    <option name="y" value="-4" />
+    <option name="width" value="1855" />
+    <option name="height" value="1084" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="react" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="react" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path" value="/usr/bin/node" />
+    <property name="JavaScriptPreferStrict" value="false" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/reduxTagram/client" />
+      <recent name="$PROJECT_DIR$/lynda" />
+      <recent name="$PROJECT_DIR$/lynda/finish/dist" />
+      <recent name="$PROJECT_DIR$/lynda/finish/dist/public" />
+      <recent name="$PROJECT_DIR$/lynda/finish/dist/src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/examples/react-todos" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/examples/todos" />
+      <recent name="$PROJECT_DIR$/shop" />
+      <recent name="$PROJECT_DIR$/reduxTagram/client/reducers" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1975d891-4e73-4c00-a36b-3c81895b1ad3" name="Default" comment="" />
+      <created>1497595788136</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1497595788136</updated>
+      <workItem from="1497595789485" duration="18731000" />
+      <workItem from="1497854748815" duration="11717000" />
+      <workItem from="1497960733916" duration="7700000" />
+      <workItem from="1498027411898" duration="18708000" />
+      <workItem from="1498053220814" duration="7592000" />
+      <workItem from="1498114750973" duration="8221000" />
+      <workItem from="1498134659432" duration="14773000" />
+      <workItem from="1498201807637" duration="17119000" />
+      <workItem from="1498463255397" duration="4644000" />
+      <workItem from="1498473720661" duration="18161000" />
+      <workItem from="1498551615009" duration="23150000" />
+      <workItem from="1498635446179" duration="17969000" />
+      <workItem from="1498716304017" duration="5097000" />
+      <workItem from="1498801985998" duration="20770000" />
+      <workItem from="1499155374696" duration="24000" />
+      <workItem from="1499175590764" duration="9544000" />
+      <workItem from="1499243239591" duration="14771000" />
+      <workItem from="1499328074982" duration="1846000" />
+      <workItem from="1499410130443" duration="10938000" />
+      <workItem from="1499684425528" duration="7700000" />
+      <workItem from="1499756976750" duration="602000" />
+      <workItem from="1499841724547" duration="11716000" />
+      <workItem from="1499928331533" duration="17654000" />
+      <workItem from="1500014404060" duration="10417000" />
+      <workItem from="1500038403699" duration="26000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="279590000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1985" y="-4" width="1855" height="1084" extended-state="6" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24262659" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29867256" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28871682" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/examples/todos/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todos/src/components/TodoList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todos/src/containers/AddTodo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/02-deep-in-components/02-timer/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-62">
+          <caret line="22" column="43" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/04-routing-and-es6/02-routing/src/components/Article.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/04-routing-and-es6/02-routing/src/components/Articles.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-558">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/04-routing-and-es6/02-routing/src/components/InboxPage.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-930">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/04-routing-and-es6/02-routing/src/components/MessagePreview.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todos/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todos/src/actions/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todos/src/reducers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/shopping-cart/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todos/src/reducers/todos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todos/src/containers/VisibleTodoList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="25" column="32" lean-forward="false" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/react-todos/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03-environment/00-packages-and-build/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/react-todos/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/react-todos/src/components/Link.js" />
+    <entry file="file://$PROJECT_DIR$/examples/react-todos/src/components/Todo.js" />
+    <entry file="file://$PROJECT_DIR$/examples/react-todos/src/components/TodoList.js" />
+    <entry file="file://$PROJECT_DIR$/04-routing-and-es6/02-routing/src/App.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/react-todos/src/components/Footer.js" />
+    <entry file="file://$PROJECT_DIR$/shop/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="16" column="26" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="16" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/react-todos/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/04-routing-and-es6/02-routing/src/components/Message.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/04-routing-and-es6/02-routing/src/components/AboutPage.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/monsterlessons/01-redux-intro/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lynda/lifesicle/src/components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/src/node_modules/containers/layout/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="9" column="42" lean-forward="false" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lynda/member/src/components/ui/MainMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03-environment/00-packages-and-build/src/components/NoteEditor.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="22" column="38" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03-environment/00-packages-and-build/src/components/NotesApp.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lynda/lifesicle/src/components/ui/MemberList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lynda/lifesicle/src/components/ui/Member.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lynda/member/src/components/ui/MemberList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/src/node_modules/reducers/phones.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/src/node_modules/containers/phones/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03-environment/00-packages-and-build/src/components/NotesGrid.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lynda/member/src/components/ui/Member.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03-environment/00-packages-and-build/src/components/Note.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/react-todos/src/components/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todos/src/components/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/react-todos/src/components/Form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="18" column="46" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todos/src/components/Link.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="13" column="16" lean-forward="false" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todos/src/containers/FilterLink.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todos/src/components/Footer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="6" column="9" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/react-todos/src/components/List.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/react-todos/src/components/Filter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/react-todos/src/components/Item.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todos/src/components/Todo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

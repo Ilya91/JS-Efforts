@@ -11,12 +11,13 @@ const App = React.createClass({
                     <div className='menu-item'>
                         <Link className='menu-item-link' to='/about'>About</Link>
                     </div>
-
                     <div className='menu-item'>
                         <Link className='menu-item-link' to='/inbox'>Inbox</Link>
                     </div>
+                    <div className='menu-item'>
+                        <Link className='menu-item-link' to='/articles'>Articles</Link>
+                    </div>
                 </div>
-
                 <div className='content'>
                     {this.props.children}
                 </div>

@@ -14,13 +14,13 @@
         var HelloWorld = React.createClass({
             render: function() {
                 return (
-                    <h1> Hello world! </h1>
+                    <h1> Hello, {this.props.name}! What a lovely {this.props.noun} !</h1>
                 );
             }
         });
 
         ReactDOM.render(
-            <HelloWorld />,
+            <HelloWorld name="Fred" noun="day"/>,
             document.getElementById('content')
         );
     </script>

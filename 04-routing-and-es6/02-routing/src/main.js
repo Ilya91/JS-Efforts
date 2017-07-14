@@ -3,6 +3,8 @@ import React from 'react';
 import { Router, Route, hashHistory } from 'react-router';
 
 import App from './App.jsx';
+import Articles from './components/Articles.jsx';
+import Article from './components/Article.jsx';
 import AboutPage from './components/AboutPage.jsx';
 import InboxPage from './components/InboxPage.jsx';
 import Message from './components/Message.jsx';
@@ -13,6 +15,9 @@ ReactDOM.render(
             <Route path='/about' component={AboutPage} />
             <Route path='/inbox' component={InboxPage}>
                 <Route path='/inbox/messages/:messageId' component={Message} />
+            </Route>
+            <Route path='/articles' component={Articles}>
+                <Route path='/articles/:articleId' component={Article} />
             </Route>
         </Route>
     </Router>,
