@@ -9,7 +9,8 @@ class Form extends Component {
     handleNoteAdd = () => {
         let newTask = {
             text: this.state,
-            id: Date.now()
+            id: Date.now(),
+            completed: false
         }
         this.props.onTaskAdd(newTask)
         this.setState({text : ''})

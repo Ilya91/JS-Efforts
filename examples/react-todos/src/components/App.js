@@ -16,13 +16,20 @@ class App extends Component
         this.setState({ tasks: tasks });
         console.log(tasks)
     }
+
+    onClick = (item) => {
+        item.completed = true
+        this.setState({ tasks: item });
+        console.log(item.completed)
+    }
+
     render() {
         const {  tasks } = this.state
         return (
             <div>
                 <Form onTaskAdd={this.handleAdd}/>
                 <Filter/>
-                <List tasks={tasks}/>
+                <List tasks={tasks} handleClick={this.onClick}/>
             </div>
         );
     }

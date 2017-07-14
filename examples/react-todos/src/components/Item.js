@@ -1,13 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class Item extends Component {
-    render(){
-        const { text, id, onClick } = this.props
-        return (
-            <p id={id} onClick={onClick}>{text}</p>
-        )
-    }
-
-}
+const Item = ({ id, onClick, text, completed}) => (
+    <p id={id} style={{textDecoration: completed ? 'line-through' : 'none'}} onClick={onClick}>{text}</p>
+)
 
 export default Item
