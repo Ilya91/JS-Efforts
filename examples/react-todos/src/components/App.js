@@ -19,7 +19,7 @@ class App extends Component
 
     onClick = (item) => {
         item.completed = true
-        this.setState({ tasks: item });
+        //this.setState({ tasks: item });
         console.log(item.completed)
     }
 

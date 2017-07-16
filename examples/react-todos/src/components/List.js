@@ -7,12 +7,12 @@ class List extends Component {
         this.state = {completed: false}
     }
 
-    /*handleClick = (id) => {
+    handleClick = (id) => {
         this.setState({completed : true})
-    }*/
+    }
 
     render(){
-        const { tasks, handleClick } = this.props
+        const { tasks } = this.props
         return (
             <div>
                 {
@@ -22,7 +22,7 @@ class List extends Component {
                                 key={i}
                                 text={task.text.text}
                                 id={task.id}
-                                onClick={handleClick.bind(null, task)}
+                                onClick={this.handleClick()}
                                 completed={this.state.completed}/>
                         ): <p>no tasks</p>
                 }
