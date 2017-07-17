@@ -16,17 +16,21 @@ class Grid extends Component {
 
     render(){
         const { notes } = this.props
+        let onDelete = this.props.onDelete
         return (
             <div className="notes-grid" ref="grid">
                 {
                     notes.map((note, i) =>
-                        <Note id={note.id} key={i} color={note.color}>{note.text}</Note>
+                        <Note
+                            id={note.id}
+                            key={i}
+                            color={note.color}
+                            onDelete={onDelete.bind(null, note)}
+                        >{note.text}</Note>
                     )
                 }
-                <Note/>
             </div>
         )
     }
-
 }
 export default Grid
