@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import Article from './Article'
+import ArticleList from './ArticleList'
 import { articles } from './fixtures'
 
 function HelloWorld() {
@@ -9,6 +9,6 @@ function HelloWorld() {
 }
 
 render(
-    <Article article = { articles[0] }/>,
+    <ArticleList articles = { articles }/>,
     document.getElementById('container')
 )

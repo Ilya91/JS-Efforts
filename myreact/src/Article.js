@@ -1,34 +1,21 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import CommentList from './CommentList'
 
 export default class Article extends Component{
-    constructor( props ){
-        super( props )
-        this.state = {
-            isOpen: false
-        }
-    }
+    static propTypes = {
 
-    toggleOpen = () => {
-        this.setState({
-            isOpen: !this.state.isOpen
-        })
-    }
-
-    getBody = () => {
-        if( !this.state.isOpen) return null
-        const { article } = this.props
-        return <section>{ article.text }</section>
     }
 
     render(){
-        const { article } = this.props //деструктуризация
-        const { isOpen } = this.state
+        const { title, date, children, comments } = this.props //деструктуризация
         return(
-            <div>
-                <h3>{ article.title }</h3>
-                <button onClick={this.toggleOpen}>{ isOpen ? 'close' : 'open' }</button>
-                { this.getBody()}
-            </div>
+            <li>
+                <h3>{ title }</h3>
+                <p><i>{ date }</i></p>
+                <p>{ children }</p>
+                <CommentList comments={ comments }/>
+            </li>
         )
     }
 }
