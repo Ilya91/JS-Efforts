@@ -3,8 +3,12 @@ import PropTypes from 'prop-types'
 import CommentList from './CommentList'
 
 export default class Article extends Component{
-    static propTypes = {
 
+    static propTypes = {
+        article: PropTypes.shape({
+            text: PropTypes.string.isRequired,
+            id: PropTypes.number.isRequired
+        })
     }
 
     render(){
@@ -20,6 +24,11 @@ export default class Article extends Component{
     }
 }
 
+/*Article.propTypes = {
+    article: PropTypes.shape({
+        text: PropTypes.string.isRequired
+    })
+}*/
 
 /*
 export default function Article( props ) {
