@@ -10,17 +10,33 @@ export default class Article extends Component{
             id: PropTypes.number.isRequired
         })
     }
+    componentWillReceiveProps(){
+
+    }
+
+    componentWillMount() {
+        //debugger
+    }
 
     render(){
         const { title, date, children, comments } = this.props //деструктуризация
         return(
-            <li>
+            <li ref={ this.setContainerRef }>
                 <h3>{ title }</h3>
                 <p><i>{ date }</i></p>
                 <p>{ children }</p>
                 <CommentList comments={ comments }/>
             </li>
         )
+    }
+
+    setContainerRef = ( ref ) => {
+        this.container = ref
+        console.log( '--', ref )
+    }
+
+    componentDidMount(){
+        //debugger
     }
 }
 
