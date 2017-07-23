@@ -2,7 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CommentList from './CommentList'
 
-export default class Article extends Component{
+class Article extends Component{
+
+    constructor( props ){
+        super( props )
+    }
 
     static propTypes = {
         article: PropTypes.shape({
@@ -18,14 +22,26 @@ export default class Article extends Component{
         //debugger
     }
 
-    render(){
-        const { title, date, children, comments } = this.props //деструктуризация
-        return(
-            <li ref={ this.setContainerRef }>
-                <h3>{ title }</h3>
+    getArticleBody() {
+        const { date, children, comments, isOpen } = this.props
+        if( !isOpen ) return null
+        return (
+            <div>
                 <p><i>{ date }</i></p>
                 <p>{ children }</p>
                 <CommentList comments={ comments }/>
+            </div>
+        )
+    }
+
+
+    render(){
+        const { title, toggleOpen } = this.props //деструктуризация
+        return(
+            <li ref={ this.setContainerRef }>
+                <h3>{ title }</h3>
+                <button onClick={ toggleOpen }>Open</button>
+                { this.getArticleBody() }
             </li>
         )
     }
@@ -39,6 +55,9 @@ export default class Article extends Component{
         //debugger
     }
 }
+
+export default Article
+
 
 /*Article.propTypes = {
     article: PropTypes.shape({
