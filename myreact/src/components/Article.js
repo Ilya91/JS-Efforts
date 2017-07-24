@@ -10,10 +10,12 @@ class Article extends Component{
 
     static propTypes = {
         article: PropTypes.shape({
-            text: PropTypes.string.isRequired,
-            id: PropTypes.number.isRequired
-        })
+            id: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+            text: PropTypes.string
+        }).isRequired
     }
+
     componentWillReceiveProps(){
 
     }
@@ -34,13 +36,18 @@ class Article extends Component{
         )
     }
 
+    getBtnText(){
+        const { isOpen } = this.props
+        return isOpen ? 'Close' : 'Open'
+    }
+
 
     render(){
         const { title, toggleOpen } = this.props //деструктуризация
         return(
             <li ref={ this.setContainerRef }>
                 <h3>{ title }</h3>
-                <button onClick={ toggleOpen }>Open</button>
+                <button onClick={ toggleOpen }>{ this.getBtnText()}</button>
                 { this.getArticleBody() }
             </li>
         )
@@ -58,12 +65,6 @@ class Article extends Component{
 
 export default Article
 
-
-/*Article.propTypes = {
-    article: PropTypes.shape({
-        text: PropTypes.string.isRequired
-    })
-}*/
 
 /*
 export default function Article( props ) {
