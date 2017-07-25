@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import CommentList from './CommentList'
 
-class Article extends Component{
+class Article extends PureComponent{
 
     constructor( props ){
         super( props )
@@ -16,13 +16,6 @@ class Article extends Component{
         }).isRequired
     }
 
-    componentWillReceiveProps(){
-
-    }
-
-    componentWillMount() {
-        //debugger
-    }
 
     getArticleBody() {
         const { date, children, comments, isOpen } = this.props
@@ -44,6 +37,7 @@ class Article extends Component{
 
     render(){
         const { title, toggleOpen } = this.props //деструктуризация
+        console.log('---', 'update article')
         return(
             <li ref={ this.setContainerRef }>
                 <h3>{ title }</h3>
