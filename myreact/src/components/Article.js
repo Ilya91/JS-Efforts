@@ -1,6 +1,9 @@
 import React, { Component, PureComponent } from 'react'
-import PropTypes from 'prop-types'
+//import PropTypes from 'prop-types'
 import CommentList from './CommentList'
+import { CSSTransitionGroup } from 'react-transition-group' // ES6
+
+import './Article.css'
 
 class Article extends PureComponent{
 
@@ -8,13 +11,13 @@ class Article extends PureComponent{
         super( props )
     }
 
-    static propTypes = {
+    /*static propTypes = {
         article: PropTypes.shape({
             id: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
             text: PropTypes.string
         }).isRequired
-    }
+    }*/
 
 
     getArticleBody() {
@@ -42,7 +45,16 @@ class Article extends PureComponent{
             <li ref={ this.setContainerRef }>
                 <h3>{ title }</h3>
                 <button onClick={ toggleOpen }>{ this.getBtnText()}</button>
+                <CSSTransitionGroup
+                    transitionName="example"
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={300}
+                    transitionAppear={true}
+                    transitionAppearTimeout={500}
+                    component = 'div'
+                >
                 { this.getArticleBody() }
+                </CSSTransitionGroup>
             </li>
         )
     }
