@@ -2,7 +2,7 @@ import React from 'react'
 
 export default Comment = ( { user, children } ) => (
     <div>
-        <h6>{ user }</h6>
+        <h5>{ user }</h5>
         <p><i>{ children }</i></p>
     </div>
 )
