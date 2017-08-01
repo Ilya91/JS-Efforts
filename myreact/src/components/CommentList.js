@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Comment from './Comment'
 import toggleOpen from '../decorators/toggleOpen'
 import PropTypes from 'prop-types'
-import FormComment from './FormComment'
+import FormComment from './FormComment/index'
 
 class CommentList extends Component{
 
