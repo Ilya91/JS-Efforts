@@ -10,10 +10,21 @@ class Selection extends Component {
         selection: null
     }
 
+    handleSelection = (selection) => {
+        this.setState({
+            selection
+        })
+    }
+
     render() {
+        const { articles } = this.props
+        const options = articles.map(article => ({
+            label: article.title,
+            value: article.id
+        }))
         return (
             <div>
-                <Select options={options} value={ this.state.selection} onChange={this.handleSelection} multi={true}/>
+                <Select options={options} value={ this.state.selection } onChange={this.handleSelection} multi={true}/>
             </div>
         )
     }
