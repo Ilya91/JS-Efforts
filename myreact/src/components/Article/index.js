@@ -1,23 +1,27 @@
 import React, { Component, PureComponent } from 'react'
-//import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import CommentList from '../CommentList'
 import { CSSTransitionGroup } from 'react-transition-group' // ES6
+import { connect } from 'react-redux'
+import { deleteArticle } from '../../AC'
 
 import './Article.css'
 
 class Article extends PureComponent{
 
-    constructor( props ){
+    /*constructor( props ){
         super( props )
-    }
+    }*/
 
-    /*static propTypes = {
+    static propTypes = {
         article: PropTypes.shape({
             id: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
             text: PropTypes.string
-        }).isRequired
-    }*/
+        }),
+        isOpen: PropTypes.bool,
+        toggleOpen: PropTypes.func
+    }
 
 
     getArticleBody() {
@@ -45,6 +49,7 @@ class Article extends PureComponent{
             <li ref={ this.setContainerRef }>
                 <h3>{ title }</h3>
                 <button onClick={ toggleOpen }>{ this.getBtnText()}</button>
+                <button onClick={ this.handleDelete }>Delete</button>
                 <CSSTransitionGroup
                     transitionName="example"
                     transitionEnterTimeout={500}
@@ -53,7 +58,7 @@ class Article extends PureComponent{
                     transitionAppearTimeout={500}
                     component = 'div'
                 >
-                { this.getArticleBody() }
+                    { this.getArticleBody() }
                 </CSSTransitionGroup>
             </li>
         )
@@ -64,12 +69,14 @@ class Article extends PureComponent{
         console.log( '--', ref )
     }
 
-    componentDidMount(){
-        //debugger
+    handleDelete = () => {
+        const { deleteArticle, article } = this.props
+        deleteArticle(article.id)
+        console.log('---', 'deleting article')
     }
 }
 
-export default Article
+export default connect(null, { deleteArticle })(Article)
 
 
 /*

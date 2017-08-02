@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import ArticleList from './ArticleList'
 import UserForm from './UserForm'
-import { articles } from '../fixtures'
+import Counter from './Counter'
 
 /* Filters */
 import Filters from './Filters'
@@ -14,7 +14,8 @@ import 'react-day-picker/lib/style.css';
 /* DayPickerInput */
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 
-
+import store from '../store'
+import { Provider } from 'react-redux'
 
 const modifiers = {
     even: day => day.getDate() % 2 === 0,
@@ -37,17 +38,19 @@ class App extends Component{
     }
     render(){
         return(
-        <div>
-            <DayPicker onDayClick={this.handleDayClick}
-                       selectedDays={this.state.selectedDay}
-                       modifiers={modifiers}
-            />
-            <UserForm/>
-
-            <DayPickerInput />
-            <ArticleList articles = { articles }/>
-            <Filters/>
-        </div>
+            <Provider store={store}>
+                <div>
+                    <Counter/>
+                    <DayPicker onDayClick={this.handleDayClick}
+                               selectedDays={this.state.selectedDay}
+                               modifiers={modifiers}
+                    />
+                    <UserForm/>
+                    <DayPickerInput />
+                    <ArticleList/>
+                    <Filters/>
+                </div>
+            </Provider>
         )
     }
 }
