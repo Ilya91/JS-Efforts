@@ -58,7 +58,7 @@ class Article extends PureComponent{
                     transitionAppearTimeout={500}
                     component = 'div'
                 >
-                { this.getArticleBody() }
+                    { this.getArticleBody() }
                 </CSSTransitionGroup>
             </li>
         )
