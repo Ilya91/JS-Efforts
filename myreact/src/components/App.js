@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import ArticleList from './ArticleList'
 import UserForm from './UserForm'
 import Counter from './Counter'
-import { articles } from '../fixtures'
 
 /* Filters */
 import Filters from './Filters'
@@ -48,7 +47,7 @@ class App extends Component{
                     />
                     <UserForm/>
                     <DayPickerInput />
-                    <ArticleList articles = { articles }/>
+                    <ArticleList/>
                     <Filters/>
                 </div>
             </Provider>
