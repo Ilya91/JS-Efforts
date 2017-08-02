@@ -1,36 +1,44 @@
 import React, { Component } from 'react'
-import Article from './Article/index'
 import PropTypes from 'prop-types'
-import accordion from '../decorators/accordion'
+import { connect } from 'react-redux'
+import { increment } from '../AC'
 
-class ArticleList extends Component{
-
+class Counter extends Component{
     static propTypes = {
-        articles: PropTypes.array,
-        toggleOpenArticle: PropTypes.func.isRequired,
-        openArticleId: PropTypes.any
+        counter: PropTypes.number,
+        increment: PropTypes.func.isRequired
     }
 
     render() {
-        const { articles, openArticleId, toggleOpenArticle } = this.props
         return(
-                <ul>
-                    {
-                        articles.map((article, i) =>
-                            <Article
-                                    key={article.id}
-                                    title={article.title}
-                                    date={article.date}
-                                    comments={article.comments}
-                                    isOpen = { article.id === openArticleId}
-                                    toggleOpen = { toggleOpenArticle(article.id) }
-                            >
-                                {article.text}
-                            </Article>
-                        )
-                    }
-                </ul>
+                <div>
+                    <h2>{ this.props.counter }</h2>
+                    <button onClick={this.handleIncrement}>Increment me</button>
+                </div>
         )
     }
+
+    handleIncrement = () => {
+        console.log('---', 'incrementing')
+        const { increment } = this.props
+        increment()
+    }
 }
-export default accordion(ArticleList)
+
+export default connect((state) => ({
+    counter: state.count
+}), { increment })(Counter)
+
+
+/*
+function mapStateToProps(state) {
+    return {
+        counter: state.count
+    }
+}
+
+const mapToDispatch = { increment }
+
+const decorator = connect(mapStateToProps, mapToDispatch)
+
+export default decorator(Counter)*/
