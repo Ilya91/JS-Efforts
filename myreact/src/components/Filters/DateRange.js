@@ -43,7 +43,7 @@ class Daterange extends Component {
                     {' '}<a href="." onClick={this.handleResetClick}>Reset</a>
                 </p>}
                 <DayPicker
-                    numberOfMonths={4}
+                    numberOfMonths={2}
                     selectedDays={[from, { from, to }]}
                     onDayClick={this.handleDayClick2}
                     fixedWeeks

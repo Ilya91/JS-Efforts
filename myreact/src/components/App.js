@@ -40,6 +40,8 @@ class App extends Component{
         return(
             <Provider store={store}>
                 <div>
+                    <Filters/>
+                    <ArticleList/>
                     <Counter/>
                     <DayPicker onDayClick={this.handleDayClick}
                                selectedDays={this.state.selectedDay}
@@ -47,8 +49,7 @@ class App extends Component{
                     />
                     <UserForm/>
                     <DayPickerInput />
-                    <ArticleList/>
-                    <Filters/>
+
                 </div>
             </Provider>
         )

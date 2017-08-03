@@ -6,6 +6,7 @@ import reducer from '../reducers'
 const store = createStore(reducer, composeWithDevTools(
     applyMiddleware(thunk)
 ))
+
 // only for dev
 window.store = store
 
