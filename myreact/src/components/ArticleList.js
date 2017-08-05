@@ -24,7 +24,7 @@ class ArticleList extends Component{
                                     article = {article}
                                     key={article.id}
                                     title={article.title}
-                                    date={article.date}
+                                    date={Date.parse(article.date)}
                                     comments={article.comments}
                                     isOpen = { article.id === openArticleId}
                                     toggleOpen = { toggleOpenArticle(article.id) }

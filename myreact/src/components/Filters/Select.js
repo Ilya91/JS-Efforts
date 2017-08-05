@@ -16,7 +16,7 @@ class Selection extends Component {
     handleSelection = (selection) => {
         const { selectArticle } = this.props
         selectArticle(selection)
-        console.log(this.props.selection)
+        //console.log(this.props.selection)
     }
 
     render() {
@@ -27,12 +27,12 @@ class Selection extends Component {
         }))
         return (
             <div>
-                <Select options={options} value={ this.props.selection } onChange={this.handleSelection}/>
+                <Select options={options} value={ this.props.selection } onChange={this.handleSelection} multi/>
             </div>
         )
     }
 }
 
 export default connect((state) => ({
-    selection: state.selection
+    selection: state.select
 }), { selectArticle })(Selection)

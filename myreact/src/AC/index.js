@@ -1,4 +1,4 @@
-import { DELETE_ARTICLE, INCREMENT, SELECT_ARTICLE } from '../constants'
+import { DELETE_ARTICLE, INCREMENT, SELECT_ARTICLE, SELECT_DATE_RANGE, RESET_DATE_RANGE } from '../constants'
 export function increment() {
     return{
         type: INCREMENT
@@ -20,5 +20,20 @@ export function selectArticle(data) {
         payload: {
             data
         }
+    }
+}
+
+export function selectDateRange(data) {
+    return{
+        type: SELECT_DATE_RANGE,
+        payload: {
+            data
+        }
+    }
+}
+
+export function dateRangeReset() {
+    return{
+        type: RESET_DATE_RANGE
     }
 }
