@@ -14,20 +14,20 @@ export function deleteArticle(id) {
     }
 }
 
-export function selectArticle(data) {
+export function selectArticle(selected ) {
     return{
         type: SELECT_ARTICLE,
         payload: {
-            data
+            selected
         }
     }
 }
 
-export function selectDateRange(data) {
+export function selectDateRange(dateRange) {
     return{
         type: SELECT_DATE_RANGE,
         payload: {
-            data
+            dateRange
         }
     }
 }

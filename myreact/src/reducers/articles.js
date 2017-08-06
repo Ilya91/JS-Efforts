@@ -1,12 +1,12 @@
 import { articles as DefaultArticles } from '../fixtures'
-import { DELETE_ARTICLE, SELECT_ARTICLE, SELECT_DATE_RANGE, RESET_DATE_RANGE } from '../constants'
+import { DELETE_ARTICLE  } from '../constants'
 
 export default ( articleState = DefaultArticles, action) => {
     const { type, payload } = action
 
     switch (type) {
         case DELETE_ARTICLE: return articleState.filter(article => article.id !== payload.id)
-        case SELECT_ARTICLE:
+        /*case SELECT_ARTICLE:
             articleState = DefaultArticles
             let data = payload.data
             if(data.length !== 0){
@@ -18,10 +18,8 @@ export default ( articleState = DefaultArticles, action) => {
                 return articleState.filter(article => article.id === iterator(data))
             }else {
                 return articleState
-            }
-        case SELECT_DATE_RANGE:
-            articleState = DefaultArticles
-            //console.log(payload.data.from)
+            }*/
+/*        case SELECT_DATE_RANGE:
             let from = new Date(payload.data.from).valueOf()
             let to = new Date(payload.data.to).valueOf()
             console.log(payload.data)
@@ -33,11 +31,7 @@ export default ( articleState = DefaultArticles, action) => {
                     (from <= new Date(article.date).valueOf() && new Date(article.date) <= to))
             }else {
                 return articleState = DefaultArticles
-            }
-
-            case RESET_DATE_RANGE:
-                return articleState = DefaultArticles
-
+            }*/
     }
     return articleState
 }

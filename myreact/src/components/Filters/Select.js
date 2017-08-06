@@ -8,6 +8,52 @@ import { connect } from 'react-redux'
 import { selectArticle } from '../../AC'
 
 class Selection extends Component {
+    static propTypes = {
+        articles: PropTypes.array.isRequired
+    };
+
+    handleChange = selected => this.props.selectArticle(selected.map(option => option.value))
+
+    render() {
+        const { articles, selected } = this.props
+        const options = articles.map(article => ({
+            label: article.title,
+            value: article.id
+        }))
+
+        return <Select
+            options={options}
+            value={selected}
+            multi={true}
+            onChange={this.handleChange}
+        />
+    }
+}
+
+export default connect((state) => ({
+    selected: state.filters.selected,
+    articles: Object.values(state.articles)
+}), { selectArticle })(Selection)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+class Selection extends Component {
 
     static propTypes = {
         selection: PropTypes.array
@@ -16,7 +62,6 @@ class Selection extends Component {
     handleSelection = (selection) => {
         const { selectArticle } = this.props
         selectArticle(selection)
-        //console.log(this.props.selection)
     }
 
     render() {
@@ -35,4 +80,4 @@ class Selection extends Component {
 
 export default connect((state) => ({
     selection: state.select
-}), { selectArticle })(Selection)
+}), { selectArticle })(Selection)*/
