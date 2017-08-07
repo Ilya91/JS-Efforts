@@ -27,7 +27,7 @@ class CommentList extends Component{
                         {
                             comments.map(( comment, i) =>
                                 <li key={ comment.id }>
-                                    <Comment user={ comment.user }>{ comment.text }</Comment>
+                                    <Comment id={ comment.id }/>
                                 </li>
                             )
                         }
