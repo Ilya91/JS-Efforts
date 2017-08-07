@@ -499,3 +499,18 @@
 .control-sidebar-light .control-sidebar-menu > li > a .menu-info > p {
     color: #5e5e5e;
 }
+
+.box{
+    height: 500px;
+}
+.box-header{
+    background-color: #f4f4f4;
+    margin-bottom:2px;
+}
+.myWorkData{
+    margin-left: 10px;
+    color: #919191;
+}
+.box-title{
+    font-size:16px;
+}
