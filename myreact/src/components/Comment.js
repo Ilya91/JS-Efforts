@@ -20,12 +20,19 @@ Comment.propTypes = {
     }).isRequired
 }
 
+/*export default connect((state, ownProps) => {
+    return {
+        comment: state.comments.find(comment => comment.id == ownProps.id)
+    }
+})(Comment)*/
+
+
 const mapStateToProps = () => {
     const commentSelector = commentSelectorFactory()
 
     return (state, ownProps) => {
         return {
-            comment: commentSelector(state, ownProps)
+            comment: commentSelector(state, ownProps) // ownProps - то, что реально приходит в props (в данном случае id)
         }
     }
 }
