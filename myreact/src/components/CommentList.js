@@ -25,7 +25,7 @@ class CommentList extends Component{
                 <FormComment/>
                     <ul>
                         {
-                            comments.map(( id) =>
+                            comments.map(( id ) =>
                                 <li key={ id }>
                                     <Comment id={ id }/>
                                 </li>

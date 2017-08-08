@@ -1,10 +1,19 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import './FormComment.css'
+import { addComment } from '../../AC'
 
 class FormComment extends Component{
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
+        const { addComment } = this.props
+        let newComment = {
+            user: 'ilya',
+            text: 'hello world',
+            id: 'dsagvtyhbtcfse'
+        }
+        addComment(newComment)
     }
 
     state = {
@@ -62,4 +71,6 @@ const limits = {
     }
 }
 
-export default FormComment
+export default connect((state) => ({
+    comments: state.comments
+}), { addComment })(FormComment)

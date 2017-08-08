@@ -25,7 +25,7 @@ class Article extends PureComponent{
 
 
     getArticleBody() {
-        const { date, children, comments, isOpen } = this.props
+        const { date, children, comments, isOpen, id } = this.props
         if( !isOpen ) return null
         return (
             <div>
