@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Sidebar from '../Sidebar/index'
-import Header from '../Header/index'
-import Content from '../Content/index'
+import Sidebar from '../Sidebar'
+import Header from '../Header'
+import MyWork from '../MyWork'
 import './App.css'
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
             <div>
                 <Header/>
                 <Sidebar/>
-                <Content/>
+                <MyWork/>
             </div>
         )
     }

@@ -1,8 +1,29 @@
 import React, { Component } from 'react'
 import './Content.css'
+import  { tasks } from '../fixtures'
+import TaskList from '../TaskList'
 
-class Content extends Component {
+class MyWork extends Component {
+    state = {
+        tasks: 0,
+        taskInputOpen: false
+    }
+
+    handleClick = () => {
+        this.setState({
+            taskInputOpen: true
+        })
+    }
+
+    handleSubmit = (e) => {
+        this.setState({
+            taskInputOpen: false,
+            tasks: this.state.tasks + 1
+        })
+    }
+
     render(){
+        const { taskInputOpen } = this.state
         return(
             <div className="content-wrapper">
                 <section className="content">
@@ -16,8 +37,14 @@ class Content extends Component {
                                     <span className="label label-info pull-right">0</span>
                                 </div>
                                 <div className="box-body">
-                                    <div className="box-footer clearfix no-border">
-                                        <button type="button" className="btn btn-default pull-left"><i className="fa fa-plus"></i> Новая задача</button>
+                                    <div>
+                                        { taskInputOpen ? <form onSubmit={this.handleSubmit}><input type="text" className="form-control"/></form> : <button onClick={this.handleClick} type="button" className="btn btn-default pull-left">
+                                            <i className="fa fa-plus"></i> Новая задача
+                                        </button>}
+
+                                    </div>
+                                    <div>
+                                        <TaskList tasks = { tasks }/>
                                     </div>
                                 </div>
 
@@ -51,4 +78,4 @@ class Content extends Component {
         )
     }
 }
-export default Content
+export default MyWork

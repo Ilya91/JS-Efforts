@@ -6,7 +6,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    padding-top: 50px;
+    padding-top: 10px;
     min-height: 100%;
     width: 230px;
     z-index: 810;
@@ -151,6 +151,9 @@
 }
 .sidebar-menu .active > .treeview-menu {
     display: block;
+}
+.menu-open{
+    background-color: #00c0ef;
 }
 /*
  * Component: Sidebar Mini
@@ -498,4 +501,20 @@
 }
 .control-sidebar-light .control-sidebar-menu > li > a .menu-info > p {
     color: #5e5e5e;
+}
+.sidebar-form input{
+    margin:10px;
+    border-radius:3px;
+    z-index:1100;
+    border: 1px solid #a1a1a1;
+}
+#search-btn{
+    width:20px;
+    height:20px;
+    background-color: #434B56;
+}
+.input-group .form-control{
+    width: 94%;
+    background-color: #434B56;
+    color: #9c9c9c;
 }

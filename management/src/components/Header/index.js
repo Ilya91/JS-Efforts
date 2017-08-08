@@ -5,10 +5,6 @@ class Header extends Component {
     render(){
         return(
             <header className="main-header">
-                <a href="#" className="logo">
-                    <span className="logo-mini"><b>PM</b></span>
-                    <span className="logo-lg"><b>Project Management</b></span>
-                </a>
                 <nav className="navbar navbar-static-top">
                     <a href="#" className="sidebar-toggle" data-toggle="push-menu" role="button">
                         <span className="sr-only">Toggle navigation</span>
