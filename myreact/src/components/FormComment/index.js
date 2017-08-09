@@ -11,7 +11,7 @@ class FormComment extends Component{
         let newComment = {
             user: 'ilya',
             text: 'hello world',
-            id: 'dsagvtyhbtcfse'
+            id: '11111111111111111'
         }
         addComment(newComment)
     }
