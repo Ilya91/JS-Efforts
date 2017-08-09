@@ -31,7 +31,7 @@ class Article extends PureComponent{
             <div>
                 <p><i>{ date }</i></p>
                 <p>{ children }</p>
-                <CommentList comments={ comments }/>
+                <CommentList data={id} comments={ comments }/>
             </div>
         )
     }

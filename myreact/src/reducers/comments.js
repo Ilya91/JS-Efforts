@@ -14,7 +14,8 @@ export default ( commentsState = commentsMap, action) => {
             /*let id = payload.data.id
             Object.defineProperty(commentsState, id, payload.data);
             console.log(id)*/
-            commentsState.id = payload.data
+            let id = payload.data.id
+            commentsState[id] = payload.data
             return commentsState // console.log(commentsState)
 
     }

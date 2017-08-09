@@ -18,11 +18,11 @@ class CommentList extends Component{
 
     getComments = () => {
 
-        const { comments, isOpen } = this.props
+        const { comments, isOpen, data } = this.props
         if( !isOpen) return null
         return (
             <div>
-                <FormComment/>
+                <FormComment idArticle={data}/>
                     <ul>
                         {
                             comments.map(( id ) =>

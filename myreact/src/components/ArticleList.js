@@ -24,6 +24,7 @@ class ArticleList extends Component{
                             <Article
                                     article = {article}
                                     key={article.id}
+                                    id={article.id}
                                     title={article.title}
                                     date={Date.parse(article.date)}
                                     comments={article.comments}

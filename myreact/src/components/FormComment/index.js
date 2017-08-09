@@ -5,31 +5,44 @@ import { addComment } from '../../AC'
 
 class FormComment extends Component{
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-        const { addComment } = this.props
-        let newComment = {
-            user: 'ilya',
-            text: 'hello world',
-            id: '11111111111111111'
-        }
-        addComment(newComment)
-    }
-
     state = {
         user: '',
         text: ''
     }
 
+    handleSubmit = (event) => {
+        const { idArticle } = this.props
+        console.log(idArticle)
+        event.preventDefault();
+        let user = document.querySelector("input[type=text]").value
+        let text = document.querySelector("textarea").value
+        let id = Math.random().toString(36).substring(3)
+        const { addComment } = this.props
+        let newComment = {
+            user,
+            text,
+            id,
+            idArticle
+        }
+        addComment(newComment)
+        this.setState({
+            user: '',
+            text: ''
+        })
+    }
+
+
+
 
     render(){
+        const { user, text } = this.state
         return(
             <form onSubmit={this.handleSubmit}>
                 <p>
                     <label>
                         Name:
-                        <input type="text" value = {this.state.user}
-                               onChange = {this.handleChange('user')}
+                        <input type="text" value = {user}
+                               onChange = {this.handleChangeName}
                                className = {this.getClassName('user')}
                         />
                     </label>
@@ -37,8 +50,8 @@ class FormComment extends Component{
                 <p>
                     <label>
                         Comment:
-                        <textarea cols="30" rows="10" value = {this.state.text}
-                                  onChange = {this.handleChange('text')}
+                        <textarea cols="30" rows="10" value = {text}
+                                  onChange = {this.handleChangeText}
                                   className = {this.getClassName('text')}
                         ></textarea>
                     </label>
@@ -52,10 +65,24 @@ class FormComment extends Component{
         ? 'form-input__error' : ''
 
     handleChange = type => ev => {
-        const {value} = ev.target
+        const { value } = ev.target
         if (value.length > limits[type].max) return
         this.setState({
             [type]: value
+        })
+    }
+
+    handleChangeName = e => {
+        const { value } = e.target
+        this.setState({
+            user: value
+        })
+    }
+
+    handleChangeText = e => {
+        const { value } = e.target
+        this.setState({
+            text: value
         })
     }
 }
@@ -72,5 +99,5 @@ const limits = {
 }
 
 export default connect((state) => ({
-    comments: state.comments
+    comment: state.comment
 }), { addComment })(FormComment)
