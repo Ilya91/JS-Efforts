@@ -1,11 +1,13 @@
 import { normalizedArticles as DefaultArticles } from '../fixtures'
-import { DELETE_ARTICLE  } from '../constants'
+import { DELETE_ARTICLE, ADD_COMMENT  } from '../constants'
 
 export default ( articleState = DefaultArticles, action) => {
     const { type, payload } = action
 
     switch (type) {
         case DELETE_ARTICLE: return articleState.filter(article => article.id !== payload.id)
+        case ADD_COMMENT:
+            console.log(payload)
         /*case SELECT_ARTICLE:
             articleState = DefaultArticles
             let data = payload.data
