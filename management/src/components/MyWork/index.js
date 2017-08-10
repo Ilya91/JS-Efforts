@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import './Content.css'
-import  { tasks } from '../fixtures'
 import TaskList from './TaskList'
+import { connect } from 'react-redux'
+import { addNewTask } from '../../AC'
 
 class MyWork extends Component {
     state = {
@@ -30,7 +31,6 @@ class MyWork extends Component {
     }
 
     handleClickTask = (value) => {
-        console.log('mywork', value)
         this.setState({
             isActive: value
         })
@@ -38,6 +38,7 @@ class MyWork extends Component {
 
     render(){
         const { taskInputOpen, name, isActive } = this.state
+        const { tasks } = this.props
         return(
             <div className="content-wrapper">
                 <section className="content">
@@ -61,14 +62,14 @@ class MyWork extends Component {
                                             </button>}
 
                                     </div>
-                                    <ul className="taskList">
-                                        <TaskList onClick={this.handleClickTask} tasks = { tasks }/>
-                                    </ul>
                                 </div>
+                                <ul className="taskList">
+                                    <TaskList onClick={this.handleClickTask} tasks={tasks}/>
+                                </ul>
 
                             </div>
                         </section>
-                        <section className="col-lg-4">
+                        <section className={ isActive ? "col-lg-4" : "col-lg-6"}>
                             <div className="box box-primary">
                                 <div className="box-header">
                                     <i className="ion ion-clipboard"></i>
@@ -96,4 +97,6 @@ class MyWork extends Component {
         )
     }
 }
-export default MyWork
+export default connect((state) => ({
+    tasks: state.tasks
+}), { addNewTask })(MyWork)

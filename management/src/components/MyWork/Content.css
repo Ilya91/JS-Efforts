@@ -504,5 +504,13 @@
 }
 
 .taskList li.active{
-    background-color: #00c0ef;
+    background-color: #A9C6EE;
+}
+.taskList li span{
+    float: right;
+    margin-right:15px;
+}
+.taskList .img-circle{
+    width: 35px;
+    margin-right:10px;
 }

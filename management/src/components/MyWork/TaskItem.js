@@ -25,7 +25,9 @@ class Task extends Component {
         const { isActive } = this.state
         return(
             <li onClick={this.handleClick} id={id} className={this.getClassName()}>
-                { title }
+                <img className="img-circle" src="public/dist/img/user2-160x160.jpg" alt="img"/>
+                <strong>{ title }</strong>
+                <span>Окт 10</span>
             </li>
         )
     }
