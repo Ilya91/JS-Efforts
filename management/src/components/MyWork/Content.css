@@ -488,3 +488,21 @@
     margin-left: 10px;
     color: #919191;
 }
+.taskPanel{
+    display: block;
+    overflow: hidden;
+    margin-bottom:10px;
+}
+.taskList{
+    list-style: none;
+    padding-left:0;
+}
+.taskList li{
+    padding: 15px 0 15px 15px;
+    background-color: #efefef;
+    margin-bottom:1px;
+}
+
+.taskList li.active{
+    background-color: #00c0ef;
+}

@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import './Content.css'
 import  { tasks } from '../fixtures'
-import TaskList from '../TaskList'
+import TaskList from './TaskList'
 
 class MyWork extends Component {
     state = {
         tasks: 0,
-        taskInputOpen: false
+        taskInputOpen: false,
+        name: '',
+        isActive: true
     }
 
     handleClick = () => {
@@ -16,19 +18,31 @@ class MyWork extends Component {
     }
 
     handleSubmit = (e) => {
+        e.preventDefault()
         this.setState({
             taskInputOpen: false,
-            tasks: this.state.tasks + 1
+            name: ''
+        })
+    }
+
+    handleChange = (e) =>{
+        this.setState({name: e.target.value});
+    }
+
+    handleClickTask = (value) => {
+        console.log('mywork', value)
+        this.setState({
+            isActive: value
         })
     }
 
     render(){
-        const { taskInputOpen } = this.state
+        const { taskInputOpen, name, isActive } = this.state
         return(
             <div className="content-wrapper">
                 <section className="content">
                     <div className="row">
-                        <section className="col-lg-8">
+                        <section className={ isActive ? "col-lg-8" : "col-lg-6"}>
                             <div className="box box-primary">
                                 <div className="box-header">
                                     <i className="ion ion-clipboard"></i>
@@ -37,15 +51,19 @@ class MyWork extends Component {
                                     <span className="label label-info pull-right">0</span>
                                 </div>
                                 <div className="box-body">
-                                    <div>
-                                        { taskInputOpen ? <form onSubmit={this.handleSubmit}><input type="text" className="form-control"/></form> : <button onClick={this.handleClick} type="button" className="btn btn-default pull-left">
-                                            <i className="fa fa-plus"></i> Новая задача
-                                        </button>}
+                                    <div className="taskPanel">
+                                        { taskInputOpen ?
+                                            <form onSubmit={this.handleSubmit}>
+                                                <input type="text" className="form-control" onChange={this.handleChange} value={name}/>
+                                            </form> :
+                                            <button onClick={this.handleClick} type="button" className="btn btn-default pull-left">
+                                                <i className="fa fa-plus"></i> Новая задача
+                                            </button>}
 
                                     </div>
-                                    <div>
-                                        <TaskList tasks = { tasks }/>
-                                    </div>
+                                    <ul className="taskList">
+                                        <TaskList onClick={this.handleClickTask} tasks = { tasks }/>
+                                    </ul>
                                 </div>
 
                             </div>
