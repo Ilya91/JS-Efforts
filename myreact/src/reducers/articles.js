@@ -7,7 +7,14 @@ export default ( articleState = DefaultArticles, action) => {
     switch (type) {
         case DELETE_ARTICLE: return articleState.filter(article => article.id !== payload.id)
         case ADD_COMMENT:
-            console.log(payload)
+            articleState.forEach(function (item, i, articleState) {
+                if(item['id'] === payload.data.idArticle){
+                    item['comments'].push(payload.data.id)
+                    console.log(item['comments'])
+                }
+            })
+            return articleState
+
         /*case SELECT_ARTICLE:
             articleState = DefaultArticles
             let data = payload.data
