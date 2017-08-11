@@ -514,3 +514,9 @@
     width: 35px;
     margin-right:10px;
 }
+.task-description{
+    padding-left: 20px;
+}
+.box-body h2{
+    margin:10px 0 10px 0px;
+}

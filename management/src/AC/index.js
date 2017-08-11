@@ -9,3 +9,10 @@ export function addNewTask(data) {
         payload: data
     }
 }
+
+export function setActiveTask(id) {
+    return{
+        type: ADD_NEW_TASK,
+        payload: id
+    }
+}

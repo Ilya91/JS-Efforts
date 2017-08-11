@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './Content.css'
 import TaskList from './TaskList'
+import Task from './Task'
+import OtherDays from './OtherDays'
 import { connect } from 'react-redux'
 import { addNewTask } from '../../AC'
 
@@ -10,6 +12,11 @@ class MyWork extends Component {
         taskInputOpen: false,
         name: '',
         isActive: true
+    }
+
+    getNumberOfTasks = () => {
+        const { tasks } = this.props
+        return tasks.length
     }
 
     handleClick = () => {
@@ -49,7 +56,7 @@ class MyWork extends Component {
                                     <i className="ion ion-clipboard"></i>
                                     <h3 className="box-title">НА СЕГОДНЯ</h3>
                                     <span className="myWorkData"> Окт 9</span>
-                                    <span className="label label-info pull-right">0</span>
+                                    <span className="label label-info pull-right">{ this.getNumberOfTasks() }</span>
                                 </div>
                                 <div className="box-body">
                                     <div className="taskPanel">
@@ -66,11 +73,6 @@ class MyWork extends Component {
                                 <ul className="taskList">
                                     <TaskList onClick={this.handleClickTask} tasks={tasks}/>
                                 </ul>
-
-                            </div>
-                        </section>
-                        <section className={ isActive ? "col-lg-4" : "col-lg-6"}>
-                            <div className="box box-primary">
                                 <div className="box-header">
                                     <i className="ion ion-clipboard"></i>
                                     <h3 className="box-title">НА ЭТУ НЕДЕЛЮ</h3>
@@ -91,6 +93,8 @@ class MyWork extends Component {
                                 </div>
                             </div>
                         </section>
+                        { isActive ? <OtherDays/> : <Task/>}
+
                     </div>
                 </section>
             </div>
