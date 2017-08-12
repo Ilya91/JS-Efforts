@@ -5,11 +5,12 @@ import { connect } from 'react-redux'
 class Task extends Component {
 
     render(){
+        const { id, title } = this.props
         return(
                         <section className="col-lg-6">
                             <div className="box box-primary task-description">
                                 <div className="box-body">
-                                    <h2 className="box-title">Commodo qui</h2>
+                                    <h2 className="box-title">{ title }</h2>
                                 </div>
                             </div>
                         </section>

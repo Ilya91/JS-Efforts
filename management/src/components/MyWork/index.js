@@ -44,13 +44,13 @@ class MyWork extends Component {
     }
 
     render(){
-        const { taskInputOpen, name, isActive } = this.state
-        const { tasks } = this.props
+        const { taskInputOpen, name } = this.state
+        const { tasks, activeTask } = this.props
         return(
             <div className="content-wrapper">
                 <section className="content">
                     <div className="row">
-                        <section className={ isActive ? "col-lg-8" : "col-lg-6"}>
+                        <section className={ activeTask ? "col-lg-6" : "col-lg-8"}>
                             <div className="box box-primary">
                                 <div className="box-header">
                                     <i className="ion ion-clipboard"></i>
@@ -71,7 +71,7 @@ class MyWork extends Component {
                                     </div>
                                 </div>
                                 <ul className="taskList">
-                                    <TaskList onClick={this.handleClickTask} tasks={tasks}/>
+                                    <TaskList tasks={tasks}/>
                                 </ul>
                                 <div className="box-header">
                                     <i className="ion ion-clipboard"></i>
@@ -93,7 +93,13 @@ class MyWork extends Component {
                                 </div>
                             </div>
                         </section>
-                        { isActive ? <OtherDays/> : <Task/>}
+                        { activeTask ? tasks.filter((task) =>
+                            activeTask === task.id
+                            ).map((task) => <Task
+                                    key={task.id}
+                                    id={task.id}
+                                    title={task.title}
+                        />) : <OtherDays/>  }
 
                     </div>
                 </section>
@@ -102,5 +108,6 @@ class MyWork extends Component {
     }
 }
 export default connect((state) => ({
-    tasks: state.tasks
+    tasks: state.tasks,
+    activeTask: state.activeTask
 }), { addNewTask })(MyWork)

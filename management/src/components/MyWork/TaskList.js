@@ -1,28 +1,30 @@
 import React, { Component } from 'react'
 import TaskItem from './TaskItem'
-import accordion from '../../decorators/accordion'
+import { connect } from 'react-redux'
+import { setActiveTask } from '../../AC'
 
 class TaskList extends Component {
 
-    handleClickTask = () => {
-
+    handleClickTask = (id) => ev => {
+        const { setActiveTask, activeTask } = this.props
+        setActiveTask(id)
     }
 
     render(){
-        const { openArticleId, toggleOpenArticle } = this.props
-        const { tasks, onClick } = this.props
+        const { tasks, activeTask } = this.props
         return(
             <div>
                 { tasks.map((task) => <TaskItem
-                    onClick={onClick}
+                    onClick={this.handleClickTask(task.id)}
                     key={task.id}
                     id={task.id}
                     title={task.title}
-                    isOpen = { task.id === openArticleId }
-                    toggleOpen = { toggleOpenArticle(task.id) }
+                    isActive={task.id === activeTask}
                 />)}
             </div>
         )
     }
 }
-export default accordion(TaskList)
+export default connect(state => ({
+    activeTask: state.activeTask
+}), { setActiveTask })(TaskList)

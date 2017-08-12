@@ -1,5 +1,6 @@
 import {
-    ADD_NEW_TASK
+    ADD_NEW_TASK,
+    SET_ACTIVE_TASK
 
 } from '../constants'
 
@@ -12,7 +13,9 @@ export function addNewTask(data) {
 
 export function setActiveTask(id) {
     return{
-        type: ADD_NEW_TASK,
-        payload: id
+        type: SET_ACTIVE_TASK,
+        payload: {
+            id
+        }
     }
 }

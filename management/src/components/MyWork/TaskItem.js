@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 class Task extends Component {
-    state = {
+    /*state = {
         isActive: false
     }
 
@@ -18,14 +18,13 @@ class Task extends Component {
         }
         let val = this.state.isActive
         onClick(val)
-    }
+    }*/
 
     render(){
-        const { id, title, isOpen, toggleOpen } = this.props
-        const { isActive } = this.state
+        const { id, title, isActive, onClick } = this.props
         return(
 
-            <li onClick={toggleOpen} id={id} className={this.getClassName()}>
+            <li onClick={onClick} id={id} className={this.getClassName()}>
                 <img className="img-circle" src="public/dist/img/user2-160x160.jpg" alt="img"/>
                 <strong>{ title }</strong>
                 <span>Окт 10</span>
@@ -33,9 +32,12 @@ class Task extends Component {
         )
     }
 
-    getClassName = () => {
-        const { isActive } = this.state
-        return isActive ? 'active' : ''
+    getClassName = (id) => {
+        const { isActive } = this.props
+        if(isActive){
+            return 'active'
+        }
+
     }
 }
 export default Task
