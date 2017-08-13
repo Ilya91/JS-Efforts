@@ -4,10 +4,12 @@ import {
 
 } from '../constants'
 
-export function addNewTask(data) {
+export function addNewTask(task) {
     return{
         type: ADD_NEW_TASK,
-        payload: data
+        payload: {
+            task
+        }
     }
 }
 

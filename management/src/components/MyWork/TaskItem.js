@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Moment from 'react-moment';
 
 class Task extends Component {
     /*state = {
@@ -21,13 +22,13 @@ class Task extends Component {
     }*/
 
     render(){
-        const { id, title, isActive, onClick } = this.props
+        const { id, title, date, onClick } = this.props
         return(
 
             <li onClick={onClick} id={id} className={this.getClassName()}>
                 <img className="img-circle" src="public/dist/img/user2-160x160.jpg" alt="img"/>
                 <strong>{ title }</strong>
-                <span>Окт 10</span>
+                <span><Moment locale="en" format="MMM D">{ date }</Moment></span>
             </li>
         )
     }

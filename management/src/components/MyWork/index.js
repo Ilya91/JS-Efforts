@@ -1,50 +1,19 @@
 import React, { Component } from 'react'
 import './Content.css'
+import FormTask from './FormTask'
 import TaskList from './TaskList'
 import Task from './Task'
 import OtherDays from './OtherDays'
 import { connect } from 'react-redux'
-import { addNewTask } from '../../AC'
 
 class MyWork extends Component {
-    state = {
-        tasks: 0,
-        taskInputOpen: false,
-        name: '',
-        isActive: true
-    }
 
     getNumberOfTasks = () => {
         const { tasks } = this.props
         return tasks.length
     }
 
-    handleClick = () => {
-        this.setState({
-            taskInputOpen: true
-        })
-    }
-
-    handleSubmit = (e) => {
-        e.preventDefault()
-        this.setState({
-            taskInputOpen: false,
-            name: ''
-        })
-    }
-
-    handleChange = (e) =>{
-        this.setState({name: e.target.value});
-    }
-
-    handleClickTask = (value) => {
-        this.setState({
-            isActive: value
-        })
-    }
-
     render(){
-        const { taskInputOpen, name } = this.state
         const { tasks, activeTask } = this.props
         return(
             <div className="content-wrapper">
@@ -59,16 +28,7 @@ class MyWork extends Component {
                                     <span className="label label-info pull-right">{ this.getNumberOfTasks() }</span>
                                 </div>
                                 <div className="box-body">
-                                    <div className="taskPanel">
-                                        { taskInputOpen ?
-                                            <form onSubmit={this.handleSubmit}>
-                                                <input type="text" className="form-control" onChange={this.handleChange} value={name}/>
-                                            </form> :
-                                            <button onClick={this.handleClick} type="button" className="btn btn-default pull-left">
-                                                <i className="fa fa-plus"></i> Новая задача
-                                            </button>}
-
-                                    </div>
+                                    <FormTask/>
                                 </div>
                                 <ul className="taskList">
                                     <TaskList tasks={tasks}/>
@@ -110,4 +70,4 @@ class MyWork extends Component {
 export default connect((state) => ({
     tasks: state.tasks,
     activeTask: state.activeTask
-}), { addNewTask })(MyWork)
+}))(MyWork)

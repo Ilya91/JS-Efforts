@@ -6,7 +6,7 @@ import { setActiveTask } from '../../AC'
 class TaskList extends Component {
 
     handleClickTask = (id) => ev => {
-        const { setActiveTask, activeTask } = this.props
+        const { setActiveTask } = this.props
         setActiveTask(id)
     }
 
@@ -14,11 +14,12 @@ class TaskList extends Component {
         const { tasks, activeTask } = this.props
         return(
             <div>
-                { tasks.map((task) => <TaskItem
+                {tasks.map((task) => <TaskItem
                     onClick={this.handleClickTask(task.id)}
                     key={task.id}
                     id={task.id}
                     title={task.title}
+                    date={task.date}
                     isActive={task.id === activeTask}
                 />)}
             </div>

@@ -5,7 +5,7 @@ export default ( taskState = DefaultTasks, action) => {
     const { type, payload } = action
 
     switch (type) {
-        case ADD_NEW_TASK: return taskState
+        case ADD_NEW_TASK: return [...taskState, payload.task ]
     }
     return taskState
 }

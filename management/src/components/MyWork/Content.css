@@ -514,9 +514,37 @@
     width: 35px;
     margin-right:10px;
 }
-.task-description{
-    padding-left: 20px;
+.header-task{
+    padding:0 20px 20px 20px;
+    overflow: hidden;
+}
+.task-title{
+    float: left;
+}
+.task-links{
+    float: right;
+    margin-top:10px;
 }
 .box-body h2{
     margin:10px 0 10px 0px;
+}
+.panel-task{
+    width:100%;
+}
+.panel-task tr{
+    border: 1px solid #E1DFE1;
+    border-right: none;
+    border-left: none;
+}
+.panel-task td{
+    padding:10px 0;
+}
+.panel-task td:first-child{
+    padding-left: 20px;
+}
+table, td, tr {
+    border-collapse: collapse;
+}
+.caret{
+    display: none;
 }
