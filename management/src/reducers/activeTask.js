@@ -1,4 +1,4 @@
-import { SET_ACTIVE_TASK  } from '../constants'
+import { SET_ACTIVE_TASK, DELETE_NEW_TASK  } from '../constants'
 
 export default ( activeTask = null, action) => {
     const { type, payload } = action
@@ -10,6 +10,9 @@ export default ( activeTask = null, action) => {
             }else {
                 return payload.id
             }
+            
+        case DELETE_NEW_TASK:
+            return null
 
     }
     return activeTask

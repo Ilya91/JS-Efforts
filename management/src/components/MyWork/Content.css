@@ -491,7 +491,6 @@
 .taskPanel{
     display: block;
     overflow: hidden;
-    margin-bottom:10px;
 }
 .taskList{
     list-style: none;
@@ -518,15 +517,36 @@
     padding:0 20px 20px 20px;
     overflow: hidden;
 }
-.task-title{
+.header-task h2{
+    margin-top:14px;
+}
+.task-title-left{
     float: left;
 }
 .task-links{
     float: right;
     margin-top:10px;
 }
+.task-links button{
+    background-color: #fff;
+    border: 1px solid #E1DFE1;
+    color: #949294;
+    width: 25px;
+    height:25px;
+}
+.task-links .btn:active{
+    outline: none;
+}
+.task-links ul.dropdown-menu{
+    left: -135px;
+}
+.task-links .glyphicon{
+    top:-1px;
+    right:7px;
+}
 .box-body h2{
     margin:10px 0 10px 0px;
+    color: #161E22;
 }
 .panel-task{
     width:100%;
@@ -545,6 +565,46 @@
 table, td, tr {
     border-collapse: collapse;
 }
-.caret{
-    display: none;
+.add-project{
+    padding:0;
+    color: #828B93;
+}
+button.task-status-toggle{
+    background-color: #fff;
+    border:none;
+    padding:0;
+}
+
+.task-status{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    float: left;
+}
+
+.Select-control{
+    border: none;
+}
+.task-users img{
+    width:35px;
+    margin-right: 10px;
+}
+.task-users span{
+    color: #828B93;
+}
+td.task-users{
+    padding-left:10px;
+}
+td.task-info{
+    text-align: right;
+    padding-right:20px;
+    color: #828B93;
+}
+.task-add-description{
+    padding-right:20px;
+}
+.task-add-description textarea{
+    border: none;
+    padding:0;
+    width: 100%;
 }
