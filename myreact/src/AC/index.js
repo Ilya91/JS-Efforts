@@ -4,7 +4,8 @@ import {
     SELECT_ARTICLE,
     SELECT_DATE_RANGE,
     RESET_DATE_RANGE,
-    ADD_COMMENT
+    ADD_COMMENT,
+    LOAD_ALL_ARTICLES
 } from '../constants'
 
 export function increment() {
@@ -46,11 +47,19 @@ export function dateRangeReset() {
     }
 }
 
-export function addComment(data) {
-    return{
+export function addComment(comment, articleId) {
+        return{
         type: ADD_COMMENT,
         payload: {
-            data
-        }
+            comment, articleId
+        },
+        generateId: true
+    }
+}
+
+export function loadAllArticles() {
+    return {
+        type: LOAD_ALL_ARTICLES,
+        callAPI: '/api/article'
     }
 }

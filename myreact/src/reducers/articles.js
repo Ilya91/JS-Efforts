@@ -1,19 +1,32 @@
 import { normalizedArticles as DefaultArticles } from '../fixtures'
-import { DELETE_ARTICLE, ADD_COMMENT  } from '../constants'
+import { DELETE_ARTICLE, ADD_COMMENT, LOAD_ALL_ARTICLES  } from '../constants'
+import { arrToMap } from '../helpers'
+import { Map } from 'immutable'
 
-export default ( articleState = DefaultArticles, action) => {
-    const { type, payload } = action
+const defaultState = new Map({})
+
+export default ( articleState = defaultState, action) => {
+    const { type, payload, randomId, response } = action
 
     switch (type) {
         case DELETE_ARTICLE: return articleState.filter(article => article.id !== payload.id)
         case ADD_COMMENT:
-            articleState.forEach(function (item, i, articleState) {
+            /*articleState.forEach(function (item, i, articleState) {
                 if(item['id'] === payload.data.idArticle){
                     item['comments'].push(payload.data.id)
-                    console.log(item['comments'])
                 }
             })
-            return articleState
+            return articleState*/
+            const article = articleState[payload.articleId]
+            return {
+                ...articleState,
+                [payload.articleId]: {
+                    ...article,
+                    comments: (article.comments || []).concat(randomId)
+                }
+            }
+        case LOAD_ALL_ARTICLES:
+            return arrToMap(response)
 
         /*case SELECT_ARTICLE:
             articleState = DefaultArticles

@@ -25,13 +25,13 @@ class Article extends PureComponent{
 
 
     getArticleBody() {
-        const { date, children, comments, isOpen, id } = this.props
+        const { date, children, comments, isOpen, id, article } = this.props
         if( !isOpen ) return null
         return (
             <div>
                 <p><i>{ date }</i></p>
                 <p>{ children }</p>
-                <CommentList data={id} comments={ comments }/>
+                <CommentList article={article} data={id} comments={ comments }/>
             </div>
         )
     }

@@ -608,3 +608,40 @@ td.task-info{
     padding:0;
     width: 100%;
 }
+
+.activeTask:after{
+    padding-left: 30px;
+    width: 20px;
+    height:20px;
+    background-color: red;
+}
+.modal-dialog{
+    margin-top:102px;
+    margin-right:55px;
+    right: 0 !important;
+    width: 541px;
+}
+.modal-backdrop {
+    display:none;
+}
+.modal-backdrop.in {
+    opacity: 1;
+}
+.optionsWillWork{
+    list-style: none;
+    padding:0;
+}
+.optionsWillWork li{
+    float: left;
+    text-transform: uppercase;
+    padding-right:15px;
+}
+
+.DayPicker-Day{
+    width: 33px;
+    height:33px;
+}
+
+.DayPicker-WeekdaysRow{
+    border-top: 1px solid #000;
+}

@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import './Content.css'
 import { connect } from 'react-redux'
 import Select from 'react-select';
-import DayPicker from './DayPicker';
+import DayPicker from './DayPicker'
 import 'react-select/dist/react-select.css';
-import { deleteTask } from '../../AC'
+import { deleteTask, addTaskDescription } from '../../AC'
+import Moment from 'react-moment';
 
 const options = [
     { value: 1, label: "Активна" },
@@ -32,8 +33,18 @@ class Task extends Component {
         console.log(id)
     }
 
+    handleDescChange = (e) => {
+        const { id, addTaskDescription } = this.props
+        const desc = e.target.value
+        const data = {
+            id, desc
+        }
+        console.log(desc)
+        addTaskDescription( data )
+    }
+
     render(){
-        const { id, title } = this.props
+        const { id, title, date, description } = this.props
         const { selected } = this.state
         return(
                         <section className="col-lg-6">
@@ -74,34 +85,62 @@ class Task extends Component {
                                             <td className="task-users">
                                                 <img className="img-circle" src="public/dist/img/user2-160x160.jpg" alt="img"/>
                                                 <span>Johan</span>
+                                                <select className="form-control">
+                                                    <option data-icon="glyphicon glyphicon-eye-open" value="volvo" className="activeTask">Volvo</option>
+                                                    <option value="saab">Saab</option>
+                                                    <option value="mercedes">Mercedes</option>
+                                                    <option value="audi">Audi</option>
+                                                </select>
                                             </td>
                                             <td className="task-info">
-                                                <span>автор: </span>
-                                                <a href="">johan</a>,
-                                                <span>21:42</span>
+                                                <p>
+                                                    <span>автор: </span>
+                                                    <a href="">johan</a>
+                                                    , <span><Moment locale="en" format="HH:mm">{ date }</Moment></span>
+                                                </p>
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td colSpan="3">
-                                                <div className="dropdown">
-                                                    <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                                                        Dropdown
-                                                        <span className="caret"></span>
-                                                    </button>
-                                                    <div className="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                                        <DayPicker/>
-                                                    </div>
+                                                    <a data-toggle="modal" data-target="#myModal"><i className="glyphicon glyphicon-calendar"></i>Окт 10(1д.)</a>
+                                                    <div className="modal" id="myModal" role="dialog">
+                                                        <div className="modal-dialog">
+                                                            <div className="modal-content">
+                                                                <div className="modal-header">
+                                                                    <h4 className="modal-title">Когда эта задача должна быть готова?</h4>
+                                                                    <ul className="optionsWillWork">
+                                                                        <li>в очереди</li>
+                                                                        <li>сегодня</li>
+                                                                        <li>завтра</li>
+                                                                        <li>на след. неделе</li>
+                                                                        <li>выбрать дату</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div className="modal-body">
+                                                                    <DayPicker/>
+                                                                </div>
+                                                                <div className="modal-footer">
+                                                                    <button type="button" className="btn btn-primary pull-left" data-dismiss="modal">OK</button>
+                                                                    <button type="button" className="btn btn-default pull-left" data-dismiss="modal">Отмена</button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
                                                 </div>
-                                                <span>автор: </span>
-                                                <a href="">johan</a>,
-                                                <span>21:42</span>
+                                                    <span><i className="glyphicon glyphicon-th-list"></i>добавить подзадачу</span>
                                             </td>
                                         </tr>
                                     <tr>
                                         <td colSpan="3">
                                         <form className="task-add-description">
-                                            <textarea className="form-control" rows="3" placeholder="Нажмите, чтобы добавить описание">
+                                            <textarea
+                                                onChange={this.handleDescChange}
+                                                style={{ resize: 'none' }}
+                                                className="form-control"
+                                                rows="3"
+                                                placeholder="Нажмите, чтобы добавить описание"
+                                                value={ description }>
                                             </textarea>
                                         </form>
                                         </td>
@@ -114,4 +153,5 @@ class Task extends Component {
         )
     }
 }
-export default connect(null, { deleteTask })(Task)
+export default connect(null,
+    { deleteTask, addTaskDescription })(Task)

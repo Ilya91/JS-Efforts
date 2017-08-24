@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 /* Select */
 import Select from 'react-select'
 import 'react-select/dist/react-select.css';
+import { mapToArr } from '../../helpers'
 
 import { connect } from 'react-redux'
 import { selectArticle } from '../../AC'
@@ -32,7 +33,7 @@ class Selection extends Component {
 
 export default connect((state) => ({
     selected: state.filters.selected,
-    articles: Object.values(state.articles)
+    articles: mapToArr(state.articles)
 }), { selectArticle })(Selection)
 
 

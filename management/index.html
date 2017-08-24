@@ -25,6 +25,12 @@
 <script src="public/bower_components/jquery-ui/jquery-ui.min.js"></script>
 <script>
     $.widget.bridge('uibutton', $.ui.button);
+    $(document).ready(function () {
+        $('#myModal').on('show.bs.modal', function () {
+            var mod = $('.modal');
+            $('.insidemodal').html(mod);
+        });
+    });
 </script>
 <script src="public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="public/bower_components/raphael/raphael.min.js"></script>

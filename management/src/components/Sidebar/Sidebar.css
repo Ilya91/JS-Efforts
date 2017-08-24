@@ -6,7 +6,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    padding-top: 10px;
     min-height: 100%;
     width: 230px;
     z-index: 810;
@@ -15,7 +14,6 @@
     -o-transition: -o-transform 0.3s ease-in-out, width 0.3s ease-in-out;
     transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
     background-color: #4B5966;
-
 }
 
 .main-sidebar a {
@@ -100,6 +98,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    margin-top:20px;
 }
 .sidebar-menu > li {
     position: relative;
@@ -503,7 +502,7 @@
     color: #5e5e5e;
 }
 .sidebar-form input{
-    margin:10px;
+    margin:10px 10px 20px 10px;
     border-radius:3px;
     z-index:1100;
     border: 1px solid #a1a1a1;
@@ -517,4 +516,43 @@
     width: 94%;
     background-color: #434B56;
     color: #9c9c9c;
+}
+.projectList{
+    display: none;
+    margin:10px 0;
+}
+
+.active + .projectList{
+    display: block;
+}
+
+.projectList ul{
+    list-style: none;
+    padding:0;
+}
+
+.projectList ul li{
+    margin-bottom:10px;
+}
+
+.projectList ul li a{
+    color: #BAD3E0;
+    display: block;
+    padding-left:40px;
+}
+.addNewProject{
+    text-align: center;
+    margin-bottom:10px;
+}
+.addNewProject input{
+    width: 80%;
+    background-color: #4B5966;
+    border: 1px solid #a1a1a1;
+    color: #9c9c9c;
+    font-size:13px;
+    padding: 2px 0 2px 15px;
+}
+.searchTasks{
+    background-color: #434B56;
+    padding-bottom:10px;
 }

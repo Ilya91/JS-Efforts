@@ -59,6 +59,8 @@ class MyWork extends Component {
                                     key={task.id}
                                     id={task.id}
                                     title={task.title}
+                                    date={task.date}
+                                    description={task.description ? task.description : ''}
                         />) : <OtherDays/>  }
 
                     </div>
