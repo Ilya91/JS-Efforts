@@ -4,25 +4,27 @@ import { connect } from 'react-redux'
 import Select from 'react-select';
 import DayPicker from './DayPicker'
 import 'react-select/dist/react-select.css';
-import { deleteTask, addTaskDescription } from '../../AC'
+import { deleteTask, addTaskDescription, changeTaskStatus } from '../../AC'
 import Moment from 'react-moment';
 
 const options = [
-    { value: 1, label: "Активна" },
-    { value: 2, label: 'Завершена' },
-    { value: 3, label: 'Отложена' },
-    { value: 4, label: 'Отменена' },
+    { value: 1, label: "Активна", color: '#2196F3', border: 'none'},
+    { value: 2, label: 'Завершена', color: '#8CC34B', border: 'none' },
+    { value: 3, label: 'Отложена', color: '#673BB7', border: 'none' },
+    { value: 4, label: 'Отменена', color: '#9E9E9E', border: 'none' }
 ];
 
 class Task extends Component {
     state = {
-        selected: ''
+        selected: 3
     }
 
     logChange = (val) => {
+        const { id, changeTaskStatus } = this.props
         this.setState({
             selected: val
         })
+        changeTaskStatus(id, val)
         console.log("Selected: " + JSON.stringify(val))
 
     }
@@ -43,8 +45,19 @@ class Task extends Component {
         addTaskDescription( data )
     }
 
+    renderValue(option) {
+        return <span><div className="selectSquare" style={{ border: option.border, backgroundColor: option.color}}></div></span>;
+    }
+
+
+    renderOption(option){
+        return <span><div className="selectSquare" style={{ backgroundColor: option.color, border: 'none'}}></div>{option.label}</span>;
+    }
+
+
+
     render(){
-        const { id, title, date, description } = this.props
+        const { id, title, date, description, status } = this.props
         const { selected } = this.state
         return(
                         <section className="col-lg-6">
@@ -69,28 +82,23 @@ class Task extends Component {
                                 <table className="panel-task">
                                     <tbody>
                                         <tr>
-                                            <td style={{borderRight: '1px solid #E1DFE1', width: '120px'}}>
+                                            <td style={{borderRight: '1px solid #E1DFE1', width: '60px'}}>
                                                 <Select
                                                     style={{ border: 'none'}}
                                                     name="form-field-name"
-                                                    value={selected}
+                                                    value={status}
                                                     options={options}
                                                     onChange={this.logChange}
                                                     clearable={false}
                                                     placeholder={false}
-                                                    optionComponent={this.optionComponent}
+                                                    optionRenderer={this.renderOption}
                                                     valueComponent={this.valueComponent}
+                                                    valueRenderer={this.renderValue}
                                                 />
                                             </td>
                                             <td className="task-users">
                                                 <img className="img-circle" src="public/dist/img/user2-160x160.jpg" alt="img"/>
                                                 <span>Johan</span>
-                                                <select className="form-control">
-                                                    <option data-icon="glyphicon glyphicon-eye-open" value="volvo" className="activeTask">Volvo</option>
-                                                    <option value="saab">Saab</option>
-                                                    <option value="mercedes">Mercedes</option>
-                                                    <option value="audi">Audi</option>
-                                                </select>
                                             </td>
                                             <td className="task-info">
                                                 <p>
@@ -154,4 +162,4 @@ class Task extends Component {
     }
 }
 export default connect(null,
-    { deleteTask, addTaskDescription })(Task)
+    { deleteTask, addTaskDescription, changeTaskStatus })(Task)

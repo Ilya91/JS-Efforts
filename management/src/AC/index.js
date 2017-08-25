@@ -2,7 +2,8 @@ import {
     ADD_NEW_TASK,
     SET_ACTIVE_TASK,
     DELETE_NEW_TASK,
-    ADD_TASK_DESCRIPTION
+    ADD_TASK_DESCRIPTION,
+    CHANGE_TASK_STATUS
 
 } from '../constants'
 
@@ -28,6 +29,15 @@ export function addTaskDescription(data) {
         type: ADD_TASK_DESCRIPTION,
         payload: {
             data
+        }
+    }
+}
+
+export function changeTaskStatus(id, status) {
+    return{
+        type: CHANGE_TASK_STATUS,
+        payload: {
+            id, status
         }
     }
 }

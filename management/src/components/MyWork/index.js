@@ -5,6 +5,8 @@ import TaskList from './TaskList'
 import Task from './Task'
 import OtherDays from './OtherDays'
 import { connect } from 'react-redux'
+import Moment from 'react-moment';
+import moment from 'moment'
 
 class MyWork extends Component {
 
@@ -22,9 +24,8 @@ class MyWork extends Component {
                         <section className={ activeTask ? "col-lg-6" : "col-lg-8"}>
                             <div className="box box-primary">
                                 <div className="box-header">
-                                    <i className="ion ion-clipboard"></i>
                                     <h3 className="box-title">НА СЕГОДНЯ</h3>
-                                    <span className="myWorkData"> Окт 9</span>
+                                    <span className="myWorkData"><Moment locale="en" format="MMM D"/></span>
                                     <span className="label label-info pull-right">{ this.getNumberOfTasks() }</span>
                                 </div>
                                 <div className="box-body">
@@ -36,13 +37,27 @@ class MyWork extends Component {
                                 <div className="box-header">
                                     <i className="ion ion-clipboard"></i>
                                     <h3 className="box-title">НА ЭТУ НЕДЕЛЮ</h3>
-                                    <span className="myWorkData"> Окт 9</span>
+                                    <span className="myWorkData">
+                                        <Moment locale="en" format="MMM D">
+                                            {moment().startOf('isoWeek')}
+                                        </Moment> -
+                                        <Moment locale="en" format="MMM D">
+                                             {moment().endOf('isoWeek')}
+                                        </Moment>
+                                    </span>
                                     <span className="label label-info pull-right">0</span>
                                 </div>
                                 <div className="box-header">
                                     <i className="ion ion-clipboard"></i>
                                     <h3 className="box-title">НА СЛЕД. НЕДЕЛЮ</h3>
-                                    <span className="myWorkData"> Окт 9</span>
+                                    <span className="myWorkData">
+                                        <Moment locale="en" format="MMM D">
+                                            {moment().add(1, 'weeks').startOf('isoWeek')}
+                                        </Moment> -
+                                        <Moment locale="en" format="MMM D">
+                                             {moment().add(1, 'weeks').endOf('isoWeek')}
+                                        </Moment>
+                                    </span>
                                     <span className="label label-info pull-right">0</span>
                                 </div>
                                 <div className="box-header">
@@ -51,6 +66,21 @@ class MyWork extends Component {
                                     <span className="myWorkData"> Окт 9</span>
                                     <span className="label label-info pull-right">0</span>
                                 </div>
+                                { activeTask ? tasks.filter((task) =>
+                                    activeTask === task.id
+                                ).map(function (task) {
+                                    if(task.status.label === ''){
+                                        return null
+                                    }else {
+                                        return (
+                                            <div key={task.status.value} className="box-footer-task-list">
+                                                <i className="fa fa-check"></i>
+                                                <span>{ task.status.label }</span>
+                                                <span className="label label-info pull-right">1</span>
+                                            </div>
+                                        )
+                                    }
+                                }) : null  }
                             </div>
                         </section>
                         { activeTask ? tasks.filter((task) =>
@@ -61,12 +91,23 @@ class MyWork extends Component {
                                     title={task.title}
                                     date={task.date}
                                     description={task.description ? task.description : ''}
+                                    status={task.status}
                         />) : <OtherDays/>  }
 
                     </div>
                 </section>
             </div>
         )
+    }
+
+    componentDidUpdate() {
+        this._updateLocalStorage();
+    }
+
+    _updateLocalStorage() {
+        const { tasks } = this.props
+        let tasksStorage = JSON.stringify(tasks);
+        localStorage.setItem('tasks', tasksStorage);
     }
 }
 export default connect((state) => ({

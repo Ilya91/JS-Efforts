@@ -8,7 +8,11 @@ class FormTask extends Component {
         taskInputOpen: false,
         task: {
             title: '',
-            id: ''
+            id: '',
+            status:{
+                value: 0,
+                label: ''
+            }
         },
         error: null
     }
@@ -53,7 +57,11 @@ class FormTask extends Component {
             task: {
                 title: e.target.value,
                 id: (Date.now() + Math.random()).toString(),
-                date: Date.now()
+                date: Date.now(),
+                status:{
+                    value: 0,
+                    label: ''
+                }
             }
         });
     }
