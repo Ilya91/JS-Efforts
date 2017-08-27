@@ -3,8 +3,8 @@ import {
     SET_ACTIVE_TASK,
     DELETE_NEW_TASK,
     ADD_TASK_DESCRIPTION,
-    CHANGE_TASK_STATUS
-
+    CHANGE_TASK_STATUS,
+    SET_TASK_DATERANGE
 } from '../constants'
 
 export function addNewTask(task) {
@@ -38,6 +38,15 @@ export function changeTaskStatus(id, status) {
         type: CHANGE_TASK_STATUS,
         payload: {
             id, status
+        }
+    }
+}
+
+export function setTaskDateRange(id, complete) {
+    return{
+        type: SET_TASK_DATERANGE,
+        payload: {
+            id, complete
         }
     }
 }

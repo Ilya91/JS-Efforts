@@ -1,6 +1,11 @@
 import { tasks as DefaultTasks } from '../components/fixtures'
 let localTasks = JSON.parse(localStorage.getItem('tasks'));
-import { ADD_NEW_TASK, DELETE_NEW_TASK, ADD_TASK_DESCRIPTION, CHANGE_TASK_STATUS } from '../constants'
+import { ADD_NEW_TASK,
+        DELETE_NEW_TASK,
+        ADD_TASK_DESCRIPTION,
+        CHANGE_TASK_STATUS,
+        SET_TASK_DATERANGE
+} from '../constants'
 import { Map, List } from 'immutable'
 
 
@@ -29,6 +34,17 @@ export default ( taskState = localTasks, action) => {
                 return task
             })
             return val
+
+        case SET_TASK_DATERANGE:
+
+            const val2 = taskState.map(function (task) {
+                if(task.id === payload.id){
+                    task.complete = payload.complete
+                }
+                return task
+            })
+            return val2
+
     }
     return taskState
 }

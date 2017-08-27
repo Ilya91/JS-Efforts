@@ -28,7 +28,7 @@ class Task extends Component {
             <li onClick={onClick} id={id} className={this.getClassName()}>
                 <img className="img-circle" src="public/dist/img/user2-160x160.jpg" alt="img"/>
                 <strong>{ title }</strong>
-                <span><Moment locale="en" format="MMM D">{ date }</Moment></span>
+                <span><Moment format="MMM D">{ date }</Moment></span>
             </li>
         )
     }
@@ -38,7 +38,6 @@ class Task extends Component {
         if(isActive){
             return 'active'
         }
-
     }
 }
 export default Task

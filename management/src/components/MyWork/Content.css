@@ -478,7 +478,7 @@
 }
 
 .box{
-    height: 500px;
+    min-height: 650px;
 }
 .box-header{
     background-color: #f4f4f4;
@@ -624,8 +624,35 @@ td.task-info{
 .modal-backdrop {
     display:none;
 }
+.modal-title{
+    margin-bottom:20px;
+}
+tr td .modal{
+    background: none;
+}
+.modal-dialog .modal-content{
+    box-shadow: 0 0px 26px rgba(0, 0, 0, 0.3);
+}
 .modal-backdrop.in {
     opacity: 1;
+}
+.modal-body .modal-table td{
+    padding:0 25px 7px 0;
+}
+.modal-body  .modal-table tr{
+    border: none;
+}
+.modal-body hr{
+    margin: 10px 0;
+}
+.modal-table .form-inline input{
+    width: 100px;
+    height: 30px;
+    font: 600 13px Arial, sans-serif;
+}
+.modal-table abbr[data-original-title], abbr[title]{
+    border: none;
+    text-decoration: none;
 }
 .optionsWillWork{
     list-style: none;
@@ -634,7 +661,9 @@ td.task-info{
 .optionsWillWork li{
     float: left;
     text-transform: uppercase;
-    padding-right:15px;
+    margin-right:15px;
+    font: 600 12px Arial, sans-serif;
+    color: #828282;
 }
 
 .DayPicker-Day{
@@ -642,9 +671,6 @@ td.task-info{
     height:33px;
 }
 
-.DayPicker-WeekdaysRow{
-    border-top: 1px solid #000;
-}
 .selectSquare{
     width: 15px;
     height:15px;
@@ -695,4 +721,19 @@ td.task-info{
     display: block;
     padding:10px;
     background-color: #F4F4F4;
+}
+
+
+/* daypicker radio*/
+input[type=radio] ~ label{
+    padding-bottom: 4px;
+    cursor: pointer;
+}
+input[type=radio]:checked ~ label{
+    border-bottom: 2px solid #5185B7;
+}
+
+li input[type=radio]{
+    position: absolute;
+    visibility: hidden;
 }

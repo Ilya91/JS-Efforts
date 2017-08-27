@@ -6,6 +6,7 @@ import DayPicker from './DayPicker'
 import 'react-select/dist/react-select.css';
 import { deleteTask, addTaskDescription, changeTaskStatus } from '../../AC'
 import Moment from 'react-moment';
+import moment from 'moment';
 
 const options = [
     { value: 1, label: "Активна", color: '#2196F3', border: 'none'},
@@ -57,7 +58,7 @@ class Task extends Component {
 
 
     render(){
-        const { id, title, date, description, status } = this.props
+        const { id, title, date, description, status, complete:{ to, from, duration } } = this.props
         const { selected } = this.state
         return(
                         <section className="col-lg-6">
@@ -104,39 +105,23 @@ class Task extends Component {
                                                 <p>
                                                     <span>автор: </span>
                                                     <a href="">johan</a>
-                                                    , <span><Moment locale="en" format="HH:mm">{ date }</Moment></span>
+                                                    , <span><Moment format="HH:mm">{ date }</Moment></span>
                                                 </p>
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td colSpan="3">
-                                                    <a data-toggle="modal" data-target="#myModal"><i className="glyphicon glyphicon-calendar"></i>Окт 10(1д.)</a>
-                                                    <div className="modal" id="myModal" role="dialog">
-                                                        <div className="modal-dialog">
-                                                            <div className="modal-content">
-                                                                <div className="modal-header">
-                                                                    <h4 className="modal-title">Когда эта задача должна быть готова?</h4>
-                                                                    <ul className="optionsWillWork">
-                                                                        <li>в очереди</li>
-                                                                        <li>сегодня</li>
-                                                                        <li>завтра</li>
-                                                                        <li>на след. неделе</li>
-                                                                        <li>выбрать дату</li>
-                                                                    </ul>
-                                                                </div>
-                                                                <div className="modal-body">
-                                                                    <DayPicker/>
-                                                                </div>
-                                                                <div className="modal-footer">
-                                                                    <button type="button" className="btn btn-primary pull-left" data-dismiss="modal">OK</button>
-                                                                    <button type="button" className="btn btn-default pull-left" data-dismiss="modal">Отмена</button>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                </div>
-                                                    <span><i className="glyphicon glyphicon-th-list"></i>добавить подзадачу</span>
+                                                <a data-toggle="modal" data-target="#myModal">
+                                                    <i className="glyphicon glyphicon-calendar">
+                                                    </i> { from && to ? moment(from).format('MMM D') + ' - ' + moment(to).format('MMM D') : moment(date).format('MMM D') }
+                                                    { from && to ? ' (' + duration + 'д.)' : '' }
+                                                </a>
+                                                <DayPicker id={ id }/>
+                                                <span>
+                                                    <i className="glyphicon glyphicon-th-list">
+                                                    </i>добавить подзадачу
+                                                </span>
                                             </td>
                                         </tr>
                                     <tr>

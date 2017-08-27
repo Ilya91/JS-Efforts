@@ -25,7 +25,7 @@ class MyWork extends Component {
                             <div className="box box-primary">
                                 <div className="box-header">
                                     <h3 className="box-title">НА СЕГОДНЯ</h3>
-                                    <span className="myWorkData"><Moment locale="en" format="MMM D"/></span>
+                                    <span className="myWorkData"><Moment format="MMM D"/></span>
                                     <span className="label label-info pull-right">{ this.getNumberOfTasks() }</span>
                                 </div>
                                 <div className="box-body">
@@ -35,20 +35,18 @@ class MyWork extends Component {
                                     <TaskList tasks={tasks}/>
                                 </ul>
                                 <div className="box-header">
-                                    <i className="ion ion-clipboard"></i>
                                     <h3 className="box-title">НА ЭТУ НЕДЕЛЮ</h3>
                                     <span className="myWorkData">
                                         <Moment locale="en" format="MMM D">
                                             {moment().startOf('isoWeek')}
                                         </Moment> -
-                                        <Moment locale="en" format="MMM D">
+                                        <Moment format="MMM D">
                                              {moment().endOf('isoWeek')}
                                         </Moment>
                                     </span>
                                     <span className="label label-info pull-right">0</span>
                                 </div>
                                 <div className="box-header">
-                                    <i className="ion ion-clipboard"></i>
                                     <h3 className="box-title">НА СЛЕД. НЕДЕЛЮ</h3>
                                     <span className="myWorkData">
                                         <Moment locale="en" format="MMM D">
@@ -61,9 +59,12 @@ class MyWork extends Component {
                                     <span className="label label-info pull-right">0</span>
                                 </div>
                                 <div className="box-header">
-                                    <i className="ion ion-clipboard"></i>
                                     <h3 className="box-title">ПОЗЖЕ</h3>
-                                    <span className="myWorkData"> Окт 9</span>
+                                    <span className="myWorkData">
+                                        После <Moment locale="en" format="MMM D">
+                                             {moment().add(1, 'weeks').endOf('isoWeek')}
+                                        </Moment>
+                                    </span>
                                     <span className="label label-info pull-right">0</span>
                                 </div>
                                 { activeTask ? tasks.filter((task) =>
@@ -91,6 +92,7 @@ class MyWork extends Component {
                                     title={task.title}
                                     date={task.date}
                                     description={task.description ? task.description : ''}
+                                    complete={task.complete ? task.complete : ''}
                                     status={task.status}
                         />) : <OtherDays/>  }
 
