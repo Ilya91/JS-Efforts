@@ -737,3 +737,7 @@ li input[type=radio]{
     position: absolute;
     visibility: hidden;
 }
+
+.pre-box-footer{
+    height:40px;
+}

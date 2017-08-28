@@ -13,9 +13,29 @@ import TaskItem from './TaskItem'
 
 class MyWork extends Component {
 
-    getNumberOfTasks = () => {
+    getNumberOfTasks = ( start, end ) => {
         const { tasks } = this.props
-        return tasks.length
+        if( tasks ){
+            if( start && end ){
+                tasks.filter((task) => (
+                    task.complete ?
+                        moment(task.complete.to).isBetween(start, end) : false
+                ))
+
+            }else if( start && !end ){
+                tasks.filter((task) => (
+                    task.complete ?
+                        moment(task.complete.to).isAfter( start ) : false
+                ))
+            }else{
+                let newarr = tasks.filter((task) =>
+                    !task.complete
+                )
+                console.log(newarr)
+                return newarr.length
+            }
+
+        }
     }
 
     handleClickTask = (id) => ev => {
@@ -39,7 +59,7 @@ class MyWork extends Component {
                                 <div className="box-header">
                                     <h3 className="box-title">НА СЕГОДНЯ</h3>
                                     <span className="myWorkData"><Moment format="MMM D"/></span>
-                                    <span className="label label-info pull-right">{ this.getNumberOfTasks() }</span>
+                                    <span className="label label-info pull-right">{ this.getNumberOfTasks( null, null) }</span>
                                 </div>
                                 <div className="box-body">
                                     <FormTask/>
@@ -67,7 +87,7 @@ class MyWork extends Component {
                                              {endThisWeek}
                                         </Moment>
                                     </span>
-                                    <span className="label label-info pull-right">0</span>
+                                    <span className="label label-info pull-right">{ 7 }</span>
                                 </div>
                                 <ul className="taskList">
                                     {tasks.filter((task) => (
@@ -140,10 +160,13 @@ class MyWork extends Component {
                                         return null
                                     }else {
                                         return (
-                                            <div key={task.status.value} className="box-footer-task-list">
-                                                <i className="fa fa-check"></i>
-                                                <span>{ task.status.label }</span>
-                                                <span className="label label-info pull-right">1</span>
+                                            <div>
+                                                <div className="pre-box-footer"></div>
+                                                <div key={task.status.value} className="box-footer-task-list">
+                                                    <i className="fa fa-check"></i>
+                                                    <span>{ task.status.label }</span>
+                                                    <span className="label label-info pull-right">1</span>
+                                                </div>
                                             </div>
                                         )
                                     }
