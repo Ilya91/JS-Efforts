@@ -17,25 +17,39 @@ class MyWork extends Component {
         const { tasks } = this.props
         if( tasks ){
             if( start && end ){
-                tasks.filter((task) => (
+                let newarr = tasks.filter((task) => (
                     task.complete ?
                         moment(task.complete.to).isBetween(start, end) : false
                 ))
-
+                return newarr.length
             }else if( start && !end ){
-                tasks.filter((task) => (
+                let newarr = tasks.filter((task) => (
                     task.complete ?
                         moment(task.complete.to).isAfter( start ) : false
                 ))
+                return newarr.length
             }else{
                 let newarr = tasks.filter((task) =>
                     !task.complete
                 )
-                console.log(newarr)
                 return newarr.length
             }
 
         }
+    }
+
+    taskItemBody = ( task ) => {
+        const { activeTask } = this.props
+            return (
+                <TaskItem
+                    onClick={this.handleClickTask(task.id)}
+                    key={task.id}
+                    id={task.id}
+                    title={task.title}
+                    date={task.date}
+                    isActive={task.id === activeTask}
+                />
+            )
     }
 
     handleClickTask = (id) => ev => {
@@ -67,14 +81,7 @@ class MyWork extends Component {
                                 <ul className="taskList">
                                     {tasks.filter((task) =>
                                         !task.complete
-                                    ).map((task) => <TaskItem
-                                            onClick={this.handleClickTask(task.id)}
-                                            key={task.id}
-                                            id={task.id}
-                                            title={task.title}
-                                            date={task.date}
-                                            isActive={task.id === activeTask}
-                                        />
+                                    ).map((task) => this.taskItemBody(task)
                                     )}
                                 </ul>
                                 <div className="box-header">
@@ -87,20 +94,13 @@ class MyWork extends Component {
                                              {endThisWeek}
                                         </Moment>
                                     </span>
-                                    <span className="label label-info pull-right">{ 7 }</span>
+                                    <span className="label label-info pull-right">{ this.getNumberOfTasks( startThisWeek, endThisWeek) }</span>
                                 </div>
                                 <ul className="taskList">
                                     {tasks.filter((task) => (
                                         task.complete ?
                                         moment(task.complete.to).isBetween(startThisWeek, endThisWeek) : false
-                                    )).map((task) => <TaskItem
-                                            onClick={this.handleClickTask(task.id)}
-                                            key={task.id}
-                                            id={task.id}
-                                            title={task.title}
-                                            date={task.date}
-                                            isActive={task.id === activeTask}
-                                        />
+                                    )).map((task) => this.taskItemBody(task)
                                     )}
                                 </ul>
 
@@ -114,20 +114,13 @@ class MyWork extends Component {
                                              { endNextWeek }
                                         </Moment>
                                     </span>
-                                    <span className="label label-info pull-right">0</span>
+                                    <span className="label label-info pull-right">{ this.getNumberOfTasks( startNextWeek, endNextWeek ) }</span>
                                 </div>
                                 <ul className="taskList">
                                     {tasks.filter((task) => (
                                         task.complete ?
                                             moment(task.complete.to).isBetween(startNextWeek, endNextWeek) : false
-                                    )).map((task) => <TaskItem
-                                            onClick={this.handleClickTask(task.id)}
-                                            key={task.id}
-                                            id={task.id}
-                                            title={task.title}
-                                            date={task.date}
-                                            isActive={task.id === activeTask}
-                                        />
+                                    )).map((task) => this.taskItemBody(task)
                                     )}
                                 </ul>
                                 <div className="box-header">
@@ -137,20 +130,13 @@ class MyWork extends Component {
                                              { afterNextWeek }
                                         </Moment>
                                     </span>
-                                    <span className="label label-info pull-right">0</span>
+                                    <span className="label label-info pull-right">{ this.getNumberOfTasks( afterNextWeek, null ) }</span>
                                 </div>
                                 <ul className="taskList">
                                     {tasks.filter((task) => (
                                         task.complete ?
                                             moment(task.complete.to).isAfter(afterNextWeek) : false
-                                    )).map((task) => <TaskItem
-                                            onClick={this.handleClickTask(task.id)}
-                                            key={task.id}
-                                            id={task.id}
-                                            title={task.title}
-                                            date={task.date}
-                                            isActive={task.id === activeTask}
-                                        />
+                                    )).map((task) => this.taskItemBody(task)
                                     )}
                                 </ul>
                                 { activeTask ? tasks.filter((task) =>
@@ -183,7 +169,7 @@ class MyWork extends Component {
                                     description={task.description ? task.description : ''}
                                     complete={task.complete ? task.complete : ''}
                                     status={task.status}
-                        />) : <OtherDays/>  }
+                        />) : <OtherDays getNumberOfTasks={ this.getNumberOfTasks }/>  }
 
                     </div>
                 </section>
