@@ -8,6 +8,9 @@ import { connect } from 'react-redux'
 import Moment from 'react-moment';
 import moment from 'moment'
 
+import { setActiveTask } from '../../AC'
+import TaskItem from './TaskItem'
+
 class MyWork extends Component {
 
     getNumberOfTasks = () => {
@@ -15,8 +18,18 @@ class MyWork extends Component {
         return tasks.length
     }
 
+    handleClickTask = (id) => ev => {
+        const { setActiveTask } = this.props
+        setActiveTask(id)
+    }
+
     render(){
         const { tasks, activeTask } = this.props
+        const startThisWeek = moment().startOf('isoWeek')
+        const endThisWeek = moment().endOf('isoWeek')
+        const startNextWeek = moment().add(1, 'weeks').startOf('isoWeek')
+        const endNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
+        const afterNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
         return(
             <div className="content-wrapper">
                 <section className="content">
@@ -32,41 +45,94 @@ class MyWork extends Component {
                                     <FormTask/>
                                 </div>
                                 <ul className="taskList">
-                                    <TaskList tasks={tasks}/>
+                                    {tasks.filter((task) =>
+                                        !task.complete
+                                    ).map((task) => <TaskItem
+                                            onClick={this.handleClickTask(task.id)}
+                                            key={task.id}
+                                            id={task.id}
+                                            title={task.title}
+                                            date={task.date}
+                                            isActive={task.id === activeTask}
+                                        />
+                                    )}
                                 </ul>
                                 <div className="box-header">
                                     <h3 className="box-title">НА ЭТУ НЕДЕЛЮ</h3>
                                     <span className="myWorkData">
                                         <Moment locale="en" format="MMM D">
-                                            {moment().startOf('isoWeek')}
+                                            {startThisWeek}
                                         </Moment> -
                                         <Moment format="MMM D">
-                                             {moment().endOf('isoWeek')}
+                                             {endThisWeek}
                                         </Moment>
                                     </span>
                                     <span className="label label-info pull-right">0</span>
                                 </div>
+                                <ul className="taskList">
+                                    {tasks.filter((task) => (
+                                        task.complete ?
+                                        moment(task.complete.to).isBetween(startThisWeek, endThisWeek) : false
+                                    )).map((task) => <TaskItem
+                                            onClick={this.handleClickTask(task.id)}
+                                            key={task.id}
+                                            id={task.id}
+                                            title={task.title}
+                                            date={task.date}
+                                            isActive={task.id === activeTask}
+                                        />
+                                    )}
+                                </ul>
+
                                 <div className="box-header">
                                     <h3 className="box-title">НА СЛЕД. НЕДЕЛЮ</h3>
                                     <span className="myWorkData">
                                         <Moment locale="en" format="MMM D">
-                                            {moment().add(1, 'weeks').startOf('isoWeek')}
+                                            { startNextWeek }
                                         </Moment> -
                                         <Moment locale="en" format="MMM D">
-                                             {moment().add(1, 'weeks').endOf('isoWeek')}
+                                             { endNextWeek }
                                         </Moment>
                                     </span>
                                     <span className="label label-info pull-right">0</span>
                                 </div>
+                                <ul className="taskList">
+                                    {tasks.filter((task) => (
+                                        task.complete ?
+                                            moment(task.complete.to).isBetween(startNextWeek, endNextWeek) : false
+                                    )).map((task) => <TaskItem
+                                            onClick={this.handleClickTask(task.id)}
+                                            key={task.id}
+                                            id={task.id}
+                                            title={task.title}
+                                            date={task.date}
+                                            isActive={task.id === activeTask}
+                                        />
+                                    )}
+                                </ul>
                                 <div className="box-header">
                                     <h3 className="box-title">ПОЗЖЕ</h3>
                                     <span className="myWorkData">
                                         После <Moment locale="en" format="MMM D">
-                                             {moment().add(1, 'weeks').endOf('isoWeek')}
+                                             { afterNextWeek }
                                         </Moment>
                                     </span>
                                     <span className="label label-info pull-right">0</span>
                                 </div>
+                                <ul className="taskList">
+                                    {tasks.filter((task) => (
+                                        task.complete ?
+                                            moment(task.complete.to).isAfter(afterNextWeek) : false
+                                    )).map((task) => <TaskItem
+                                            onClick={this.handleClickTask(task.id)}
+                                            key={task.id}
+                                            id={task.id}
+                                            title={task.title}
+                                            date={task.date}
+                                            isActive={task.id === activeTask}
+                                        />
+                                    )}
+                                </ul>
                                 { activeTask ? tasks.filter((task) =>
                                     activeTask === task.id
                                 ).map(function (task) {
@@ -115,4 +181,4 @@ class MyWork extends Component {
 export default connect((state) => ({
     tasks: state.tasks,
     activeTask: state.activeTask
-}))(MyWork)
+}), { setActiveTask })(MyWork)
