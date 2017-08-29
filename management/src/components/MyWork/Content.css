@@ -557,7 +557,7 @@
     border-left: none;
 }
 .panel-task td{
-    padding:10px 0;
+    padding:10px;
 }
 .panel-task td:first-child{
     padding-left: 20px;
@@ -747,9 +747,19 @@ li input[type=radio]{
 }
 
 .addSubTask{
-    color: #828B93;
+    color: #929292;
     cursor: pointer;
     float: left;
+    padding: 10px 15px 11px 15px;
+    border: 1px solid #DEDEDE;
+    border-bottom: none;
+    border-top: none;
+    position: absolute;
+    left:170px;
+    top: 0px;
+}
+.panel-task tr td{
+    position: relative;
 }
 .addSubTask i{
     font-size: 11px;
@@ -760,7 +770,27 @@ li input[type=radio]{
     padding:0;
 }
 .listSubTasks li{
-    padding: 5px 0;
-    background-color: #efefef;
-    border-bottom:1px solid #d8d8d8;
+    padding: 5px 0 8px 20px;
+    background-color: #FAFAFA;
+    border-bottom:1px solid #F0F0F0;
+    color: #666666;
+    font: 400 12px Arial, sans-serif;
+}
+#idListSubs{
+    padding:0;
+}
+.addSubTaskActive{
+    background-color: #FAFAFA;
+}
+.subTaskItem span{
+    background-color: #EEEEF0;
+    padding:2px 4px;
+    margin: 0 5px;
+}
+.subTaskItem input{
+    margin-top:3px;
+}
+.subTaskItem span i{
+    font-size: 10px;
+    color: #969FA7;
 }

@@ -23,8 +23,10 @@ class Task extends Component {
 
     logChange = (val) => {
         const { id, changeTaskStatus } = this.props
+        const { addSubTaskActive } = this.state
         this.setState({
-            selected: val
+            selected: val,
+            addSubTaskActive: false
         })
         changeTaskStatus(id, val)
         console.log("Selected: " + JSON.stringify(val))
@@ -43,6 +45,10 @@ class Task extends Component {
             id, desc
         }
         addTaskDescription( data )
+        const { addSubTaskActive } = this.state
+        this.setState({
+            addSubTaskActive: false
+        })
     }
 
     renderValue(option) {
@@ -66,6 +72,11 @@ class Task extends Component {
             user: null
         }
         addSubTask(id, subtask)
+    }
+
+    getNumberOfSubtasks = () => {
+        const { subtasks } = this.props
+        return subtasks ? subtasks.length : null
     }
 
     render(){
@@ -131,17 +142,17 @@ class Task extends Component {
                                                     </a>
                                                 </div>
                                                 <DayPicker id={ id }/>
-                                                <div className="addSubTask" onClick={this.handleAddSubTask}>
+                                                <div className={"addSubTask" + (addSubTaskActive ? ' addSubTaskActive' : '')} onClick={this.handleAddSubTask}>
                                                     <span>
                                                         <i className="glyphicon glyphicon-list">
-                                                        </i>Добавить подзадачу
+                                                        </i>{ addSubTaskActive ? this.getNumberOfSubtasks() + ' subtasks' : 'Добавить подзадачу'}
                                                     </span>
                                                 </div>
                                             </td>
                                         </tr>
                                         { addSubTaskActive ?
                                             <tr>
-                                                <td colSpan="3">
+                                                <td colSpan="3" id="idListSubs">
                                                     <ul className="listSubTasks">
                                                         { subtasks.map((subtask) =>
                                                             <SubTaskItem
@@ -152,7 +163,7 @@ class Task extends Component {
                                                         )}
                                                     </ul>
                                                 </td>
-                                            </tr> : ''
+                                            </tr> : null
                                         }
                                     <tr>
                                         <td colSpan="3">
