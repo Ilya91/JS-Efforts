@@ -3,8 +3,9 @@ import './Content.css'
 import { connect } from 'react-redux'
 import Select from 'react-select';
 import DayPicker from './DayPicker'
+import SubTaskItem from './SubTaskItem'
 import 'react-select/dist/react-select.css';
-import { deleteTask, addTaskDescription, changeTaskStatus } from '../../AC'
+import { deleteTask, addTaskDescription, changeTaskStatus, addSubTask } from '../../AC'
 import Moment from 'react-moment';
 import moment from 'moment';
 
@@ -17,7 +18,7 @@ const options = [
 
 class Task extends Component {
     state = {
-        selected: 3
+        addSubTaskActive: false
     }
 
     logChange = (val) => {
@@ -33,7 +34,6 @@ class Task extends Component {
         e.preventDefault()
         const { id, deleteTask } = this.props
         deleteTask(id)
-        console.log(id)
     }
 
     handleDescChange = (e) => {
@@ -42,7 +42,6 @@ class Task extends Component {
         const data = {
             id, desc
         }
-        console.log(desc)
         addTaskDescription( data )
     }
 
@@ -55,11 +54,23 @@ class Task extends Component {
         return <span><div className="selectSquare" style={{ backgroundColor: option.color, border: 'none'}}></div>{option.label}</span>;
     }
 
-
+    handleAddSubTask = () => {
+        const { id, addSubTask } = this.props
+        const { addSubTaskActive } = this.state
+        this.setState({
+            addSubTaskActive: true
+        })
+        const subtask = {
+            id: (Date.now() + Math.random()).toString(),
+            title: 'New sub task',
+            user: null
+        }
+        addSubTask(id, subtask)
+    }
 
     render(){
-        const { id, title, date, description, status, complete:{ to, from, duration } } = this.props
-        const { selected } = this.state
+        const { id, title, date, description, status, complete:{ to, from, duration }, subtasks } = this.props
+        const { addSubTaskActive } = this.state
         return(
                         <section className="col-lg-6">
                             <div className="box box-primary task-description">
@@ -98,7 +109,7 @@ class Task extends Component {
                                                 />
                                             </td>
                                             <td className="task-users">
-                                                <img className="img-circle" src="public/dist/img/user2-160x160.jpg" alt="img"/>
+                                                <img className="img-circle" src="public/dist/img/avatar04.png" alt="img"/>
                                                 <span>Johan</span>
                                             </td>
                                             <td className="task-info">
@@ -112,18 +123,37 @@ class Task extends Component {
 
                                         <tr>
                                             <td colSpan="3">
-                                                <a data-toggle="modal" data-target="#myModal">
-                                                    <i className="glyphicon glyphicon-calendar">
-                                                    </i> { from && to ? moment(from).format('MMM D') + ' - ' + moment(to).format('MMM D') : moment(date).format('MMM D') }
-                                                    { from && to ? ' (' + duration + 'д.)' : '' }
-                                                </a>
+                                                <div className="taskCalendar">
+                                                    <a data-toggle="modal" data-target="#myModal">
+                                                        <i className="glyphicon glyphicon-calendar">
+                                                        </i> { from && to ? moment(from).format('MMM D') + ' - ' + moment(to).format('MMM D') : moment(date).format('MMM D') }
+                                                        { from && to ? ' (' + duration + 'д.)' : '' }
+                                                    </a>
+                                                </div>
                                                 <DayPicker id={ id }/>
-                                                <span>
-                                                    <i className="glyphicon glyphicon-th-list">
-                                                    </i>добавить подзадачу
-                                                </span>
+                                                <div className="addSubTask" onClick={this.handleAddSubTask}>
+                                                    <span>
+                                                        <i className="glyphicon glyphicon-list">
+                                                        </i>Добавить подзадачу
+                                                    </span>
+                                                </div>
                                             </td>
                                         </tr>
+                                        { addSubTaskActive ?
+                                            <tr>
+                                                <td colSpan="3">
+                                                    <ul className="listSubTasks">
+                                                        { subtasks.map((subtask) =>
+                                                            <SubTaskItem
+                                                                key={ subtask.id }
+                                                                title={ subtask.title }
+                                                                user={ subtask.user }
+                                                            />
+                                                        )}
+                                                    </ul>
+                                                </td>
+                                            </tr> : ''
+                                        }
                                     <tr>
                                         <td colSpan="3">
                                         <form className="task-add-description">
@@ -147,4 +177,4 @@ class Task extends Component {
     }
 }
 export default connect(null,
-    { deleteTask, addTaskDescription, changeTaskStatus })(Task)
+    { deleteTask, addTaskDescription, changeTaskStatus, addSubTask })(Task)

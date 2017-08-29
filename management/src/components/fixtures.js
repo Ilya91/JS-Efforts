@@ -5,7 +5,13 @@ export const tasks = [
         "title": "Commodo qui incididunt",
         "status": 0,
         "description": "Commodo qui incididunt ex ut ea nulla et eu aliquip duis.",
-
+        "subtasks": [
+            {
+                "id": "qwerqwer",
+                "user": "Gilliam Underwood",
+                "title": "Velit anim"
+            }
+        ]
     },
     {
         "id": "56c782f17b4e0ba78c7ad717",
@@ -13,7 +19,7 @@ export const tasks = [
         "title": "Quis occaecat",
         "description": "Labore laboris irure",
         "status": 1,
-
+        "subtasks": []
     },
     {
         "id": "56c782f1978fdf9a0100df52",
@@ -21,6 +27,7 @@ export const tasks = [
         "title": "Hello my new world",
         "description": "Culpa dolor",
         "status": 3,
+        "subtasks": []
     },
     {
         "id": "56c782f1e17f4f9311dfaa2c",
@@ -28,6 +35,7 @@ export const tasks = [
         "title": "Voluptate est officia",
         "description": "Voluptate est",
         "status": 4,
+        "subtasks": []
     }
 
 ]

@@ -1,13 +1,14 @@
 import { tasks as DefaultTasks } from '../components/fixtures'
 let localTasks = JSON.parse(localStorage.getItem('tasks'));
+import {arrToMap, mapToArr} from '../helpers'
 import { ADD_NEW_TASK,
         DELETE_NEW_TASK,
         ADD_TASK_DESCRIPTION,
         CHANGE_TASK_STATUS,
-        SET_TASK_DATERANGE
+        SET_TASK_DATERANGE,
+        ADD_SUB_TASK
 } from '../constants'
 import { Map, List } from 'immutable'
-
 
 export default ( taskState = localTasks, action) => {
     const { type, payload } = action
@@ -44,6 +45,20 @@ export default ( taskState = localTasks, action) => {
                 return task
             })
             return val2
+
+        case ADD_SUB_TASK:
+            taskState = arrToMap(taskState)
+            const task = taskState[payload.id]
+            //console.log(task)
+            const newState2 = {
+                ...taskState,
+                [payload.id]: {
+                    ...task,
+                    subtasks: (task.subtasks || []).concat(payload.subtask)
+                }
+            }
+            console.log(mapToArr(newState2))
+            return mapToArr(newState2)
 
     }
     return taskState

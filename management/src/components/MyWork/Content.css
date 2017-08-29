@@ -741,3 +741,26 @@ li input[type=radio]{
 .pre-box-footer{
     height:40px;
 }
+.taskCalendar{
+    float: left;
+    margin-right:30px;
+}
+
+.addSubTask{
+    color: #828B93;
+    cursor: pointer;
+    float: left;
+}
+.addSubTask i{
+    font-size: 11px;
+    padding-right: 5px;
+}
+.listSubTasks{
+    list-style: none;
+    padding:0;
+}
+.listSubTasks li{
+    padding: 5px 0;
+    background-color: #efefef;
+    border-bottom:1px solid #d8d8d8;
+}

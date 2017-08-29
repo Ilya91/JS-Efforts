@@ -6,5 +6,7 @@ export function arrToMap(arr) {
 }
 
 export function mapToArr(obj) {
-    return Object.keys(obj).map(id => obj.id)
+    return Object.keys(obj).map(function(id) {
+        return obj[id];
+    })
 }

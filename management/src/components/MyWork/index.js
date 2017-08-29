@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Content.css'
 import FormTask from './FormTask'
+import {mapToArr} from '../../helpers'
 import TaskList from './TaskList'
 import Task from './Task'
 import OtherDays from './OtherDays'
@@ -30,7 +31,7 @@ class MyWork extends Component {
                 return newarr.length
             }else{
                 let newarr = tasks.filter((task) =>
-                    !task.complete
+                    task.complete != undefined ? true : false
                 )
                 return newarr.length
             }
@@ -79,10 +80,10 @@ class MyWork extends Component {
                                     <FormTask/>
                                 </div>
                                 <ul className="taskList">
-                                    {tasks.filter((task) =>
+
+                                    {tasks ? (tasks.filter((task) =>
                                         !task.complete
-                                    ).map((task) => this.taskItemBody(task)
-                                    )}
+                                    ).map((task) => this.taskItemBody(task))) : '' }
                                 </ul>
                                 <div className="box-header">
                                     <h3 className="box-title">НА ЭТУ НЕДЕЛЮ</h3>
@@ -97,11 +98,10 @@ class MyWork extends Component {
                                     <span className="label label-info pull-right">{ this.getNumberOfTasks( startThisWeek, endThisWeek) }</span>
                                 </div>
                                 <ul className="taskList">
-                                    {tasks.filter((task) => (
+                                    {tasks ? (tasks.filter((task) => (
                                         task.complete ?
                                         moment(task.complete.to).isBetween(startThisWeek, endThisWeek) : false
-                                    )).map((task) => this.taskItemBody(task)
-                                    )}
+                                    )).map((task) => this.taskItemBody(task))) : ''}
                                 </ul>
 
                                 <div className="box-header">
@@ -117,11 +117,10 @@ class MyWork extends Component {
                                     <span className="label label-info pull-right">{ this.getNumberOfTasks( startNextWeek, endNextWeek ) }</span>
                                 </div>
                                 <ul className="taskList">
-                                    {tasks.filter((task) => (
+                                    {tasks ? (tasks.filter((task) => (
                                         task.complete ?
                                             moment(task.complete.to).isBetween(startNextWeek, endNextWeek) : false
-                                    )).map((task) => this.taskItemBody(task)
-                                    )}
+                                    )).map((task) => this.taskItemBody(task))) : ''}
                                 </ul>
                                 <div className="box-header">
                                     <h3 className="box-title">ПОЗЖЕ</h3>
@@ -133,11 +132,10 @@ class MyWork extends Component {
                                     <span className="label label-info pull-right">{ this.getNumberOfTasks( afterNextWeek, null ) }</span>
                                 </div>
                                 <ul className="taskList">
-                                    {tasks.filter((task) => (
+                                    {tasks ? (tasks.filter((task) => (
                                         task.complete ?
                                             moment(task.complete.to).isAfter(afterNextWeek) : false
-                                    )).map((task) => this.taskItemBody(task)
-                                    )}
+                                    )).map((task) => this.taskItemBody(task))) : ''}
                                 </ul>
                                 { activeTask ? tasks.filter((task) =>
                                     activeTask === task.id
@@ -167,6 +165,7 @@ class MyWork extends Component {
                                     title={task.title}
                                     date={task.date}
                                     description={task.description ? task.description : ''}
+                                    subtasks={task.subtasks ? task.subtasks : ''}
                                     complete={task.complete ? task.complete : ''}
                                     status={task.status}
                         />) : <OtherDays getNumberOfTasks={ this.getNumberOfTasks }/>  }

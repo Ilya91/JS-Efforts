@@ -1,17 +1,17 @@
 {
   "name": "project_management",
   "version": "1.0.0",
-  "description": "",
+  "description": "The most beautiful project management in the world",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline",
+    "start": "webpack-dev-server --hot --inline --port 8090 --host 0.0.0.0",
     "build": "webpack"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/facebook/react"
   },
-  "author": "",
+  "author": "Ilya Mironchikov",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/facebook/react"

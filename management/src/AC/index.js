@@ -4,7 +4,8 @@ import {
     DELETE_NEW_TASK,
     ADD_TASK_DESCRIPTION,
     CHANGE_TASK_STATUS,
-    SET_TASK_DATERANGE
+    SET_TASK_DATERANGE,
+    ADD_SUB_TASK
 } from '../constants'
 
 export function addNewTask(task) {
@@ -48,6 +49,16 @@ export function setTaskDateRange(id, complete) {
         payload: {
             id, complete
         }
+    }
+}
+
+export function addSubTask(id, subtask) {
+    return{
+        type: ADD_SUB_TASK,
+        payload: {
+            id, subtask
+        },
+        generateId: true
     }
 }
 
