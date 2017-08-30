@@ -5,8 +5,7 @@ import { ADD_NEW_TASK,
         DELETE_NEW_TASK,
         ADD_TASK_DESCRIPTION,
         CHANGE_TASK_STATUS,
-        SET_TASK_DATERANGE,
-        ADD_SUB_TASK
+        SET_TASK_DATERANGE
 } from '../constants'
 import { Map, List } from 'immutable'
 
@@ -37,7 +36,6 @@ export default ( taskState = localTasks, action) => {
             return val
 
         case SET_TASK_DATERANGE:
-
             const val2 = taskState.map(function (task) {
                 if(task.id === payload.id){
                     task.complete = payload.complete
@@ -46,10 +44,9 @@ export default ( taskState = localTasks, action) => {
             })
             return val2
 
-        case ADD_SUB_TASK:
+        /*case ADD_SUB_TASK:
             taskState = arrToMap(taskState)
             const task = taskState[payload.id]
-            //console.log(task)
             const newState2 = {
                 ...taskState,
                 [payload.id]: {
@@ -57,8 +54,7 @@ export default ( taskState = localTasks, action) => {
                     subtasks: (task.subtasks || []).concat(payload.subtask)
                 }
             }
-            console.log(mapToArr(newState2))
-            return mapToArr(newState2)
+            return mapToArr(newState2)*/
 
     }
     return taskState

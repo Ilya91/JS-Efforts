@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import Sidebar from '../Sidebar'
 import Header from '../Header'
 import NotFound from '../routes/NotFound'
+import issues from '../routes/issues'
+import projects from '../routes/projects'
 import MyWork from '../MyWork'
+import Projects from '../Projects'
 import './App.css'
 import store from '../../store'
 import { Provider } from 'react-redux'
@@ -26,9 +29,9 @@ class App extends Component {
                         <Header/>
                         <Sidebar/>
                         <Switch>
-                            <Route path = "/issues" component = {MyWork} />
+                            <Route path = "/projects" component = {projects} />
+                            <Route path = "/issues" component = {issues} />
                             <Redirect from='/' to='/issues' exact/>
-                            <Route path = "/projects" component = {MyWork} />
                             <Route path = "*" component = {NotFound}/>
                         </Switch>
                     </div>

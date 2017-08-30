@@ -1,65 +1,10 @@
 import React, { Component } from 'react'
-import './Content.css'
-import FormTask from './FormTask'
-import {mapToArr} from '../../helpers'
-import TaskList from './TaskList'
-import Task from './Task'
-import OtherDays from './OtherDays'
-import { connect } from 'react-redux'
+import '../MyWork/Content.css'
 import Moment from 'react-moment';
 import moment from 'moment'
 
-import { setActiveTask } from '../../AC'
-import TaskItem from './TaskItem'
-
-class MyWork extends Component {
-
-    getNumberOfTasks = ( start, end ) => {
-        const { tasks } = this.props
-        if( tasks ){
-            if( start && end ){
-                let newarr = tasks.filter((task) => (
-                    task.complete ?
-                        moment(task.complete.to).isBetween(start, end) : false
-                ))
-                return newarr.length
-            }else if( start && !end ){
-                let newarr = tasks.filter((task) => (
-                    task.complete ?
-                        moment(task.complete.to).isAfter( start ) : false
-                ))
-                return newarr.length
-            }else{
-                let newarr = tasks.filter((task) =>
-                    task.complete != undefined ? true : false
-                )
-                return newarr.length
-            }
-
-        }
-    }
-
-    taskItemBody = ( task ) => {
-        const { activeTask } = this.props
-            return (
-                <TaskItem
-                    onClick={this.handleClickTask(task.id)}
-                    key={task.id}
-                    id={task.id}
-                    title={task.title}
-                    date={task.date}
-                    isActive={task.id === activeTask}
-                />
-            )
-    }
-
-    handleClickTask = (id) => ev => {
-        const { setActiveTask } = this.props
-        setActiveTask(id)
-    }
-
+class Projects extends Component {
     render(){
-        const { tasks, activeTask } = this.props
         const startThisWeek = moment().startOf('isoWeek')
         const endThisWeek = moment().endOf('isoWeek')
         const startNextWeek = moment().add(1, 'weeks').startOf('isoWeek')
@@ -69,22 +14,21 @@ class MyWork extends Component {
             <div className="content-wrapper">
                 <section className="content">
                     <div className="row">
-                        <section className={ activeTask ? "col-lg-6" : "col-lg-8"}>
+                        <section className={ "col-lg-12"}>
                             <div className="box box-primary">
                                 <div className="box-header">
                                     <h3 className="box-title">НА СЕГОДНЯ</h3>
                                     <span className="myWorkData"><Moment format="MMM D"/></span>
-                                    <span className="label label-info pull-right">{ this.getNumberOfTasks( null, null) }</span>
+                                    <span className="label label-info pull-right">0</span>
                                 </div>
                                 <div className="box-body">
-                                    <FormTask/>
                                 </div>
-                                <ul className="taskList">
+                                {/*<ul className="taskList">
 
                                     {tasks ? (tasks.filter((task) =>
                                         !task.complete
                                     ).map((task) => this.taskItemBody(task))) : '' }
-                                </ul>
+                                </ul>*/}
                                 <div className="box-header">
                                     <h3 className="box-title">НА ЭТУ НЕДЕЛЮ</h3>
                                     <span className="myWorkData">
@@ -95,14 +39,14 @@ class MyWork extends Component {
                                              {endThisWeek}
                                         </Moment>
                                     </span>
-                                    <span className="label label-info pull-right">{ this.getNumberOfTasks( startThisWeek, endThisWeek) }</span>
+                                    <span className="label label-info pull-right">0</span>
                                 </div>
-                                <ul className="taskList">
+                                {/*<ul className="taskList">
                                     {tasks ? (tasks.filter((task) => (
                                         task.complete ?
                                         moment(task.complete.to).isBetween(startThisWeek, endThisWeek) : false
                                     )).map((task) => this.taskItemBody(task))) : ''}
-                                </ul>
+                                </ul>*/}
 
                                 <div className="box-header">
                                     <h3 className="box-title">НА СЛЕД. НЕДЕЛЮ</h3>
@@ -114,14 +58,14 @@ class MyWork extends Component {
                                              { endNextWeek }
                                         </Moment>
                                     </span>
-                                    <span className="label label-info pull-right">{ this.getNumberOfTasks( startNextWeek, endNextWeek ) }</span>
+                                    <span className="label label-info pull-right">0</span>
                                 </div>
-                                <ul className="taskList">
+                                {/*<ul className="taskList">
                                     {tasks ? (tasks.filter((task) => (
                                         task.complete ?
                                             moment(task.complete.to).isBetween(startNextWeek, endNextWeek) : false
                                     )).map((task) => this.taskItemBody(task))) : ''}
-                                </ul>
+                                </ul>*/}
                                 <div className="box-header">
                                     <h3 className="box-title">ПОЗЖЕ</h3>
                                     <span className="myWorkData">
@@ -129,15 +73,15 @@ class MyWork extends Component {
                                              { afterNextWeek }
                                         </Moment>
                                     </span>
-                                    <span className="label label-info pull-right">{ this.getNumberOfTasks( afterNextWeek, null ) }</span>
+                                    <span className="label label-info pull-right">{/*{ this.getNumberOfTasks( afterNextWeek, null ) }*/}</span>
                                 </div>
-                                <ul className="taskList">
+                                {/*<ul className="taskList">
                                     {tasks ? (tasks.filter((task) => (
                                         task.complete ?
                                             moment(task.complete.to).isAfter(afterNextWeek) : false
                                     )).map((task) => this.taskItemBody(task))) : ''}
-                                </ul>
-                                { activeTask ? tasks.filter((task) =>
+                                </ul>*/}
+                                {/*{ activeTask ? tasks.filter((task) =>
                                     activeTask === task.id
                                 ).map(function (task) {
                                     if(task.status.label === ''){
@@ -154,10 +98,10 @@ class MyWork extends Component {
                                             </div>
                                         )
                                     }
-                                }) : null  }
+                                }) : null  }*/}
                             </div>
                         </section>
-                        { activeTask ? tasks.filter((task) =>
+                        {/*{ activeTask ? tasks.filter((task) =>
                             activeTask === task.id
                             ).map((task) => <Task
                                     key={task.id}
@@ -167,30 +111,12 @@ class MyWork extends Component {
                                     description={task.description ? task.description : ''}
                                     complete={task.complete ? task.complete : ''}
                                     status={task.status}
-                        />) : <OtherDays getNumberOfTasks={ this.getNumberOfTasks }/>  }
+                        />) : <OtherDays getNumberOfTasks={ this.getNumberOfTasks }/>  }*/}
 
                     </div>
                 </section>
             </div>
         )
     }
-
-    componentDidUpdate() {
-        this._updateLocalStorage();
-    }
-
-    _updateLocalStorage() {
-        const { tasks, subTasks } = this.props
-        let tasksStorage = JSON.stringify(tasks)
-        localStorage.setItem('tasks', tasksStorage)
-
-        let subTasksStorage = JSON.stringify(subTasks)
-        localStorage.setItem('subTasks', subTasksStorage)
-
-    }
 }
-export default connect((state) => ({
-    tasks: state.tasks,
-    subTasks: state.subTasks,
-    activeTask: state.activeTask
-}), { setActiveTask })(MyWork)
+export default Projects

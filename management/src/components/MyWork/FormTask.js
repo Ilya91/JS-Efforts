@@ -14,7 +14,8 @@ class FormTask extends Component {
                 label: ''
             }
         },
-        error: null
+        error: null,
+        classError: 'has-error'
     }
 
     handleClick = () => {
@@ -30,7 +31,7 @@ class FormTask extends Component {
             addNewTask(this.state.task)
             this.setState({
                 taskInputOpen: false,
-                error: 'form-group',
+                error: null,
                 task: {
                     title: '',
                     id: ''
@@ -38,13 +39,13 @@ class FormTask extends Component {
             })
         }else {
             this.setState({
-                error: 'form-group has-error'
+                error: true
             })
         }
 
     }
 
-    handleChange = (e) =>{
+    handleChange = (e) => {
         let today = new Date()
         let options = { month: 'long', day: 'numeric' }
         let date = today.toLocaleDateString("ru-RU", options)
@@ -68,11 +69,11 @@ class FormTask extends Component {
 
 
     render(){
-        const { taskInputOpen, task:{title}, error } = this.state
+        const { taskInputOpen, task:{title}, error, classError } = this.state
         return(
             <div className="taskPanel">
                 { taskInputOpen ?
-                    <div className={ error }>
+                    <div className={ 'form-group ' + (error ? classError : '') }>
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" className="form-control" onChange={this.handleChange} value={title}/>
                     </form>{ error ? 'Input can not be empty!' : '' }

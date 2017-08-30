@@ -68,19 +68,22 @@ class Task extends Component {
         })
         const subtask = {
             id: (Date.now() + Math.random()).toString(),
+            taskId: id,
             title: 'New sub task',
-            user: null
+            users: []
         }
         addSubTask(id, subtask)
     }
 
     getNumberOfSubtasks = () => {
-        const { subtasks } = this.props
-        return subtasks ? subtasks.length : null
+        const { subTasks, id } = this.props
+        return subTasks ? subTasks.filter((subTask) =>
+            subTask.taskId === id
+        ).length : null
     }
 
     render(){
-        const { id, title, date, description, status, complete:{ to, from, duration }, subtasks } = this.props
+        const { id, title, date, description, status, complete:{ to, from, duration }, subTasks, users } = this.props
         const { addSubTaskActive } = this.state
         return(
                         <section className="col-lg-6">
@@ -153,15 +156,17 @@ class Task extends Component {
                                         { addSubTaskActive ?
                                             <tr>
                                                 <td colSpan="3" id="idListSubs">
-                                                    <ul className="listSubTasks">
-                                                        { subtasks.map((subtask) =>
+                                                        { subTasks ? <ul className="listSubTasks">{subTasks.filter((subTask) =>
+                                                            subTask.taskId === id
+                                                        ).reverse().map((subTask) =>
                                                             <SubTaskItem
-                                                                key={ subtask.id }
-                                                                title={ subtask.title }
-                                                                user={ subtask.user }
+                                                                id={ subTask.id }
+                                                                key={ subTask.id }
+                                                                title={ subTask.title }
+                                                                users={ subTask.users }
+                                                                usersList={users}
                                                             />
-                                                        )}
-                                                    </ul>
+                                                        )}</ul> : null}
                                                 </td>
                                             </tr> : null
                                         }
@@ -187,5 +192,8 @@ class Task extends Component {
         )
     }
 }
-export default connect(null,
-    { deleteTask, addTaskDescription, changeTaskStatus, addSubTask })(Task)
+
+export default connect((state) => ({
+    subTasks: state.subTasks,
+    users: state.users
+}), { deleteTask, addTaskDescription, changeTaskStatus, addSubTask })(Task)

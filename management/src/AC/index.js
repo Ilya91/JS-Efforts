@@ -5,7 +5,9 @@ import {
     ADD_TASK_DESCRIPTION,
     CHANGE_TASK_STATUS,
     SET_TASK_DATERANGE,
-    ADD_SUB_TASK
+    ADD_SUB_TASK,
+    CHANGE_SUB_TASK_TITLE,
+    ADD_SUB_TASK_USER
 } from '../constants'
 
 export function addNewTask(task) {
@@ -59,6 +61,24 @@ export function addSubTask(id, subtask) {
             id, subtask
         },
         generateId: true
+    }
+}
+
+export function changeSubTaskTitle(id, title) {
+    return{
+        type: CHANGE_SUB_TASK_TITLE,
+        payload: {
+            id, title
+        }
+    }
+}
+
+export function addSubTaskUser(id, userId) {
+    return{
+        type: ADD_SUB_TASK_USER,
+        payload: {
+            id, userId
+        }
     }
 }
 
