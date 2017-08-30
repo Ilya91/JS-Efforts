@@ -835,6 +835,9 @@ li input[type=radio]{
 .subTaskItem .dropdown-menu li a span{
     background: none;
 }
+.subTaskItem .dropdown-menu li .active{
+    background-color: #e1e3e9;
+}
 .subTaskItem .dropdown-menu p{
     padding: 0 0 0 15px;
     color: #b6b6b6;
@@ -843,4 +846,21 @@ li input[type=radio]{
 
 .subTaskItem .dropdown-menu .img-circle{
     width:35px;
+}
+
+.subTaskUsers{
+    display: inline;
+    padding-left:0;
+    margin-right:5px;
+}
+.subTaskUsers li{
+    display: inline;
+    list-style: none;
+    padding-left: 5px;
+    border-bottom:none;
+    margin-right: 5px;
+}
+.subTaskUsers li img{
+    width: 13px;
+    margin-right: 3px;
 }
