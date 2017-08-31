@@ -585,9 +585,28 @@ button.task-status-toggle{
 .Select-control{
     border: none;
 }
+.task-users-list{
+    padding:0;
+    list-style: none;
+    display: inline;
+    float: left;
+    margin-bottom:0;
+}
+.task-users-list li{
+    float: left;
+}
 .task-users img{
     width:35px;
-    margin-right: 10px;
+    margin-right: 7px;
+}
+.task-users .dropdownUsers{
+    left:105px;
+    top:30px;
+}
+.task-users span.dropdown-toggle{
+    margin:9px 0 0 20px;
+    display: inline-block;
+    float: left;
 }
 .task-users span{
     color: #828B93;
@@ -819,32 +838,34 @@ li input[type=radio]{
     right:10px;
 }
 
-.subTaskItem .dropdown-menu{
+ul.dropdownUsers{
     left:38px;
     top:20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     min-width:200px;
 }
 
-.subTaskItem .dropdown-menu li{
+.dropdownUsers li{
     padding: 0;
+    border-bottom: 1px solid #F0F0F0;
+    background-color:#FAFAFA;
 }
-.subTaskItem .dropdown-menu li a{
+.dropdownUsers li a{
     padding: 10px 15px;
 }
-.subTaskItem .dropdown-menu li a span{
+.dropdownUsers li a span{
     background: none;
 }
-.subTaskItem .dropdown-menu li .active{
+.dropdownUsers li .active{
     background-color: #e1e3e9;
 }
-.subTaskItem .dropdown-menu p{
+.dropdownUsers p{
     padding: 0 0 0 15px;
     color: #b6b6b6;
     font: 13px Arial, sans-serif;
 }
 
-.subTaskItem .dropdown-menu .img-circle{
+.dropdownUsers .img-circle{
     width:35px;
 }
 

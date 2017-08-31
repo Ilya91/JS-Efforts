@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import './Content.css'
 import FormTask from './FormTask'
-import {mapToArr} from '../../helpers'
-import TaskList from './TaskList'
 import Task from './Task'
 import OtherDays from './OtherDays'
 import { connect } from 'react-redux'
@@ -19,7 +17,7 @@ class MyWork extends Component {
         if( tasks ){
             if( start && end ){
                 let newarr = tasks.filter((task) => (
-                    task.complete ?
+                    task.complete && !(moment().isSame(moment(task.complete.to), 'day')) ?
                         moment(task.complete.to).isBetween(start, end) : false
                 ))
                 return newarr.length
@@ -31,11 +29,12 @@ class MyWork extends Component {
                 return newarr.length
             }else{
                 let newarr = tasks.filter((task) =>
-                    task.complete != undefined ? true : false
+                    task.complete ?
+                    (task.complete.to === null || (moment().isSame(moment(task.complete.to), 'day')) ? true : false)
+                        : ( task.complete !== 'undefined' ? true : false)
                 )
                 return newarr.length
             }
-
         }
     }
 
@@ -43,8 +42,8 @@ class MyWork extends Component {
         const { activeTask } = this.props
             return (
                 <TaskItem
-                    onClick={this.handleClickTask(task.id)}
                     key={task.id}
+                    onClick={this.handleClickTask(task.id)}
                     id={task.id}
                     title={task.title}
                     date={task.date}
@@ -80,9 +79,8 @@ class MyWork extends Component {
                                     <FormTask/>
                                 </div>
                                 <ul className="taskList">
-
                                     {tasks ? (tasks.filter((task) =>
-                                        !task.complete
+                                        !task.complete || task.complete.to === null || moment().isSame(moment(task.complete.to), 'day')
                                     ).map((task) => this.taskItemBody(task))) : '' }
                                 </ul>
                                 <div className="box-header">
@@ -100,7 +98,7 @@ class MyWork extends Component {
                                 <ul className="taskList">
                                     {tasks ? (tasks.filter((task) => (
                                         task.complete ?
-                                        moment(task.complete.to).isBetween(startThisWeek, endThisWeek) : false
+                                            (moment(task.complete.to).isBetween(startThisWeek, endThisWeek) && !(moment().isSame(moment(task.complete.to), 'day'))) : false
                                     )).map((task) => this.taskItemBody(task))) : ''}
                                 </ul>
 

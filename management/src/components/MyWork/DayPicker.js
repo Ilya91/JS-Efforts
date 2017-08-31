@@ -12,7 +12,16 @@ class Example extends React.Component {
     state = {
         from: null,
         to: null,
-        selectedOption: null
+        selectedOption: this.someStr()
+    }
+
+    someStr(){
+        const { complete } = this.props
+        if(!complete){
+            return 'option'
+        }else if(moment().isSame(moment(complete.to), 'day')){
+            return 'option1'
+        }
     }
 
     handleDayClick = day => {
@@ -21,11 +30,11 @@ class Example extends React.Component {
     }
 
     handleResetClick = e => {
-        e.preventDefault();
+        e.preventDefault()
         this.setState({
             from: null,
             to: null,
-        });
+        })
     }
 
     handleOptionChange = ( e ) => {
@@ -36,6 +45,13 @@ class Example extends React.Component {
         this.setState(range)*/
 
         switch (option){
+            case 'option':
+                this.setState({
+                    from: null,
+                    to: null,
+                    selectedOption: 'option'
+                })
+                return true
             case 'option1':
                 this.setState({
                     from: today,
@@ -51,6 +67,14 @@ class Example extends React.Component {
                     selectedOption: option
                 })
                 return true
+
+            case 'option3':
+                this.setState({
+                    from: today,
+                    to: moment().add(7, 'days').toDate(),
+                    selectedOption: option
+                })
+                return true
         }
         this.setState({
             selectedOption: option
@@ -59,6 +83,8 @@ class Example extends React.Component {
 
     render() {
         const { from, to, selectedOption } = this.state
+        const { complete } = this.props
+
         const modifiers = {
             weekends: { daysOfWeek: [6] },
             weekends2: { daysOfWeek: [0] }
@@ -121,7 +147,12 @@ class Example extends React.Component {
                                 <td>
                                     <form className="form-inline">
                                         <div className="form-group">
-                                            <input type="text" className="form-control" id="exampleInputEmail3" placeholder="Start" value={from ? moment(from).format('L') : ''}/>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                id="exampleInputEmail3"
+                                                placeholder="Start"
+                                                value={from ? moment(from).format('L') : ''}/>
                                         </div>&#8194;
                                         &#8211; &#8194;<div className="form-group">
                                         <input type="text" className="form-control" id="exampleInputPassword3" placeholder="End" value={to ? moment(to).format('L') : ''}/>
@@ -172,12 +203,12 @@ class Example extends React.Component {
         }
 
         setTaskDateRange(id, complete)
-        console.log(from, to)
     }
 
     getClassName = () => {
         return 'active-tab'
     }
 }
-export default connect(null,
-    { setTaskDateRange })(Example)
+export default connect((state) => ({
+    activeTask: state.activeTask
+}),{ setTaskDateRange })(Example)

@@ -70,7 +70,7 @@ class Task extends Component {
             id: (Date.now() + Math.random()).toString(),
             taskId: id,
             title: 'New sub task',
-            users: []
+            users: null
         }
         addSubTask(id, subtask)
     }
@@ -80,6 +80,14 @@ class Task extends Component {
         return subTasks ? subTasks.filter((subTask) =>
             subTask.taskId === id
         ).length : null
+    }
+
+    getCompleteValue = () => {
+        const { complete } = this.props
+        if(complete !== 'undefined'){
+            return complete
+        }
+        return null
     }
 
     render(){
@@ -123,8 +131,44 @@ class Task extends Component {
                                                 />
                                             </td>
                                             <td className="task-users">
-                                                <img className="img-circle" src="public/dist/img/avatar04.png" alt="img"/>
-                                                <span>Johan</span>
+                                                <ul className="task-users-list">
+                                                    <li>
+                                                        <img className="img-circle" src="public/dist/img/avatar04.png" alt="img"/>
+                                                        <span>Johan</span>
+                                                    </li>
+                                                </ul>
+
+                                                <span data-toggle="dropdown" className="dropdown-toggle">
+                                                    <i className="fa fa-plus"></i>
+                                                </span>
+                                                {/*{ users ? <ul className="subTaskUsers">
+                                                    { usersList.filter((userList) =>
+                                                        users.includes(userList.id)
+                                                    ).map((userList) =>
+                                                        <li key={userList.name}>
+                                                            <img className="img-circle" src={ userList.avatar } alt=""/>
+                                                            { userList.name }
+                                                        </li>)
+                                                    }
+                                                </ul> : null
+                                                }*/}
+                                                <ul className="dropdown-menu dropdownUsers">
+                                                    <p>Добавьте пользователя</p>
+                                                    { users ? users.map((listUser) =>
+                                                        <li key={listUser.id}>
+                                                            <a
+                                                                href=""
+                                                                id={listUser.id}
+                                                                //onClick={this.handleAddUser(listUser.id)}
+                                                                //className={ users ? (users.includes(listUser.id) ? 'active' : '') : null}
+                                                                >
+                                                                <img className="img-circle" src={ listUser.avatar } alt="img"/>
+                                                                <span>{ listUser.name }</span>
+                                                            </a>
+                                                        </li>
+                                                    ) : null }
+
+                                                </ul>
                                             </td>
                                             <td className="task-info">
                                                 <p>
@@ -144,7 +188,7 @@ class Task extends Component {
                                                         { from && to ? ' (' + duration + 'д.)' : '' }
                                                     </a>
                                                 </div>
-                                                <DayPicker id={ id }/>
+                                                <DayPicker id={ id } complete={this.getCompleteValue()}/>
                                                 <div className={"addSubTask" + (addSubTaskActive ? ' addSubTaskActive' : '')} onClick={this.handleAddSubTask}>
                                                     <span>
                                                         <i className="glyphicon glyphicon-list">

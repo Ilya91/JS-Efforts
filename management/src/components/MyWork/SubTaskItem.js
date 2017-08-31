@@ -52,7 +52,7 @@ class SubTaskItem extends Component {
                     <span data-toggle="dropdown" className="dropdown-toggle">
                         <i className="fa fa-user-plus"></i>
                     </span>
-                        { users.length > 0 ? <ul className="subTaskUsers">
+                        { users ? <ul className="subTaskUsers">
                             { usersList.filter((userList) =>
                                 users.includes(userList.id)
                             ).map((userList) =>
@@ -63,7 +63,7 @@ class SubTaskItem extends Component {
                             }
                         </ul> : null
                         }
-                    <ul className="dropdown-menu">
+                    <ul className="dropdown-menu dropdownUsers">
                         <p>Добавьте пользователя</p>
                         { usersList ? usersList.map((listUser) =>
                             <li key={listUser.id}>
@@ -71,8 +71,7 @@ class SubTaskItem extends Component {
                                     href=""
                                     id={listUser.id}
                                     onClick={this.handleAddUser(listUser.id)}
-                                    className={ users.includes(listUser.id) ? 'active' : ''}
-                                >
+                                    className={ users ? (users.includes(listUser.id) ? 'active' : '') : null}>
                                     <img className="img-circle" src={ listUser.avatar } alt="img"/>
                                     <span>{ listUser.name }</span>
                                 </a>
