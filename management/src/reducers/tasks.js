@@ -1,7 +1,4 @@
 import { tasks as DefaultTasks } from '../components/fixtures'
-import axios from 'axios';
-let tasks = axios.get(`http://localhost:8080/tasks`)
-console.log(tasks)
 let localTasks = JSON.parse(localStorage.getItem('tasks'));
 if(localTasks === null){
     localTasks = []
