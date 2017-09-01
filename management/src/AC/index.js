@@ -7,7 +7,8 @@ import {
     SET_TASK_DATERANGE,
     ADD_SUB_TASK,
     CHANGE_SUB_TASK_TITLE,
-    ADD_SUB_TASK_USER
+    ADD_SUB_TASK_USER,
+    LOAD_ALL_TASKS
 } from '../constants'
 
 export function addNewTask(task) {
@@ -88,5 +89,12 @@ export function setActiveTask(id) {
         payload: {
             id
         }
+    }
+}
+
+export function loadAllTasks() {
+    return {
+        type: LOAD_ALL_TASKS,
+        callAPI: 'http://localhost:8080/tasks'
     }
 }

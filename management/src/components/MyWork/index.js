@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import Moment from 'react-moment';
 import moment from 'moment'
 
-import { setActiveTask } from '../../AC'
+import { setActiveTask, loadAllTasks } from '../../AC'
 import TaskItem from './TaskItem'
 
 class MyWork extends Component {
@@ -173,6 +173,10 @@ class MyWork extends Component {
         )
     }
 
+    componentDidMount(){
+        this.props.loadAllTasks()
+    }
+
     componentDidUpdate() {
         this._updateLocalStorage();
     }
@@ -191,4 +195,4 @@ export default connect((state) => ({
     tasks: state.tasks,
     subTasks: state.subTasks,
     activeTask: state.activeTask
-}), { setActiveTask })(MyWork)
+}), { setActiveTask, loadAllTasks })(MyWork)

@@ -1,4 +1,7 @@
 import { tasks as DefaultTasks } from '../components/fixtures'
+import axios from 'axios';
+let tasks = axios.get(`http://localhost:8080/tasks`)
+console.log(tasks)
 let localTasks = JSON.parse(localStorage.getItem('tasks'));
 if(localTasks === null){
     localTasks = []
@@ -8,14 +11,16 @@ import { ADD_NEW_TASK,
         DELETE_NEW_TASK,
         ADD_TASK_DESCRIPTION,
         CHANGE_TASK_STATUS,
-        SET_TASK_DATERANGE
+        SET_TASK_DATERANGE,
+        LOAD_ALL_TASKS
 } from '../constants'
 import { Map, List } from 'immutable'
 
 export default ( taskState = localTasks, action) => {
-    const { type, payload } = action
+    const { type, payload, response } = action
 
     switch (type) {
+        case LOAD_ALL_TASKS: return response.data
         case ADD_NEW_TASK: return [...taskState, payload.task ]
         case DELETE_NEW_TASK: return taskState.filter(task => task.id !== payload.id)
         case CHANGE_TASK_STATUS:

@@ -4,9 +4,10 @@ import thunk from 'redux-thunk'
 import reducer from '../reducers'
 import logger from 'redux-logger'
 import idGenerator from '../middlewares/idGenerator'
+import api from '../middlewares/api'
 
 const store = createStore(reducer, composeWithDevTools(
-    applyMiddleware(thunk, logger, idGenerator)
+    applyMiddleware(thunk, logger, idGenerator, api)
 ))
 
 // only for dev
