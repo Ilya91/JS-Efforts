@@ -2,17 +2,18 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 
-import MongoClient, { ObjectId } from 'mongodb';
+import { ObjectId } from 'mongodb';
 
 import { serverPort } from './config.json';
+import * as db from './utils/DataBaseUtils';
 
-//import * as db from './utils/DataBaseUtils';
 
 // Initialization of express application
 const app = express();
 
 // Set up connection of database
-//db.setUpConnection();
+db.setUpConnection()
+
 
 // Using bodyParser middleware
 app.use( bodyParser.json() );
@@ -20,23 +21,11 @@ app.use( bodyParser.json() );
 // Allow requests from any origin
 app.use(cors({ origin: '*' }));
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
 // RESTful api handlers
-app.get('/projects', (req, res) => {
-    //db.listNotes().then(data => res.send(data));
-    let url = "mongodb://localhost:27017/projects";
-    MongoClient.connect(url, function(err, db) {
-        if (err) throw err;
-        db.collection("projects").find({}).toArray(function(err, result) {
-            if (err) throw err;
-            res.send(result);
-            db.close();
-        });
-    });
-});
 app.get('/tasks', (req, res) => {
+    db.listTasks().then(data => res.send(data))
+})
+/*app.get('/tasks', (req, res) => {
     //db.listNotes().then(data => res.send(data));
     let url = "mongodb://localhost:27017/tasks";
     MongoClient.connect(url, function(err, db) {
@@ -47,9 +36,9 @@ app.get('/tasks', (req, res) => {
             db.close();
         });
     });
-});
+});*/
 
-app.get('/projects/:id', (req, res) => {
+/*app.get('/projects/:id', (req, res) => {
     //db.listNotes().then(data => res.send(data));
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
@@ -60,7 +49,7 @@ app.get('/projects/:id', (req, res) => {
             db.close();
         });
     });
-});
+});*/
 
 /*app.post('/projects', (req, res) => {
     db.createNote(req.body).then(data => res.send(data));

@@ -95,6 +95,6 @@ export function setActiveTask(id) {
 export function loadAllTasks() {
     return {
         type: LOAD_ALL_TASKS,
-        callAPI: 'http://localhost:3000/tasks'
+        callAPI: 'http://127.0.0.1:3000/tasks'
     }
 }

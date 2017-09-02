@@ -1,32 +1,34 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
+mongoose.set('debug', true)
+import config from '../config.json'
 
-import config from '../config.json';
+import '../models/Task'
 
-import '../models/Project';
-
-const Project = mongoose.model('projects');
+const Task = mongoose.model('Task')
 
 export function setUpConnection() {
-    mongoose.Promise = global.Promise;
-    mongoose.createConnection(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);
+    mongoose.Promise = global.Promise
+    mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`,{
+        useMongoClient: true
+    })
 }
 
-export function listNotes(id) {
-    return Project.find();
+export function listTasks(id) {
+    return Task.find()
 }
 
 export function createNote(data) {
-    const note = new Project({
+    const note = new Note({
         title: data.title,
         text: data.text,
         color: data.color,
         createdAt: new Date()
     });
 
-    return note.save();
+    return note.save()
 }
 
 export function deleteNote(id) {
-    return Project.findById(id).remove();
+    return Note.findById(id).remove();
 }
 

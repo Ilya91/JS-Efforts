@@ -4,8 +4,9 @@
   "description": "The most beautiful project management in the world",
   "main": "index.js",
   "scripts": {
+    "start": "concurrently \"npm run dev\" \"npm run server\"",
     "server": "babel-node server/app.js",
-    "start": "webpack-dev-server --hot --inline",
+    "dev": "webpack-dev-server --hot --inline",
     "build": "webpack"
   },
   "repository": {
@@ -32,9 +33,11 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "bootstrap-select": "^1.12.4",
     "classnames": "^2.2.5",
+    "concurrently": "^3.5.0",
     "cors": "^2.8.4",
     "express": "^4.15.4",
     "immutable": "^3.8.1",
