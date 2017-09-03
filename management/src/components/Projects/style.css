@@ -1,0 +1,66 @@
+.projects .box-body{
+    padding-top:0;
+    margin-left:20px;
+    padding-left: 0;
+}
+.projects .box-body h3{
+     margin-top:10px;
+    margin-bottom:0;
+ }
+.projects .taskPanel{
+    margin:10px 10px;
+}
+.projects .taskPanel .form-group{
+    margin-bottom:0;
+}
+.react-tabs .react-tabs__tab-list{
+    border: none;
+    margin-left:20px;
+    margin-bottom:0;
+}
+.react-tabs .react-tabs__tab-panel{
+
+}
+.react-tabs .react-tabs__tab-list .react-tabs__tab--selected{
+    border-bottom: 2px solid #4678AB;
+    padding-bottom:7px;
+}
+.react-tabs__tab-list .react-tabs__tab{
+    border: none;
+    padding:0;
+    margin-right:24px;
+    color: #A49F8B;
+    font-size:12px;
+    font-weight:600;
+}
+.project-filters{
+    background-color: #F5F8FD;
+    border-bottom:1px solid #E3E3E4;
+    padding:10px 0 10px 20px;
+}
+.project-filters ul{
+    list-style: none;
+    padding:0;
+    overflow: hidden;
+    margin:0;
+}
+.project-filters ul li{
+    float: left;
+    padding-left:0;
+    margin-right:20px;
+    font-weight:600;
+    color: #659FD5;
+    font-size: 12px;
+}
+
+/* collapsible accordion */
+.Collapsible__trigger{
+    display: block;
+    background-color: #F3F3F5;
+    border-bottom:1px solid #E3E3E4;
+    padding: 3px 10px;
+}
+.Collapsible__trigger i{
+    font-size:12px;
+    color: #8F9298;
+}

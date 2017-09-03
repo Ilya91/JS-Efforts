@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
+import 'react-tabs/style/react-tabs.css';
 import '../MyWork/Content.css'
+import './style.css'
+import ListOfTasks from './ListOfTasks'
+import FormTask from '../MyWork/FormTask'
 import Moment from 'react-moment';
 import moment from 'moment'
-import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+
 
 class Projects extends Component {
     render(){
@@ -16,101 +21,35 @@ class Projects extends Component {
                 <section className="content">
                     <div className="row">
                         <section className={ "col-lg-12"}>
-                            <div className="box box-primary">
+                            <div className="box box-primary projects">
                                 <div className="box-body">
-                                    <h3 className="box-title">НА СЕГОДНЯ</h3>
+                                    <h3 className="box-title">Проекты</h3>
                                 </div>
-                                {/*<ul className="taskList">
-
-                                    {tasks ? (tasks.filter((task) =>
-                                        !task.complete
-                                    ).map((task) => this.taskItemBody(task))) : '' }
-                                </ul>*/}
-                                <div className="box-header">
-                                    <h3 className="box-title">НА ЭТУ НЕДЕЛЮ</h3>
-                                    <span className="myWorkData">
-                                        <Moment locale="en" format="MMM D">
-                                            {startThisWeek}
-                                        </Moment> -
-                                        <Moment format="MMM D">
-                                             {endThisWeek}
-                                        </Moment>
-                                    </span>
-                                    <span className="label label-info pull-right">0</span>
-                                </div>
-                                {/*<ul className="taskList">
-                                    {tasks ? (tasks.filter((task) => (
-                                        task.complete ?
-                                        moment(task.complete.to).isBetween(startThisWeek, endThisWeek) : false
-                                    )).map((task) => this.taskItemBody(task))) : ''}
-                                </ul>*/}
-
-                                <div className="box-header">
-                                    <h3 className="box-title">НА СЛЕД. НЕДЕЛЮ</h3>
-                                    <span className="myWorkData">
-                                        <Moment locale="en" format="MMM D">
-                                            { startNextWeek }
-                                        </Moment> -
-                                        <Moment locale="en" format="MMM D">
-                                             { endNextWeek }
-                                        </Moment>
-                                    </span>
-                                    <span className="label label-info pull-right">0</span>
-                                </div>
-                                {/*<ul className="taskList">
-                                    {tasks ? (tasks.filter((task) => (
-                                        task.complete ?
-                                            moment(task.complete.to).isBetween(startNextWeek, endNextWeek) : false
-                                    )).map((task) => this.taskItemBody(task))) : ''}
-                                </ul>*/}
-                                <div className="box-header">
-                                    <h3 className="box-title">ПОЗЖЕ</h3>
-                                    <span className="myWorkData">
-                                        После <Moment locale="en" format="MMM D">
-                                             { afterNextWeek }
-                                        </Moment>
-                                    </span>
-                                    <span className="label label-info pull-right">{/*{ this.getNumberOfTasks( afterNextWeek, null ) }*/}</span>
-                                    <Route path = "/projects/:id" />
-                                </div>
-                                {/*<ul className="taskList">
-                                    {tasks ? (tasks.filter((task) => (
-                                        task.complete ?
-                                            moment(task.complete.to).isAfter(afterNextWeek) : false
-                                    )).map((task) => this.taskItemBody(task))) : ''}
-                                </ul>*/}
-                                {/*{ activeTask ? tasks.filter((task) =>
-                                    activeTask === task.id
-                                ).map(function (task) {
-                                    if(task.status.label === ''){
-                                        return null
-                                    }else {
-                                        return (
-                                            <div>
-                                                <div className="pre-box-footer"></div>
-                                                <div key={task.status.value} className="box-footer-task-list">
-                                                    <i className="fa fa-check"></i>
-                                                    <span>{ task.status.label }</span>
-                                                    <span className="label label-info pull-right">1</span>
-                                                </div>
-                                            </div>
-                                        )
-                                    }
-                                }) : null  }*/}
+                                <Tabs>
+                                    <TabList>
+                                        <Tab>СПИСОК</Tab>
+                                        <Tab>ТАБЛИЦА</Tab>
+                                        <Tab>ВРЕМЕННАЯ ШКАЛА</Tab>
+                                    </TabList>
+                                        <div className="project-filters">
+                                            <ul>
+                                                <li>СТАТУС: Любой</li>
+                                                <li>ИСПОЛНИТЕЛЬ: Все</li>
+                                            </ul>
+                                        </div>
+                                    <FormTask/>
+                                    <TabPanel>
+                                        <ListOfTasks/>
+                                    </TabPanel>
+                                    <TabPanel>
+                                        <h2>Any content 2</h2>
+                                    </TabPanel>
+                                    <TabPanel>
+                                        <h2>временная шакала</h2>
+                                    </TabPanel>
+                                </Tabs>
                             </div>
                         </section>
-                        {/*{ activeTask ? tasks.filter((task) =>
-                            activeTask === task.id
-                            ).map((task) => <Task
-                                    key={task.id}
-                                    id={task.id}
-                                    title={task.title}
-                                    date={task.date}
-                                    description={task.description ? task.description : ''}
-                                    complete={task.complete ? task.complete : ''}
-                                    status={task.status}
-                        />) : <OtherDays getNumberOfTasks={ this.getNumberOfTasks }/>  }*/}
-
                     </div>
                 </section>
             </div>
