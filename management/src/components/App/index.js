@@ -6,9 +6,8 @@ import issues from '../routes/issues'
 import projects from '../routes/projects'
 import MyWork from '../MyWork'
 import Projects from '../Projects'
+import { connect } from 'react-redux'
 import './App.css'
-import store from '../../store'
-import { Provider } from 'react-redux'
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 import moment from 'moment';
 
@@ -22,12 +21,12 @@ moment.locale('ru');
 
 class App extends Component {
     render(){
+        const { stateProjects } = this.props
         return(
-            <Provider store={store}>
                 <Router>
                     <div>
                         <Header/>
-                        <Sidebar/>
+                        <Sidebar projects={stateProjects}/>
                         <Switch>
                             <Route path = "/projects" component = {projects} />
                             <Route path = "/issues" component = {issues} />
@@ -36,8 +35,9 @@ class App extends Component {
                         </Switch>
                     </div>
                 </Router>
-            </Provider>
         )
     }
 }
-export default App
+export default connect((state) => ({
+    stateProjects: state.projects
+}))(App)

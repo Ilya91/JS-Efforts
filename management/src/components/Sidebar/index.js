@@ -24,6 +24,7 @@ class Sidebar extends Component {
 
     render(){
         const { inputAddProject } = this.state
+        const { projects } = this.props
         return(
             <aside className="main-sidebar">
                 <section className="sidebar">
@@ -52,16 +53,15 @@ class Sidebar extends Component {
                                 { inputAddProject ? <div className="addNewProject">
                                     <input type="text" placeholder="Введите название"/>
                                 </div> : null }
-                                <ul>
-                                    <li>
-                                        <NavLink activeClassName="active" activeStyle = {{backgroundColor: '#5590CC', color: '#fff'}} to="/projects/project1">
-                                            Project 1
-                                        </NavLink>
-                                    </li>
-                                    <li><a href="pages/charts/morris.html"><i className="fa fa-file-text-o"></i> Morris</a></li>
-                                    <li><a href="pages/charts/flot.html"><i className="fa fa-file-text-o"></i> Flot</a></li>
-                                    <li><a href="pages/charts/inline.html"><i className="fa fa-file-text-o"></i> Inline charts</a></li>
-                                </ul>
+                                { projects ? <ul>{
+                                    projects.map((project) =>
+                                        <li key={project.id}>
+                                            <NavLink activeClassName="active" activeStyle = {{backgroundColor: '#5590CC', color: '#fff'}} to = {`/projects/${project.id}`}>
+                                                { project.title }
+                                            </NavLink>
+                                        </li>
+                                )}</ul> : null}
+
                             </div>
                         </li>
                     </ul>

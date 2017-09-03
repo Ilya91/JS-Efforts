@@ -1,10 +1,8 @@
 import React from 'react'
 import MyWork from '../MyWork'
 
-function issues(props) {
-    return (
+const issues = () => (
         <MyWork/>
-    )
-}
+)
 
 export default issues

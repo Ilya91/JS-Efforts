@@ -29,6 +29,38 @@ export const tasks = [
     }
 ]
 
+export const projects = [
+    {
+        "id": "5675yhrtgh56y56yhrt",
+        "userId": "2016-06-09T15:03:23.000Z",
+        "title": "Project 1",
+        "status": 0,
+        "description": "Voluptate est"
+    },
+    {
+        "id": "567ubyhetyugy565656",
+        "userId": "2016-06-09T15:03:23.000Z",
+        "title": "Project 2",
+        "status": 0,
+        "description": "Voluptate est"
+    },
+    {
+        "id": "w45ycf6yce5h5e7uveryu",
+        "userId": "2016-06-09T15:03:23.000Z",
+        "title": "Project 3",
+        "status": 0,
+        "description": "Voluptate est"
+    },
+    {
+        "id": "45675v6yec5hgec6c",
+        "userId": "2016-06-09T15:03:23.000Z",
+        "title": "Project 4",
+        "status": 0,
+        "description": "Voluptate est"
+    },
+]
+
+
 export const users = [
     {
         "id": "56c782f18990ecf954f6e027",

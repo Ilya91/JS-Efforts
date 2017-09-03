@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../MyWork/Content.css'
 import Moment from 'react-moment';
 import moment from 'moment'
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 
 class Projects extends Component {
     render(){
@@ -16,12 +17,8 @@ class Projects extends Component {
                     <div className="row">
                         <section className={ "col-lg-12"}>
                             <div className="box box-primary">
-                                <div className="box-header">
-                                    <h3 className="box-title">НА СЕГОДНЯ</h3>
-                                    <span className="myWorkData"><Moment format="MMM D"/></span>
-                                    <span className="label label-info pull-right">0</span>
-                                </div>
                                 <div className="box-body">
+                                    <h3 className="box-title">НА СЕГОДНЯ</h3>
                                 </div>
                                 {/*<ul className="taskList">
 
@@ -74,6 +71,7 @@ class Projects extends Component {
                                         </Moment>
                                     </span>
                                     <span className="label label-info pull-right">{/*{ this.getNumberOfTasks( afterNextWeek, null ) }*/}</span>
+                                    <Route path = "/projects/:id" />
                                 </div>
                                 {/*<ul className="taskList">
                                     {tasks ? (tasks.filter((task) => (
