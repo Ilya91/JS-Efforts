@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import './Content.css'
+import '../MyWork/Content.css'
+import './style.css'
 import { connect } from 'react-redux'
 import Select from 'react-select';
-import DayPicker from './DayPicker'
-import SubTaskItem from './SubTaskItem'
+import DayPicker from '../MyWork/DayPicker'
+import SubTaskItem from '../MyWork/SubTaskItem'
 import 'react-select/dist/react-select.css';
 import { deleteTask, addTaskDescription, changeTaskStatus, addSubTask } from '../../AC'
 import Moment from 'react-moment';
@@ -16,7 +17,7 @@ const options = [
     { value: 4, label: 'Отменена', color: '#9E9E9E', border: 'none' }
 ];
 
-class Task extends Component {
+class ProjectDetails extends Component {
     state = {
         addSubTaskActive: false
     }
@@ -91,91 +92,42 @@ class Task extends Component {
     }
 
     render(){
-        const { id, title, date, description, status, complete:{ to, from, duration }, subTasks, users } = this.props
+        const { project, title, date, description, status, subTasks, users } = this.props
         const { addSubTaskActive } = this.state
         return(
                         <section className="col-lg-6">
                             <div className="box box-primary task-description">
                                 <div className="header-task">
                                     <div className="task-title-left">
-                                        <h2 className="task-title">{ title }</h2>
-                                        <button type="button" className="btn btn-link pull-left add-project">
-                                            <i className="fa fa-plus"></i> Добавить в папку/проект
-                                        </button>
+                                        <h3 className="task-title">{ project.title }</h3>
                                     </div>
                                     <div className="task-links">
                                         <div className="dropdown">
                                             <button className="btn dropdown-toggle" type="button" data-toggle="dropdown">
                                                 <span className="glyphicon glyphicon-option-horizontal"></span></button>
                                             <ul className="dropdown-menu">
-                                                <li><a href="#" onClick={this.handleDelete}>Удалить задачу</a></li>
+                                                <li><a href="#" onClick={this.handleDelete}>Удалить проект</a></li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <table className="panel-task">
+                                <table className="panel-project">
                                     <tbody>
                                         <tr>
-                                            <td style={{borderRight: '1px solid #E1DFE1', width: '60px'}}>
-                                                <Select
-                                                    style={{ border: 'none'}}
-                                                    name="form-field-name"
-                                                    value={status}
-                                                    options={options}
-                                                    onChange={this.logChange}
-                                                    clearable={false}
-                                                    placeholder={false}
-                                                    optionRenderer={this.renderOption}
-                                                    valueComponent={this.valueComponent}
-                                                    valueRenderer={this.renderValue}
-                                                />
-                                            </td>
                                             <td className="task-users">
+                                                <p>Участники</p>
                                                 <ul className="task-users-list">
                                                     <li>
                                                         <img className="img-circle" src="/public/dist/img/avatar04.png" alt="img"/>
                                                         <span>Johan</span>
                                                     </li>
                                                 </ul>
-
                                                 <span data-toggle="dropdown" className="dropdown-toggle">
                                                     <i className="fa fa-plus"></i>
                                                 </span>
-                                                {/*{ users ? <ul className="subTaskUsers">
-                                                    { usersList.filter((userList) =>
-                                                        users.includes(userList.id)
-                                                    ).map((userList) =>
-                                                        <li key={userList.name}>
-                                                            <img className="img-circle" src={ userList.avatar } alt=""/>
-                                                            { userList.name }
-                                                        </li>)
-                                                    }
-                                                </ul> : null
-                                                }*/}
                                                 <ul className="dropdown-menu dropdownUsers">
                                                     <p>Добавьте пользователя</p>
-                                                    { users ? users.map((listUser) =>
-                                                        <li key={listUser.id}>
-                                                            <a
-                                                                href=""
-                                                                id={listUser.id}
-                                                                //onClick={this.handleAddUser(listUser.id)}
-                                                                //className={ users ? (users.includes(listUser.id) ? 'active' : '') : null}
-                                                                >
-                                                                <img className="img-circle" src={ listUser.avatar } alt="img"/>
-                                                                <span>{ listUser.name }</span>
-                                                            </a>
-                                                        </li>
-                                                    ) : null }
-
                                                 </ul>
-                                            </td>
-                                            <td className="task-info">
-                                                <p>
-                                                    <span>автор: </span>
-                                                    <a href="">johan</a>
-                                                    , <span><Moment format="HH:mm">{ date }</Moment></span>
-                                                </p>
                                             </td>
                                         </tr>
 
@@ -184,36 +136,11 @@ class Task extends Component {
                                                 <div className="taskCalendar">
                                                     <a data-toggle="modal" data-target="#myModal">
                                                         <i className="glyphicon glyphicon-calendar">
-                                                        </i> { from && to ? moment(from).format('MMM D') + ' - ' + moment(to).format('MMM D') : moment(date).format('MMM D') }
-                                                        { from && to ? ' (' + duration + 'д.)' : '' }
+                                                        </i>
                                                     </a>
-                                                </div>
-                                                <DayPicker id={ id } complete={this.getCompleteValue()}/>
-                                                <div className={"addSubTask" + (addSubTaskActive ? ' addSubTaskActive' : '')} onClick={this.handleAddSubTask}>
-                                                    <span>
-                                                        <i className="glyphicon glyphicon-list">
-                                                        </i>{ addSubTaskActive ? this.getNumberOfSubtasks() + ' subtasks' : 'Добавить подзадачу'}
-                                                    </span>
                                                 </div>
                                             </td>
                                         </tr>
-                                        { addSubTaskActive ?
-                                            <tr>
-                                                <td colSpan="3" id="idListSubs">
-                                                        { subTasks ? <ul className="listSubTasks">{subTasks.filter((subTask) =>
-                                                            subTask.taskId === id
-                                                        ).reverse().map((subTask) =>
-                                                            <SubTaskItem
-                                                                id={ subTask.id }
-                                                                key={ subTask.id }
-                                                                title={ subTask.title }
-                                                                users={ subTask.users }
-                                                                usersList={users}
-                                                            />
-                                                        )}</ul> : null}
-                                                </td>
-                                            </tr> : null
-                                        }
                                     <tr>
                                         <td colSpan="3">
                                         <form className="task-add-description">
@@ -240,4 +167,4 @@ class Task extends Component {
 export default connect((state) => ({
     subTasks: state.subTasks,
     users: state.users
-}), { deleteTask, addTaskDescription, changeTaskStatus, addSubTask })(Task)
+}), null)(ProjectDetails)

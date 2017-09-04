@@ -13,12 +13,12 @@ class Header extends Component {
                         <ul className="nav navbar-nav">
                             <li className="dropdown user user-menu">
                                 <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="public/dist/img/user2-160x160.jpg" className="user-image" alt="User Image"/>
+                                    <img src="/public/dist/img/user2-160x160.jpg" className="user-image" alt="User Image"/>
                                         <span className="hidden-xs">Alexander Pierce</span>
                                 </a>
                                 <ul className="dropdown-menu">
                                     <li className="user-header">
-                                        <img src="public/dist/img/user2-160x160.jpg" className="img-circle" alt="User Image"/>
+                                        <img src="/public/dist/img/user2-160x160.jpg" className="img-circle" alt="User Image"/>
 
                                             <p>
                                                 Alexander Pierce - Web Developer

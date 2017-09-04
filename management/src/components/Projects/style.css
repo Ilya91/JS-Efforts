@@ -58,9 +58,17 @@
     display: block;
     background-color: #F3F3F5;
     border-bottom:1px solid #E3E3E4;
-    padding: 3px 10px;
+    padding: 1px 10px;
 }
 .Collapsible__trigger i{
     font-size:12px;
     color: #8F9298;
+}
+.Collapsible__trigger p{
+    margin:0;
+}
+.Collapsible__trigger p span{
+    margin-left:2px;
+    color: #8F9298;
+    font-size:12px;
 }

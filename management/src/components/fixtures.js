@@ -32,28 +32,28 @@ export const tasks = [
 export const projects = [
     {
         "id": "5675yhrtgh56y56yhrt",
-        "userId": "2016-06-09T15:03:23.000Z",
+        "userId": "56c782f18990ecf954f6e027",
         "title": "Project 1",
         "status": 0,
         "description": "Voluptate est"
     },
     {
         "id": "567ubyhetyugy565656",
-        "userId": "2016-06-09T15:03:23.000Z",
+        "userId": "56c782f18990ecf954f6e027",
         "title": "Project 2",
         "status": 0,
         "description": "Voluptate est"
     },
     {
         "id": "w45ycf6yce5h5e7uveryu",
-        "userId": "2016-06-09T15:03:23.000Z",
+        "userId": "56c782f18990ecf954f6e027",
         "title": "Project 3",
         "status": 0,
         "description": "Voluptate est"
     },
     {
         "id": "45675v6yec5hgec6c",
-        "userId": "2016-06-09T15:03:23.000Z",
+        "userId": "56c782f18990ecf954f6e027",
         "title": "Project 4",
         "status": 0,
         "description": "Voluptate est"
@@ -65,16 +65,16 @@ export const users = [
     {
         "id": "56c782f18990ecf954f6e027",
         "name": "John Doe",
-        "avatar": "public/dist/img/avatar04.png"
+        "avatar": "/public/dist/img/avatar04.png"
     },
     {
         "id": "56c782f1978fdf9a0100df52",
         "name": "Jason Born",
-        "avatar": "public/dist/img/avatar2.png"
+        "avatar": "/public/dist/img/avatar2.png"
     },
     {
         "id": "56c782f1e17f4f9311dfaa2c",
         "name": "Jim Kerry",
-        "avatar": "public/dist/img/avatar5.png"
+        "avatar": "/public/dist/img/avatar5.png"
     }
 ]

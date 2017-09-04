@@ -4,11 +4,13 @@ import subTasks from './subTasks'
 import users from './users'
 import projects from './projects'
 import activeTask from './activeTask'
+import activeProject from './activeProject'
 
 export default combineReducers({
     tasks,
     activeTask,
     subTasks,
     users,
-    projects
+    projects,
+    activeProject
 })

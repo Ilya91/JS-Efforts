@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './Sidebar.css'
 import {NavLink} from 'react-router-dom'
+import { setActiveProject, setActiveTask } from '../../AC'
+import { connect } from 'react-redux'
 
 class Sidebar extends Component {
 
@@ -19,7 +21,12 @@ class Sidebar extends Component {
                 inputAddProject: false
             })
         }
-        console.log('plus')
+    }
+
+    handleClick = (id) => ev => {
+        const { setActiveProject, setActiveTask } = this.props
+        setActiveProject(id)
+        setActiveTask(null)
     }
 
     render(){
@@ -32,20 +39,21 @@ class Sidebar extends Component {
                         <form action="#" method="get" className="sidebar-form">
                             <div className="input-group">
                                 <input type="text" name="q" className="form-control" placeholder="Поиск задач..."/>
-                                {/*<span className="input-group-btn">
-                                    <button type="button" name="search" id="search-btn" className="btn btn-flat">
-                                        <i className="fa fa-search"></i>
-                                    </button>
-                                </span>*/}
                             </div>
                         </form>
                     </div>
                     <ul className="sidebar-menu" data-widget="tree">
                         <li>
-                            <NavLink activeClassName="active" activeStyle = {{backgroundColor: '#5590CC', color: '#fff'}} to="/issues"><i className="fa fa-laptop"></i>Моя работа</NavLink>
+                            <NavLink
+                                onClick={this.handleClick(null)}
+                                activeClassName="active"
+                                activeStyle = {{backgroundColor: '#5590CC', color: '#fff'}}
+                                to="/issues">
+                                <i className="fa fa-laptop"></i>
+                                Моя работа</NavLink>
                         </li>
                         <li>
-                            <NavLink activeClassName="active" activeStyle = {{backgroundColor: '#5590CC', color: '#fff'}} to="/projects">
+                            <NavLink onClick={this.handleClick(null)} activeClassName="active" activeStyle = {{backgroundColor: '#5590CC', color: '#fff'}} to="/projects">
                                 <i className="fa fa-dashboard"></i>Проекты
                                 <i className="fa fa-plus pull-right" onClick={this.handleAddProject}></i>
                             </NavLink>
@@ -56,7 +64,7 @@ class Sidebar extends Component {
                                 { projects ? <ul>{
                                     projects.map((project) =>
                                         <li key={project.id}>
-                                            <NavLink activeClassName="active" activeStyle = {{backgroundColor: '#5590CC', color: '#fff'}} to = {`/projects/${project.id}`}>
+                                            <NavLink onClick={this.handleClick(project.id)} activeClassName="active" activeStyle = {{backgroundColor: '#5590CC', color: '#fff'}} to = {`/projects/${project.id}`}>
                                                 { project.title }
                                             </NavLink>
                                         </li>
@@ -71,4 +79,4 @@ class Sidebar extends Component {
         )
     }
 }
-export default Sidebar
+export default connect(null, { setActiveProject, setActiveTask }, null, { pure: false })(Sidebar)

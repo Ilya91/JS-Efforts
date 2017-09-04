@@ -3,32 +3,47 @@ import 'react-tabs/style/react-tabs.css';
 import '../MyWork/Content.css'
 import './style.css'
 import ListOfTasks from './ListOfTasks'
+import ProjectDetails from './ProjectDetails'
 import FormTask from '../MyWork/FormTask'
 import Moment from 'react-moment';
+import { connect } from 'react-redux'
 import moment from 'moment'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import Task from '../MyWork/Task'
 
 
-class Projects extends Component {
+class Project extends Component {
+    state = { tabIndex: 0 }
 
+    getProject(){
+        const paramId = this.props.match.params.id
+        const { projects } = this.props
 
+        const project = projects.filter((project) =>
+            paramId === project.id
+        )[0]
+        return project
+    }
     render(){
         const startThisWeek = moment().startOf('isoWeek')
         const endThisWeek = moment().endOf('isoWeek')
         const startNextWeek = moment().add(1, 'weeks').startOf('isoWeek')
         const endNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
         const afterNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
-        const { tasks } = this.props
+        const paramId = this.props.match.params.id
+        const { tabIndex } = this.state
+        const { activeTask, tasks } = this.props
+        const project = this.getProject()
         return(
             <div className="content-wrapper">
                 <section className="content">
                     <div className="row">
-                        <section className={ "col-lg-12"}>
+                        <section className={ tabIndex ? "col-lg-12" : "col-lg-6"}>
                             <div className="box box-primary projects">
                                 <div className="box-body">
-                                    <h3 className="box-title">Проекты</h3>
+                                    <h3 className="box-title">{ project.title }</h3>
                                 </div>
-                                <Tabs>
+                                <Tabs selectedIndex={tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
                                     <TabList>
                                         <Tab>СПИСОК</Tab>
                                         <Tab>ТАБЛИЦА</Tab>
@@ -42,10 +57,10 @@ class Projects extends Component {
                                         </div>
                                     <TabPanel>
                                         <FormTask/>
-                                        <ListOfTasks/>
+                                        <ListOfTasks projectId={paramId}/>
                                     </TabPanel>
                                     <TabPanel>
-                                        table
+                                        <h2>Any content 2</h2>
                                     </TabPanel>
                                     <TabPanel>
                                         <h2>временная шакала</h2>
@@ -53,10 +68,26 @@ class Projects extends Component {
                                 </Tabs>
                             </div>
                         </section>
+                        { (tabIndex || activeTask) ? null : <ProjectDetails project={project}/>}
+                        { (activeTask && !tabIndex) ? tasks.filter((task) =>
+                            activeTask === task.id
+                        ).map((task) => <Task
+                            key={task.id}
+                            id={task.id}
+                            title={task.title}
+                            date={task.date}
+                            description={task.description ? task.description : ''}
+                            complete={task.complete ? task.complete : ''}
+                            status={task.status}
+                        />) : null }
                     </div>
                 </section>
             </div>
         )
     }
 }
-export default Projects
+export default connect((state) => ({
+    tasks: state.tasks,
+    projects: state.projects,
+    activeTask: state.activeTask
+}), null)(Project)

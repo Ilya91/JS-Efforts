@@ -7,7 +7,7 @@ class TaskItem extends Component {
         const { id, title, date, onClick } = this.props
         return(
             <li onClick={onClick} id={id} className={this.getClassName()}>
-                <img className="img-circle" src="public/dist/img/avatar04.png" alt="img"/>
+                <img className="img-circle" src="/public/dist/img/avatar04.png" alt="img"/>
                 <strong>{ title }</strong>
                 <span><Moment format="MMM D">{ date }</Moment></span>
             </li>

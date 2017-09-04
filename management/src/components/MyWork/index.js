@@ -138,7 +138,7 @@ class MyWork extends Component {
                                 { activeTask ? tasks.filter((task) =>
                                     activeTask === task.id
                                 ).map(function (task) {
-                                    if(task.status.label === ''){
+                                    if(task.status === 0){
                                         return null
                                     }else {
                                         return (

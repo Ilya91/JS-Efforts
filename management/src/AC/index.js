@@ -8,7 +8,8 @@ import {
     ADD_SUB_TASK,
     CHANGE_SUB_TASK_TITLE,
     ADD_SUB_TASK_USER,
-    LOAD_ALL_TASKS
+    LOAD_ALL_TASKS,
+    SET_ACTIVE_PROJECT
 } from '../constants'
 
 export function addNewTask(task) {
@@ -96,5 +97,14 @@ export function loadAllTasks() {
     return {
         type: LOAD_ALL_TASKS,
         callAPI: 'http://127.0.0.1:3000/tasks'
+    }
+}
+
+export function setActiveProject(id) {
+    return{
+        type: SET_ACTIVE_PROJECT,
+        payload: {
+            id
+        }
     }
 }
