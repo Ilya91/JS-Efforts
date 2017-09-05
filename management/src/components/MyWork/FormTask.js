@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { addNewTask } from '../../AC'
 import { FormGroup, FormControl, HelpBlock } from 'react-bootstrap'
+import moment from 'moment'
 
 class FormTask extends Component {
     state = {
@@ -57,8 +58,8 @@ class FormTask extends Component {
         this.setState({
             task: {
                 title: e.target.value,
-                id: (Date.now() + Math.random()).toString(),
-                date: Date.now(),
+                id: (Date.now()).toString(),
+                date: moment().toDate(),
                 status:{
                     value: 0,
                     label: ''

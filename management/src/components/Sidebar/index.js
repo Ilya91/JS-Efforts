@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
 import './Sidebar.css'
 import {NavLink} from 'react-router-dom'
-import { setActiveProject, setActiveTask } from '../../AC'
+import { setActiveProject, setActiveTask, addNewProject } from '../../AC'
 import { connect } from 'react-redux'
+import moment from 'moment'
 
 class Sidebar extends Component {
 
     state = {
-        inputAddProject: false
+        inputAddProject: false,
+        error: false,
+        project: {
+            title: '',
+            id: '',
+            status:0,
+            description:''
+        }
     }
 
     handleAddProject = () => {
@@ -29,8 +37,43 @@ class Sidebar extends Component {
         setActiveTask(null)
     }
 
+    handleChange = (e) => {
+        this.setState({
+            project: {
+                title: e.target.value,
+                id: (Date.now()).toString(),
+                date: moment().toDate(),
+                status:0,
+                description:''
+            },
+            error: false
+        })
+
+    }
+    handleSubmit = (e) => {
+        const { addNewProject } = this.props
+        const { project } = this.state
+        e.preventDefault()
+        if(project.title !== ''){
+            addNewProject(project)
+            this.setState({
+                project: {
+                    title: '',
+                    id: '',
+                    date: null
+                },
+                inputAddProject: false,
+                error: false
+            })
+        }else {
+            this.setState({
+                error: true
+            })
+        }
+    }
+
     render(){
-        const { inputAddProject } = this.state
+        const { inputAddProject, project:{title}, error } = this.state
         const { projects } = this.props
         return(
             <aside className="main-sidebar">
@@ -59,7 +102,9 @@ class Sidebar extends Component {
                             </NavLink>
                             <div className="projectList">
                                 { inputAddProject ? <div className="addNewProject">
-                                    <input type="text" placeholder="Введите название"/>
+                                    <form onSubmit={this.handleSubmit} className={'form-group' + ( error ? ' has-error' : '')}>
+                                        <input type="text" placeholder="Введите название" onChange={this.handleChange} value={title} className={'form-control'}/>
+                                    </form>
                                 </div> : null }
                                 { projects ? <ul>{
                                     projects.map((project) =>
@@ -79,4 +124,4 @@ class Sidebar extends Component {
         )
     }
 }
-export default connect(null, { setActiveProject, setActiveTask }, null, { pure: false })(Sidebar)
+export default connect(null, { setActiveProject, setActiveTask, addNewProject }, null, { pure: false })(Sidebar)

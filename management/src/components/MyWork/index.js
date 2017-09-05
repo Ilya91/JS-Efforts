@@ -182,16 +182,19 @@ class MyWork extends Component {
     }
 
     _updateLocalStorage() {
-        const { tasks, subTasks } = this.props
+        const { tasks, subTasks, projects } = this.props
         let tasksStorage = JSON.stringify(tasks)
         localStorage.setItem('tasks', tasksStorage)
 
         let subTasksStorage = JSON.stringify(subTasks)
         localStorage.setItem('subTasks', subTasksStorage)
 
+        let projectsStorage = JSON.stringify(projects)
+        localStorage.setItem('projects', projectsStorage)
     }
 }
 export default connect((state) => ({
+    projects: state.projects,
     tasks: state.tasks,
     subTasks: state.subTasks,
     activeTask: state.activeTask

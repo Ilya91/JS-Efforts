@@ -55,7 +55,7 @@ export const projects = [
         "id": "45675v6yec5hgec6c",
         "userId": "56c782f18990ecf954f6e027",
         "title": "Project 4",
-        "status": 0,
+        "status": 1,
         "description": "Voluptate est"
     },
 ]

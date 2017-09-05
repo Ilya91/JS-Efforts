@@ -9,8 +9,12 @@ import {
     CHANGE_SUB_TASK_TITLE,
     ADD_SUB_TASK_USER,
     LOAD_ALL_TASKS,
-    SET_ACTIVE_PROJECT
+    SET_ACTIVE_PROJECT,
+    ADD_NEW_PROJECT,
+    DELETE_PROJECT
 } from '../constants'
+
+import {push, replace} from 'react-router-redux'
 
 export function addNewTask(task) {
     return{
@@ -99,12 +103,41 @@ export function loadAllTasks() {
         callAPI: 'http://127.0.0.1:3000/tasks'
     }
 }
-
+/* projects */
 export function setActiveProject(id) {
     return{
         type: SET_ACTIVE_PROJECT,
         payload: {
             id
         }
+    }
+}
+
+export function addNewProject(project) {
+    return{
+        type: ADD_NEW_PROJECT,
+        payload: {
+            project
+        }
+    }
+}
+
+/*export function deleteProject(id) {
+    return{
+        type: DELETE_PROJECT,
+        payload: {
+            id
+        }
+    }
+}*/
+
+export function deleteProject(id) {
+    return (dispatch) => {
+        dispatch(replace('/projects'))
+        dispatch({
+            type: DELETE_PROJECT,
+            payload: { id }
+        })
+
     }
 }

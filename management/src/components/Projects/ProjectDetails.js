@@ -3,18 +3,20 @@ import '../MyWork/Content.css'
 import './style.css'
 import { connect } from 'react-redux'
 import Select from 'react-select';
-import DayPicker from '../MyWork/DayPicker'
-import SubTaskItem from '../MyWork/SubTaskItem'
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
 import 'react-select/dist/react-select.css';
-import { deleteTask, addTaskDescription, changeTaskStatus, addSubTask } from '../../AC'
+import { deleteProject, setActiveProject, addTaskDescription, changeTaskStatus, addSubTask } from '../../AC'
 import Moment from 'react-moment';
 import moment from 'moment';
 
+const DAY_FORMAT = 'DD/MM/YYYY';
+
 const options = [
-    { value: 1, label: "Активна", color: '#2196F3', border: 'none'},
-    { value: 2, label: 'Завершена', color: '#8CC34B', border: 'none' },
-    { value: 3, label: 'Отложена', color: '#673BB7', border: 'none' },
-    { value: 4, label: 'Отменена', color: '#9E9E9E', border: 'none' }
+    { value: 1, label: "Активно", color: '#2196F3', border: 'none'},
+    { value: 2, label: 'Завершено', color: '#8CC34B', border: 'none' },
+    { value: 3, label: 'Отложено', color: '#673BB7', border: 'none' },
+    { value: 4, label: 'Отменено', color: '#9E9E9E', border: 'none' }
 ];
 
 class ProjectDetails extends Component {
@@ -29,14 +31,15 @@ class ProjectDetails extends Component {
             selected: val,
             addSubTaskActive: false
         })
-        changeTaskStatus(id, val)
+        //changeTaskStatus(id, val)
         console.log("Selected: " + JSON.stringify(val))
 
     }
     handleDelete = (e) => {
         e.preventDefault()
-        const { id, deleteTask } = this.props
-        deleteTask(id)
+        const { project, deleteProject, setActiveProject } = this.props
+        setActiveProject(null)
+        deleteProject(project.id)
     }
 
     handleDescChange = (e) => {
@@ -53,7 +56,7 @@ class ProjectDetails extends Component {
     }
 
     renderValue(option) {
-        return <span key={option.value}><div className="selectSquare" style={{ border: option.border, backgroundColor: option.color}}></div></span>;
+        return <span key={option.value}><div className="selectSquare" style={{ border: option.border, backgroundColor: option.color}}></div>{option.label}</span>;
     }
 
 
@@ -99,7 +102,7 @@ class ProjectDetails extends Component {
                             <div className="box box-primary task-description">
                                 <div className="header-task">
                                     <div className="task-title-left">
-                                        <h3 className="task-title">{ project.title }</h3>
+                                        <h3 className="task-title">{ project ? project.title : null }</h3>
                                     </div>
                                     <div className="task-links">
                                         <div className="dropdown">
@@ -113,37 +116,72 @@ class ProjectDetails extends Component {
                                 </div>
                                 <table className="panel-project">
                                     <tbody>
-                                        <tr>
-                                            <td className="task-users">
-                                                <p>Участники</p>
-                                                <ul className="task-users-list">
-                                                    <li>
-                                                        <img className="img-circle" src="/public/dist/img/avatar04.png" alt="img"/>
-                                                        <span>Johan</span>
-                                                    </li>
-                                                </ul>
-                                                <span data-toggle="dropdown" className="dropdown-toggle">
+                                    <tr>
+                                        <td>
+                                        <div className="panel-project-title-item">
+                                            <span className='panel-project-title'>Участники</span>
+                                            <span className='project-title-divider'>|</span>
+                                        </div>
+                                        <ul className="project-users-list">
+                                            <li>
+                                                <img className="img-circle" src="/public/dist/img/avatar04.png" alt="img"/>
+                                            </li>
+                                        </ul>
+                                        <span data-toggle="dropdown" className="dropdown-toggle">
                                                     <i className="fa fa-plus"></i>
                                                 </span>
-                                                <ul className="dropdown-menu dropdownUsers">
-                                                    <p>Добавьте пользователя</p>
-                                                </ul>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td colSpan="3">
-                                                <div className="taskCalendar">
-                                                    <a data-toggle="modal" data-target="#myModal">
-                                                        <i className="glyphicon glyphicon-calendar">
-                                                        </i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        <ul className="dropdown-menu dropdownUsers">
+                                            <p>Добавьте пользователя</p>
+                                        </ul>
+                                        </td>
+                                    </tr>
                                     <tr>
-                                        <td colSpan="3">
-                                        <form className="task-add-description">
+                                        <td>
+                                            <div className="panel-project-title-item">
+                                                <span className='panel-project-title'>Дата начала проекта</span>
+                                                <span className='project-title-divider'>|</span>
+                                            </div>
+                                            <div className='project-date'>
+                                                <DayPickerInput format={DAY_FORMAT} placeholder="MM/DD/YYYY"/>
+                                            </div>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        <div className="panel-project-title-item">
+                                            <span className='panel-project-title'>Дата завершения проекта</span>
+                                            <span className='project-title-divider'>|</span>
+                                        </div>
+                                            <div className='project-date'>
+                                                <DayPickerInput format={DAY_FORMAT} placeholder="MM/DD/YYYY"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        <div className="panel-project-title-item">
+                                            <span className='panel-project-title'>Status</span>
+                                            <span className='project-title-divider'>|</span>
+                                        </div>
+                                            <div className='project-select-status'>
+                                                <Select
+                                                    style={{ border: 'none'}}
+                                                    name="form-field-name"
+                                                    value={this.state.selected}
+                                                    options={options}
+                                                    onChange={this.logChange}
+                                                    clearable={false}
+                                                    placeholder={'Change status'}
+                                                    optionRenderer={this.renderOption}
+                                                    valueComponent={this.valueComponent}
+                                                    valueRenderer={this.renderValue}
+                                                />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <form className="project-add-description">
                                             <textarea
                                                 onChange={this.handleDescChange}
                                                 style={{ resize: 'none' }}
@@ -152,9 +190,14 @@ class ProjectDetails extends Component {
                                                 placeholder="Нажмите, чтобы добавить описание"
                                                 value={ description }>
                                             </textarea>
-                                        </form>
+                                            </form>
                                         </td>
                                     </tr>
+                                    </tbody>
+                                </table>
+                                <table className='panel-task'>
+                                    <tbody>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -167,4 +210,4 @@ class ProjectDetails extends Component {
 export default connect((state) => ({
     subTasks: state.subTasks,
     users: state.users
-}), null)(ProjectDetails)
+}), { deleteProject, setActiveProject })(ProjectDetails)

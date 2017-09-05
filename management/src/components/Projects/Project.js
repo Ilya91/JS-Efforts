@@ -41,7 +41,7 @@ class Project extends Component {
                         <section className={ tabIndex ? "col-lg-12" : "col-lg-6"}>
                             <div className="box box-primary projects">
                                 <div className="box-body">
-                                    <h3 className="box-title">{ project.title }</h3>
+                                    <h3 className="box-title">{ project ? project.title : null }</h3>
                                 </div>
                                 <Tabs selectedIndex={tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
                                     <TabList>

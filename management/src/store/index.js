@@ -5,9 +5,11 @@ import reducer from '../reducers'
 import logger from 'redux-logger'
 import idGenerator from '../middlewares/idGenerator'
 import api from '../middlewares/api'
+import {routerMiddleware} from 'react-router-redux'
+import history from '../history'
 
 const store = createStore(reducer, composeWithDevTools(
-    applyMiddleware(thunk, logger, idGenerator, api)
+    applyMiddleware(thunk, routerMiddleware(history), logger, idGenerator, api)
 ))
 
 // only for dev
