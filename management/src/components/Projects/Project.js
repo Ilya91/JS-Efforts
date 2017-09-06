@@ -56,7 +56,7 @@ class Project extends Component {
                                             </ul>
                                         </div>
                                     <TabPanel>
-                                        <FormTask/>
+                                        <FormTask projectId={paramId}/>
                                         <ListOfTasks projectId={paramId}/>
                                     </TabPanel>
                                     <TabPanel>
@@ -68,7 +68,13 @@ class Project extends Component {
                                 </Tabs>
                             </div>
                         </section>
-                        { (tabIndex || activeTask) ? null : <ProjectDetails project={project}/>}
+                        { (tabIndex || activeTask) ? null : <ProjectDetails
+                            project={project}
+                            description={project.description}
+                            status={project.status}
+                            dateStart={project.dateStart}
+                            dateEnd={project.dateEnd}
+                        />}
                         { (activeTask && !tabIndex) ? tasks.filter((task) =>
                             activeTask === task.id
                         ).map((task) => <Task

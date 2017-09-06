@@ -47,6 +47,7 @@ class FormTask extends Component {
     }
 
     handleChange = (e) => {
+        const { projectId } = this.props
         let today = new Date()
         let options = { month: 'long', day: 'numeric' }
         let date = today.toLocaleDateString("ru-RU", options)
@@ -57,6 +58,7 @@ class FormTask extends Component {
         }
         this.setState({
             task: {
+                projectId: projectId ? projectId : null,
                 title: e.target.value,
                 id: (Date.now()).toString(),
                 date: moment().toDate(),

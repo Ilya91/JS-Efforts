@@ -43,7 +43,10 @@ class Sidebar extends Component {
                 title: e.target.value,
                 id: (Date.now()).toString(),
                 date: moment().toDate(),
-                status:0,
+                status:{
+                    value: 0,
+                    label:''
+                },
                 description:''
             },
             error: false

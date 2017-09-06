@@ -41,7 +41,6 @@ class ListOfTasks extends Component {
     }
 
     render(){
-        const { projectId } = this.props
         const tasks = this.getTasks()
         const tommorow = moment().add(1, 'days')
         const endThisWeek = moment().endOf('isoWeek')
@@ -50,6 +49,11 @@ class ListOfTasks extends Component {
         const afterNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
         return(
             <div>
+                <ul className="taskList">
+                    {tasks ? (tasks.filter((task) =>
+                        !task.complete || task.complete.to === null || moment().isSame(moment(task.complete.to), 'day')
+                    ).map((task) => this.taskItemBody(task))) : '' }
+                </ul>
                 <Collapsible
                     open={true}
                     transitionTime={400}

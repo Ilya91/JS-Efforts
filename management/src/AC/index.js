@@ -11,7 +11,11 @@ import {
     LOAD_ALL_TASKS,
     SET_ACTIVE_PROJECT,
     ADD_NEW_PROJECT,
-    DELETE_PROJECT
+    DELETE_PROJECT,
+    ADD_PROJECT_DESCRIPTION,
+    CHANGE_PROJECT_STATUS,
+    SET_PROJECT_DAY_START,
+    SET_PROJECT_DAY_END
 } from '../constants'
 
 import {push, replace} from 'react-router-redux'
@@ -121,16 +125,6 @@ export function addNewProject(project) {
         }
     }
 }
-
-/*export function deleteProject(id) {
-    return{
-        type: DELETE_PROJECT,
-        payload: {
-            id
-        }
-    }
-}*/
-
 export function deleteProject(id) {
     return (dispatch) => {
         dispatch(replace('/projects'))
@@ -139,5 +133,41 @@ export function deleteProject(id) {
             payload: { id }
         })
 
+    }
+}
+
+export function addProjectDescription(id, desc) {
+    return{
+        type: ADD_PROJECT_DESCRIPTION,
+        payload: {
+            id, desc
+        }
+    }
+}
+
+export function changeProjectStatus(id, status) {
+    return{
+        type: CHANGE_PROJECT_STATUS,
+        payload: {
+            id, status
+        }
+    }
+}
+
+export function setProjectDayStart(id, dateStart) {
+    return{
+        type: SET_PROJECT_DAY_START,
+        payload: {
+            id, dateStart
+        }
+    }
+}
+
+export function setProjectDayEnd(id, dateEnd) {
+    return{
+        type: SET_PROJECT_DAY_END,
+        payload: {
+            id, dateEnd
+        }
     }
 }

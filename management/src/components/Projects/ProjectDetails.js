@@ -6,8 +6,14 @@ import Select from 'react-select';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 import 'react-select/dist/react-select.css';
-import { deleteProject, setActiveProject, addTaskDescription, changeTaskStatus, addSubTask } from '../../AC'
-import Moment from 'react-moment';
+import {
+    deleteProject,
+    setActiveProject,
+    addProjectDescription,
+    changeProjectStatus,
+    setProjectDayStart,
+    setProjectDayEnd
+} from '../../AC'
 import moment from 'moment';
 
 const DAY_FORMAT = 'DD/MM/YYYY';
@@ -20,20 +26,10 @@ const options = [
 ];
 
 class ProjectDetails extends Component {
-    state = {
-        addSubTaskActive: false
-    }
 
     logChange = (val) => {
-        const { id, changeTaskStatus } = this.props
-        const { addSubTaskActive } = this.state
-        this.setState({
-            selected: val,
-            addSubTaskActive: false
-        })
-        //changeTaskStatus(id, val)
-        console.log("Selected: " + JSON.stringify(val))
-
+        const { project:{id}, changeProjectStatus } = this.props
+        changeProjectStatus(id, val.value)
     }
     handleDelete = (e) => {
         e.preventDefault()
@@ -42,17 +38,10 @@ class ProjectDetails extends Component {
         deleteProject(project.id)
     }
 
-    handleDescChange = (e) => {
-        const { id, addTaskDescription } = this.props
-        const desc = e.target.value
-        const data = {
-            id, desc
-        }
-        addTaskDescription( data )
-        const { addSubTaskActive } = this.state
-        this.setState({
-            addSubTaskActive: false
-        })
+    handleProjectDescChange = (e) => {
+        const { project:{id}, addProjectDescription } = this.props
+        let desc = e.target.value
+        addProjectDescription( id, desc )
     }
 
     renderValue(option) {
@@ -64,45 +53,24 @@ class ProjectDetails extends Component {
         return <span key={option.value}><div className="selectSquare" style={{ backgroundColor: option.color, border: 'none'}}></div>{option.label}</span>;
     }
 
-    handleAddSubTask = () => {
-        const { id, addSubTask } = this.props
-        const { addSubTaskActive } = this.state
-        this.setState({
-            addSubTaskActive: true
-        })
-        const subtask = {
-            id: (Date.now() + Math.random()).toString(),
-            taskId: id,
-            title: 'New sub task',
-            users: null
-        }
-        addSubTask(id, subtask)
+    handleDayStartChange = (selectedDay) => {
+        const { project:{id}, setProjectDayStart } = this.props
+        setProjectDayStart(id, selectedDay.toDate())
     }
 
-    getNumberOfSubtasks = () => {
-        const { subTasks, id } = this.props
-        return subTasks ? subTasks.filter((subTask) =>
-            subTask.taskId === id
-        ).length : null
-    }
-
-    getCompleteValue = () => {
-        const { complete } = this.props
-        if(complete !== 'undefined'){
-            return complete
-        }
-        return null
+    handleDayEndChange = (selectedDay) => {
+        const { project:{id}, setProjectDayEnd } = this.props
+        setProjectDayEnd(id, selectedDay.toDate())
     }
 
     render(){
-        const { project, title, date, description, status, subTasks, users } = this.props
-        const { addSubTaskActive } = this.state
+        const { project:{title}, description, dateStart, dateEnd, status, users } = this.props
         return(
                         <section className="col-lg-6">
                             <div className="box box-primary task-description">
                                 <div className="header-task">
                                     <div className="task-title-left">
-                                        <h3 className="task-title">{ project ? project.title : null }</h3>
+                                        <h3 className="task-title">{ title ? title : null }</h3>
                                     </div>
                                     <div className="task-links">
                                         <div className="dropdown">
@@ -132,6 +100,19 @@ class ProjectDetails extends Component {
                                                 </span>
                                         <ul className="dropdown-menu dropdownUsers">
                                             <p>Добавьте пользователя</p>
+                                            { users ? users.map((listUser) =>
+                                                <li key={listUser.id}>
+                                                    <a
+                                                        href=""
+                                                        id={listUser.id}
+                                                        //onClick={this.handleAddUser(listUser.id)}
+                                                        //className={ users ? (users.includes(listUser.id) ? 'active' : '') : null}
+                                                    >
+                                                        <img className="img-circle" src={ listUser.avatar } alt="img"/>
+                                                        <span>{ listUser.name }</span>
+                                                    </a>
+                                                </li>
+                                            ) : null }
                                         </ul>
                                         </td>
                                     </tr>
@@ -142,7 +123,12 @@ class ProjectDetails extends Component {
                                                 <span className='project-title-divider'>|</span>
                                             </div>
                                             <div className='project-date'>
-                                                <DayPickerInput format={DAY_FORMAT} placeholder="MM/DD/YYYY"/>
+                                                <DayPickerInput
+                                                    format={DAY_FORMAT}
+                                                    placeholder="DD/MM/YYYY"
+                                                    value={dateStart ? moment(dateStart).format("DD/MM/YYYY") : ''}
+                                                    onDayChange={this.handleDayStartChange}
+                                                />
                                             </div>
                                             </td>
                                     </tr>
@@ -153,7 +139,12 @@ class ProjectDetails extends Component {
                                             <span className='project-title-divider'>|</span>
                                         </div>
                                             <div className='project-date'>
-                                                <DayPickerInput format={DAY_FORMAT} placeholder="MM/DD/YYYY"/>
+                                                <DayPickerInput
+                                                    format={DAY_FORMAT}
+                                                    placeholder="DD/MM/YYYY"
+                                                    value={dateEnd ? moment(dateEnd).format("DD/MM/YYYY") : ''}
+                                                    onDayChange={this.handleDayEndChange}
+                                                />
                                             </div>
                                         </td>
                                     </tr>
@@ -167,7 +158,7 @@ class ProjectDetails extends Component {
                                                 <Select
                                                     style={{ border: 'none'}}
                                                     name="form-field-name"
-                                                    value={this.state.selected}
+                                                    value={status}
                                                     options={options}
                                                     onChange={this.logChange}
                                                     clearable={false}
@@ -183,7 +174,7 @@ class ProjectDetails extends Component {
                                         <td>
                                             <form className="project-add-description">
                                             <textarea
-                                                onChange={this.handleDescChange}
+                                                onChange={this.handleProjectDescChange}
                                                 style={{ resize: 'none' }}
                                                 className="form-control"
                                                 rows="3"
@@ -208,6 +199,12 @@ class ProjectDetails extends Component {
 }
 
 export default connect((state) => ({
-    subTasks: state.subTasks,
     users: state.users
-}), { deleteProject, setActiveProject })(ProjectDetails)
+}), {
+    deleteProject,
+    setActiveProject,
+    addProjectDescription,
+    changeProjectStatus,
+    setProjectDayStart,
+    setProjectDayEnd
+})(ProjectDetails)
