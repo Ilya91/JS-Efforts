@@ -15,7 +15,7 @@ class ListOfTasks extends Component {
 
 
     taskItemBody = ( task ) => {
-        const { activeTask } = this.props
+        const { activeTask, projectId } = this.props
         return (
             <TaskItem
                 key={task.id}
@@ -24,8 +24,18 @@ class ListOfTasks extends Component {
                 title={task.title}
                 date={task.date}
                 isActive={task.id === activeTask}
+                projectId={projectId}
+                titleProject={this.getTitleProject()}
             />
         )
+    }
+
+    getTitleProject = () => {
+        const { projectId, projects } = this.props
+        let project = projects.filter((project) => (
+            project.id === projectId
+        ))
+        return project ? project.title : null
     }
 
     handleClickTask = (id) => ev => {
@@ -96,6 +106,7 @@ class ListOfTasks extends Component {
 }
 export default connect((state) => ({
     tasks: state.tasks,
+    projects: state.projects,
     subTasks: state.subTasks,
     activeTask: state.activeTask
 }), { setActiveTask, loadAllTasks })(ListOfTasks)

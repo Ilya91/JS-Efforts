@@ -7,10 +7,12 @@ import FormTask from '../MyWork/FormTask'
 import Moment from 'react-moment';
 import moment from 'moment'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import Task from '../MyWork/Task'
+import { connect } from 'react-redux'
 
 
 class Projects extends Component {
-
+    state = { tabIndex: 0 }
 
     render(){
         const startThisWeek = moment().startOf('isoWeek')
@@ -18,17 +20,18 @@ class Projects extends Component {
         const startNextWeek = moment().add(1, 'weeks').startOf('isoWeek')
         const endNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
         const afterNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
-        const { tasks } = this.props
+        const { tabIndex } = this.state
+        const { activeTask, tasks } = this.props
         return(
             <div className="content-wrapper">
                 <section className="content">
                     <div className="row">
-                        <section className={ "col-lg-12"}>
+                        <section className={ tabIndex || !activeTask ? "col-lg-12" : "col-lg-6"}>
                             <div className="box box-primary projects">
                                 <div className="box-body">
                                     <h3 className="box-title">Проекты</h3>
                                 </div>
-                                <Tabs>
+                                <Tabs selectedIndex={tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
                                     <TabList>
                                         <Tab>СПИСОК</Tab>
                                         <Tab>ТАБЛИЦА</Tab>
@@ -53,10 +56,25 @@ class Projects extends Component {
                                 </Tabs>
                             </div>
                         </section>
+                        { (activeTask && !tabIndex) ? tasks.filter((task) =>
+                            activeTask === task.id
+                        ).map((task) => <Task
+                            key={task.id}
+                            id={task.id}
+                            title={task.title}
+                            date={task.date}
+                            description={task.description ? task.description : ''}
+                            complete={task.complete ? task.complete : ''}
+                            status={task.status}
+                        />) : null }
                     </div>
                 </section>
             </div>
         )
     }
 }
-export default Projects
+export default connect((state) => ({
+    tasks: state.tasks,
+    projects: state.projects,
+    activeTask: state.activeTask
+}), null)(Projects)
