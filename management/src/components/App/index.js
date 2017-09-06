@@ -4,12 +4,12 @@ import Header from '../Header'
 import NotFound from '../routes/NotFound'
 import issues from '../routes/issues'
 import projects from '../routes/projects'
-import MyWork from '../MyWork'
-import Projects from '../Projects'
 import { connect } from 'react-redux'
 import './App.css'
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 import moment from 'moment';
+import history from '../../history'
+import { ConnectedRouter } from 'react-router-redux'
 
 moment.updateLocale('ru', {
     monthsShort : {
@@ -23,7 +23,7 @@ class App extends Component {
     render(){
         const { stateProjects } = this.props
         return(
-                <Router>
+                <ConnectedRouter history = {history}>
                     <div>
                         <Header/>
                         <Sidebar projects={stateProjects}/>
@@ -34,10 +34,28 @@ class App extends Component {
                             <Route path = "*" component = {NotFound}/>
                         </Switch>
                     </div>
-                </Router>
+                </ConnectedRouter>
         )
+    }
+
+    componentDidUpdate() {
+        this._updateLocalStorage();
+    }
+
+    _updateLocalStorage() {
+        const { tasks, subTasks, stateProjects } = this.props
+        let tasksStorage = JSON.stringify(tasks)
+        localStorage.setItem('tasks', tasksStorage)
+
+        let subTasksStorage = JSON.stringify(subTasks)
+        localStorage.setItem('subTasks', subTasksStorage)
+
+        let projectsStorage = JSON.stringify(stateProjects)
+        localStorage.setItem('projects', projectsStorage)
     }
 }
 export default connect((state) => ({
-    stateProjects: state.projects
+    stateProjects: state.projects,
+    tasks: state.tasks,
+    subTasks: state.subTasks
 }))(App)

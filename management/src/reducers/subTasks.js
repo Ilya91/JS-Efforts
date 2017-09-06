@@ -1,14 +1,14 @@
-let localSubTasks = JSON.parse(localStorage.getItem('subTasks'))
+/*let localSubTasks = JSON.parse(localStorage.getItem('subTasks'))
 if(localSubTasks === null){
     localSubTasks = []
-}
+}*/
 import {arrToMap, mapToArr} from '../helpers'
 import {
     ADD_SUB_TASK,
     CHANGE_SUB_TASK_TITLE,
     ADD_SUB_TASK_USER
 } from '../constants'
-export default ( taskState = localSubTasks, action) => {
+export default ( taskState = [], action) => {
     const { type, payload } = action
 
     switch (type) {
