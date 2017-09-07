@@ -25,11 +25,6 @@ class Project extends Component {
         return project
     }
     render(){
-        const startThisWeek = moment().startOf('isoWeek')
-        const endThisWeek = moment().endOf('isoWeek')
-        const startNextWeek = moment().add(1, 'weeks').startOf('isoWeek')
-        const endNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
-        const afterNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
         const paramId = this.props.match.params.id
         const { tabIndex } = this.state
         const { activeTask, tasks } = this.props
@@ -85,6 +80,7 @@ class Project extends Component {
                             description={task.description ? task.description : ''}
                             complete={task.complete ? task.complete : ''}
                             status={task.status}
+                            projectDetails={true}
                         />) : null }
                     </div>
                 </section>

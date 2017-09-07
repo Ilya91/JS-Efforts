@@ -21,7 +21,7 @@ class Projects extends Component {
         const endNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
         const afterNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
         const { tabIndex } = this.state
-        const { activeTask, tasks } = this.props
+        const { activeTask, tasks, projects } = this.props
         return(
             <div className="content-wrapper">
                 <section className="content">
@@ -45,7 +45,7 @@ class Projects extends Component {
                                         </div>
                                     <TabPanel>
                                         <FormTask/>
-                                        <ListOfTasks/>
+                                        <ListOfTasks projects={projects}/>
                                     </TabPanel>
                                     <TabPanel>
                                         table

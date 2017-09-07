@@ -119,7 +119,8 @@ class Task extends Component {
             subTasks,
             users,
             projects,
-            projectId
+            projectId,
+            projectDetails
         } = this.props
         const { addSubTaskActive } = this.state
         const project = this.getProjectForTask()
@@ -129,11 +130,10 @@ class Task extends Component {
                                 <div className="header-task">
                                     <div className="task-title-left">
                                         <h2 className="task-title">{ title }</h2>
-                                        { project }
-                                        <button data-toggle="dropdown" onClick={this.handleAddToProject} type="button" className="dropdown-toggle btn btn-link pull-left add-project">
+                                        { !projectDetails ? project : null}
+                                        {!projectDetails ? <button data-toggle="dropdown" onClick={this.handleAddToProject} type="button" className="dropdown-toggle btn btn-link pull-left add-project">
                                             <i className="fa fa-plus"></i> { project ? 'Сменить проект' : 'Добавить в папку/проект'}
-                                        </button>
-
+                                        </button> : null}
 
                                         <ul className="dropdown-menu dropdownUsers">
                                             <p>Добавьте задачу в проект</p>
