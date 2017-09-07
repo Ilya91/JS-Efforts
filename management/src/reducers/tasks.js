@@ -9,7 +9,8 @@ import { ADD_NEW_TASK,
         ADD_TASK_DESCRIPTION,
         CHANGE_TASK_STATUS,
         SET_TASK_DATERANGE,
-        LOAD_ALL_TASKS
+        LOAD_ALL_TASKS,
+        ADD_TASK_TO_PROJECT
 } from '../constants'
 import { Map, List } from 'immutable'
 
@@ -17,7 +18,9 @@ export default ( taskState = localTasks, action) => {
     const { type, payload, response } = action
 
     switch (type) {
-        case LOAD_ALL_TASKS: return response.data
+        case LOAD_ALL_TASKS:
+            return localTasks
+            /*return response.data*/
         case ADD_NEW_TASK: return [...taskState, payload.task ]
         case DELETE_NEW_TASK: return taskState.filter(task => task.id !== payload.id)
         case CHANGE_TASK_STATUS:
@@ -49,17 +52,17 @@ export default ( taskState = localTasks, action) => {
             })
             return val2
 
-        /*case ADD_SUB_TASK:
+        case ADD_TASK_TO_PROJECT:
             taskState = arrToMap(taskState)
-            const task = taskState[payload.id]
-            const newState2 = {
+            let task = taskState[payload.id]
+            const projectId = payload.projectId
+            let imm = {
                 ...taskState,
-                [payload.id]: {
-                    ...task,
-                    subtasks: (task.subtasks || []).concat(payload.subtask)
+                [payload.id]:{
+                    ...task, projectId
                 }
             }
-            return mapToArr(newState2)*/
+            return mapToArr(imm)
 
     }
     return taskState

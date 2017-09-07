@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
 import './Content.css'
 import { connect } from 'react-redux'
-import Select from 'react-select';
+import Select from 'react-select'
 import DayPicker from './DayPicker'
 import SubTaskItem from './SubTaskItem'
-import 'react-select/dist/react-select.css';
-import { deleteTask, addTaskDescription, changeTaskStatus, addSubTask } from '../../AC'
-import Moment from 'react-moment';
-import moment from 'moment';
+import 'react-select/dist/react-select.css'
+import { deleteTask, addTaskDescription, changeTaskStatus, addSubTask, addTaskToProject } from '../../AC'
+import Moment from 'react-moment'
+import moment from 'moment'
 
 const options = [
     { value: 1, label: "Активна", color: '#2196F3', border: 'none'},
     { value: 2, label: 'Завершена', color: '#8CC34B', border: 'none' },
     { value: 3, label: 'Отложена', color: '#673BB7', border: 'none' },
     { value: 4, label: 'Отменена', color: '#9E9E9E', border: 'none' }
-];
+]
 
 class Task extends Component {
     state = {
@@ -90,18 +90,67 @@ class Task extends Component {
         return null
     }
 
+    handleAddToProject = (e) => {
+        e.preventDefault()
+    }
+
+    handleAddProject = (projectId) => (e) => {
+        const { id, addTaskToProject } = this.props
+        e.preventDefault()
+        addTaskToProject(id, projectId)
+    }
+
+    getProjectForTask(){
+        const { id, projectId, projects } = this.props
+        return projectId ? projects.filter((project) =>
+            project.id === projectId
+        ).map((project) =>
+        <span className="projectTitle" key={project.id}>{ project.title }</span>) : null
+    }
+
     render(){
-        const { id, title, date, description, status, complete:{ to, from, duration }, subTasks, users } = this.props
+        const {
+            id,
+            title,
+            date,
+            description,
+            status,
+            complete:{ to, from, duration },
+            subTasks,
+            users,
+            projects,
+            projectId
+        } = this.props
         const { addSubTaskActive } = this.state
+        const project = this.getProjectForTask()
         return(
                         <section className="col-lg-6">
                             <div className="box box-primary task-description">
                                 <div className="header-task">
                                     <div className="task-title-left">
                                         <h2 className="task-title">{ title }</h2>
-                                        <button type="button" className="btn btn-link pull-left add-project">
-                                            <i className="fa fa-plus"></i> Добавить в папку/проект
+                                        { project }
+                                        <button data-toggle="dropdown" onClick={this.handleAddToProject} type="button" className="dropdown-toggle btn btn-link pull-left add-project">
+                                            <i className="fa fa-plus"></i> { project ? 'Сменить проект' : 'Добавить в папку/проект'}
                                         </button>
+
+
+                                        <ul className="dropdown-menu dropdownUsers">
+                                            <p>Добавьте задачу в проект</p>
+                                            { projects ? projects.map((project) =>
+                                                <li key={project.id}>
+                                                    <a
+                                                        href=""
+                                                        id={project.id}
+                                                        onClick={this.handleAddProject(project.id)}
+                                                        //className={ users ? (users.includes(listUser.id) ? 'active' : '') : null}
+                                                    >
+                                                        <span>{ project.title }</span>
+                                                    </a>
+                                                </li>
+                                            ) : null }
+
+                                        </ul>
                                     </div>
                                     <div className="task-links">
                                         <div className="dropdown">
@@ -141,17 +190,6 @@ class Task extends Component {
                                                 <span data-toggle="dropdown" className="dropdown-toggle">
                                                     <i className="fa fa-plus"></i>
                                                 </span>
-                                                {/*{ users ? <ul className="subTaskUsers">
-                                                    { usersList.filter((userList) =>
-                                                        users.includes(userList.id)
-                                                    ).map((userList) =>
-                                                        <li key={userList.name}>
-                                                            <img className="img-circle" src={ userList.avatar } alt=""/>
-                                                            { userList.name }
-                                                        </li>)
-                                                    }
-                                                </ul> : null
-                                                }*/}
                                                 <ul className="dropdown-menu dropdownUsers">
                                                     <p>Добавьте пользователя</p>
                                                     { users ? users.map((listUser) =>
@@ -239,5 +277,12 @@ class Task extends Component {
 
 export default connect((state) => ({
     subTasks: state.subTasks,
+    projects: state.projects,
     users: state.users
-}), { deleteTask, addTaskDescription, changeTaskStatus, addSubTask })(Task)
+}), {
+    deleteTask,
+    addTaskDescription,
+    changeTaskStatus,
+    addSubTask,
+    addTaskToProject
+})(Task)

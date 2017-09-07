@@ -15,7 +15,8 @@ import {
     ADD_PROJECT_DESCRIPTION,
     CHANGE_PROJECT_STATUS,
     SET_PROJECT_DAY_START,
-    SET_PROJECT_DAY_END
+    SET_PROJECT_DAY_END,
+    ADD_TASK_TO_PROJECT
 } from '../constants'
 
 import {push, replace} from 'react-router-redux'
@@ -168,6 +169,15 @@ export function setProjectDayEnd(id, dateEnd) {
         type: SET_PROJECT_DAY_END,
         payload: {
             id, dateEnd
+        }
+    }
+}
+
+export function addTaskToProject(id, projectId) {
+    return{
+        type: ADD_TASK_TO_PROJECT,
+        payload: {
+            id, projectId
         }
     }
 }

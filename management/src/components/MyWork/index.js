@@ -165,6 +165,7 @@ class MyWork extends Component {
                                     description={task.description ? task.description : ''}
                                     complete={task.complete ? task.complete : ''}
                                     status={task.status}
+                                    projectId={task.projectId}
                         />) : <OtherDays getNumberOfTasks={ this.getNumberOfTasks }/>  }
 
                     </div>

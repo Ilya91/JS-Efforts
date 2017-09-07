@@ -983,3 +983,12 @@ ul.dropdownUsers{
     border: none;
     padding:10px 20px 0 20px;
 }
+
+.projectTitle{
+    float: left;
+    color: rgb(85, 144, 204);
+    border: 1px solid #d2d2d2;
+    padding:0 10px;
+    margin-right:10px;
+    font-weight:600;
+}
