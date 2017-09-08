@@ -41,8 +41,8 @@
 .project-filters ul{
     list-style: none;
     padding:0;
-    overflow: hidden;
     margin:0;
+    padding-bottom:30px;
 }
 .project-filters ul li{
     float: left;
@@ -75,3 +75,21 @@
 .project-add-description{
     border-top: 1px solid #E3E3E4;
 }
+.project-filters .Select-control{
+    background:none;
+}
+.project-filters .Select-input{
+    width:145px;
+}
+.project-filters .Select-arrow-zone{
+    display: none;
+}
+.project-filters .Select-value-label{
+    cursor: pointer;
+    padding:3px 15px;
+    background-color: #d5d8dd;
+    border-radius:15px;
+}
+/*.project-filters .is-focused input{
+
+}*/

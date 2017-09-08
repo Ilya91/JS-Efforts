@@ -9,10 +9,35 @@ import moment from 'moment'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Task from '../MyWork/Task'
 import { connect } from 'react-redux'
+import Select from 'react-select'
+const options = [
+    { value: 1, label: "Активна", color: '#2196F3', border: 'none'},
+    { value: 2, label: 'Завершена', color: '#8CC34B', border: 'none' },
+    { value: 3, label: 'Отложена', color: '#673BB7', border: 'none' },
+    { value: 4, label: 'Отменена', color: '#9E9E9E', border: 'none' }
+]
 
 
 class Projects extends Component {
     state = { tabIndex: 0 }
+    logChange = (val) => {
+        const { id, changeTaskStatus } = this.props
+        this.setState({
+            selected: val,
+            addSubTaskActive: false
+        })
+        console.log("Selected: " + JSON.stringify(val))
+
+    }
+
+    renderValue(option) {
+        return <span key={option.value}>Статус: {option.label}</span>;
+    }
+
+
+    renderOption(option){
+        return <span key={option.value}><div className="selectSquare" style={{ backgroundColor: option.color, border: 'none'}}></div>{option.label}</span>;
+    }
 
     render(){
         const startThisWeek = moment().startOf('isoWeek')
@@ -20,7 +45,7 @@ class Projects extends Component {
         const startNextWeek = moment().add(1, 'weeks').startOf('isoWeek')
         const endNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
         const afterNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
-        const { tabIndex } = this.state
+        const { tabIndex, selected } = this.state
         const { activeTask, tasks, projects } = this.props
         return(
             <div className="content-wrapper">
@@ -39,7 +64,21 @@ class Projects extends Component {
                                     </TabList>
                                         <div className="project-filters">
                                             <ul>
-                                                <li>СТАТУС: Любой</li>
+                                                <li>
+                                                    <Select
+                                                        style={{ border: 'none'}}
+                                                        name="form-field-name"
+                                                        value={selected}
+                                                        options={options}
+                                                        onChange={this.logChange}
+                                                        clearable={false}
+                                                        placeholder={false}
+                                                        optionRenderer={this.renderOption}
+                                                        valueComponent={this.valueComponent}
+                                                        valueRenderer={this.renderValue}
+                                                    />
+                                                </li>
+                                                <li data-toggle="dropdown" className="dropdown-toggle">СТАТУС: Любой</li>
                                                 <li>ИСПОЛНИТЕЛЬ: Все</li>
                                             </ul>
                                         </div>
