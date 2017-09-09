@@ -4,34 +4,52 @@ import '../MyWork/Content.css'
 import './style.css'
 import ListOfTasks from './ListOfTasks'
 import FormTask from '../MyWork/FormTask'
-import Moment from 'react-moment';
-import moment from 'moment'
+import {arrToMap, mapToArr} from '../../helpers'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Task from '../MyWork/Task'
 import { connect } from 'react-redux'
 import Select from 'react-select'
+
 const options = [
+    { value: 0, label: "Любой", color: '#fff', border: '1px solid #2196F3'},
     { value: 1, label: "Активна", color: '#2196F3', border: 'none'},
     { value: 2, label: 'Завершена', color: '#8CC34B', border: 'none' },
     { value: 3, label: 'Отложена', color: '#673BB7', border: 'none' },
     { value: 4, label: 'Отменена', color: '#9E9E9E', border: 'none' }
 ]
 
+const options2 = [
+    { id: 0, label: "Все"}
+]
+
 
 class Projects extends Component {
-    state = { tabIndex: 0 }
+
+    getUsersForOptions = () => {
+        const { users } = this.props
+        return options2.concat(users)
+    }
+    state = {
+        tabIndex: 0,
+        selected: 0,
+        selectedUser: { id: 0, name: "Все"}
+    }
     logChange = (val) => {
-        const { id, changeTaskStatus } = this.props
         this.setState({
-            selected: val,
-            addSubTaskActive: false
+            selected: val
         })
         console.log("Selected: " + JSON.stringify(val))
+    }
 
+    logChangeUser = (val) => {
+        this.setState({
+            selectedUser: val
+        })
+        console.log("Selected: " + JSON.stringify(val))
     }
 
     renderValue(option) {
-        return <span key={option.value}>Статус: {option.label}</span>;
+        return <span key={option.value}>СТАТУС: {option.label}</span>;
     }
 
 
@@ -39,14 +57,18 @@ class Projects extends Component {
         return <span key={option.value}><div className="selectSquare" style={{ backgroundColor: option.color, border: 'none'}}></div>{option.label}</span>;
     }
 
+    renderValueUser(option) {
+        return <span key={option.value? option.value : option.id}>ИСПОЛНИТЕЛЬ: {option.label ? option.label : option.name}</span>;
+    }
+
+
+    renderOptionUser(option){
+        return <span key={option.value? option.value : option.id}>{option.label ? option.label : option.name}</span>;
+    }
+
     render(){
-        const startThisWeek = moment().startOf('isoWeek')
-        const endThisWeek = moment().endOf('isoWeek')
-        const startNextWeek = moment().add(1, 'weeks').startOf('isoWeek')
-        const endNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
-        const afterNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
-        const { tabIndex, selected } = this.state
-        const { activeTask, tasks, projects } = this.props
+        const { tabIndex, selected, selectedUser } = this.state
+        const { activeTask, projects, tasks } = this.props
         return(
             <div className="content-wrapper">
                 <section className="content">
@@ -74,17 +96,32 @@ class Projects extends Component {
                                                         clearable={false}
                                                         placeholder={false}
                                                         optionRenderer={this.renderOption}
-                                                        valueComponent={this.valueComponent}
                                                         valueRenderer={this.renderValue}
                                                     />
                                                 </li>
-                                                <li data-toggle="dropdown" className="dropdown-toggle">СТАТУС: Любой</li>
-                                                <li>ИСПОЛНИТЕЛЬ: Все</li>
+
+                                                <li>
+                                                    <Select
+                                                        style={{ border: 'none'}}
+                                                        name="form-field-name"
+                                                        value={selectedUser}
+                                                        options={this.getUsersForOptions()}
+                                                        onChange={this.logChangeUser}
+                                                        clearable={false}
+                                                        placeholder={false}
+                                                        optionRenderer={this.renderOptionUser}
+                                                        valueRenderer={this.renderValueUser}
+                                                    />
+                                                </li>
                                             </ul>
                                         </div>
                                     <TabPanel>
                                         <FormTask/>
-                                        <ListOfTasks projects={projects}/>
+                                        <ListOfTasks
+                                            projects={projects}
+                                            filterStatus={this.state.selected.value}
+                                            filterUsers={this.state.selectedUser.id}
+                                        />
                                     </TabPanel>
                                     <TabPanel>
                                         table
@@ -115,5 +152,6 @@ class Projects extends Component {
 export default connect((state) => ({
     tasks: state.tasks,
     projects: state.projects,
-    activeTask: state.activeTask
+    activeTask: state.activeTask,
+    users: state.users
 }), null)(Projects)

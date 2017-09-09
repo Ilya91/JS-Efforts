@@ -42,8 +42,28 @@ class ListOfTasks extends Component {
                     )) : tasks ) : null
     }
 
+    filterTasks(status = 0, user = 0, tasks) {
+        if(status !==0 && user !== 0){
+            tasks = tasks.filter((task) => {
+                return task.status === status && task.userId === user
+            })
+        }else if(status === 0 && user !== 0){
+            tasks = tasks.filter((task) => {
+                return task.userId === user
+            })
+        }else if(status !==0 && user === 0){
+            tasks = tasks.filter((task) => {
+                return task.status === status
+            })
+        }else {
+            return tasks
+        }
+        return tasks
+    }
+
     render(){
-        const tasks = this.getTasks()
+        const { filterStatus, filterUsers } = this.props
+        const tasks = this.filterTasks(filterStatus, filterUsers, this.getTasks())
         const tommorow = moment().add(1, 'days')
         const endThisWeek = moment().endOf('isoWeek')
         const startNextWeek = moment().add(1, 'weeks').startOf('isoWeek')

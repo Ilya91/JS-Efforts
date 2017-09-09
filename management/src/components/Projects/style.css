@@ -47,7 +47,6 @@
 .project-filters ul li{
     float: left;
     padding-left:0;
-    margin-right:20px;
     font-weight:600;
     color: #659FD5;
     font-size: 12px;
@@ -79,7 +78,10 @@
     background:none;
 }
 .project-filters .Select-input{
-    width:145px;
+    width:155px;
+}
+.project-filters li:last-child .Select-input{
+    width:200px;
 }
 .project-filters .Select-arrow-zone{
     display: none;
@@ -87,9 +89,22 @@
 .project-filters .Select-value-label{
     cursor: pointer;
     padding:3px 15px;
-    background-color: #d5d8dd;
+    background-color: #F5F8FD;
     border-radius:15px;
 }
-/*.project-filters .is-focused input{
+.project-filters .Select-value-label:hover{
+     background-color:#DFE6F0;
+}
 
-}*/
+.project-filters .Select-value-label span{
+    color: #659FD5;
+    font-weight:600;
+    font-size: 13px;
+}
+
+.project-filters .Select .Select-menu-outer{
+    width: 130px !important;
+    position: absolute;
+    left:0;
+    top: 30px;
+}

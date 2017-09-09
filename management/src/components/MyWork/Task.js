@@ -21,15 +21,15 @@ class Task extends Component {
         addSubTaskActive: false
     }
 
-    logChange = (val) => {
+    logChange = (status) => {
         const { id, changeTaskStatus } = this.props
         const { addSubTaskActive } = this.state
         this.setState({
-            selected: val,
+            selected: status,
             addSubTaskActive: false
         })
-        changeTaskStatus(id, val)
-        console.log("Selected: " + JSON.stringify(val))
+        changeTaskStatus(id, status.value)
+        console.log("Selected: " + JSON.stringify(status.value))
 
     }
     handleDelete = (e) => {

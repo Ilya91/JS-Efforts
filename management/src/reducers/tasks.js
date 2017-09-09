@@ -14,7 +14,7 @@ import { ADD_NEW_TASK,
 } from '../constants'
 import { Map, List } from 'immutable'
 
-export default ( taskState = localTasks, action) => {
+export default ( taskState = DefaultTasks, action) => {
     const { type, payload, response } = action
 
     switch (type) {
