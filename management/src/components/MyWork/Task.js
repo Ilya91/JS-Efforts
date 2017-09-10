@@ -5,7 +5,8 @@ import Select from 'react-select'
 import DayPicker from './DayPicker'
 import SubTaskItem from './SubTaskItem'
 import 'react-select/dist/react-select.css'
-import { deleteTask, addTaskDescription, changeTaskStatus, addSubTask, addTaskToProject } from '../../AC'
+import { deleteTask, addTaskDescription, changeTaskStatus, addSubTask, addTaskToProject, addUserToTask } from '../../AC'
+import { getUserForTask } from '../functions'
 import Moment from 'react-moment'
 import moment from 'moment'
 
@@ -100,6 +101,12 @@ class Task extends Component {
         addTaskToProject(id, projectId)
     }
 
+    handleAddUserForProject = (userId) => (e)=> {
+        const { id, addUserToTask } = this.props
+        e.preventDefault()
+        addUserToTask(id, userId)
+    }
+
     getProjectForTask(){
         const { id, projectId, projects } = this.props
         return projectId ? projects.filter((project) =>
@@ -120,7 +127,9 @@ class Task extends Component {
             users,
             projects,
             projectId,
-            projectDetails
+            projectDetails,
+            authorId,
+            executors
         } = this.props
         const { addSubTaskActive } = this.state
         const project = this.getProjectForTask()
@@ -181,10 +190,12 @@ class Task extends Component {
                                             </td>
                                             <td className="task-users">
                                                 <ul className="task-users-list">
-                                                    <li>
-                                                        <img className="img-circle" src="/public/dist/img/avatar04.png" alt="img"/>
-                                                        <span>Johan</span>
-                                                    </li>
+                                                    { getUserForTask(executors, users).map((user) =>
+                                                        <li key={user.id}>
+                                                            <img className="img-circle" src={ user.avatar } alt="img"/>
+                                                            <span>{ user.name }</span>
+                                                        </li>
+                                                    )}
                                                 </ul>
 
                                                 <span data-toggle="dropdown" className="dropdown-toggle">
@@ -197,8 +208,8 @@ class Task extends Component {
                                                             <a
                                                                 href=""
                                                                 id={listUser.id}
-                                                                //onClick={this.handleAddUser(listUser.id)}
-                                                                //className={ users ? (users.includes(listUser.id) ? 'active' : '') : null}
+                                                                onClick={this.handleAddUserForProject( listUser.id )}
+                                                                className={ users ? (users.includes(listUser.id) ? 'active' : '') : null}
                                                                 >
                                                                 <img className="img-circle" src={ listUser.avatar } alt="img"/>
                                                                 <span>{ listUser.name }</span>
@@ -211,7 +222,7 @@ class Task extends Component {
                                             <td className="task-info">
                                                 <p>
                                                     <span>автор: </span>
-                                                    <a href="">johan</a>
+                                                    <span>{ getUserForTask(authorId, users).map((user) => user.name)}</span>
                                                     , <span><Moment format="HH:mm">{ date }</Moment></span>
                                                 </p>
                                             </td>
@@ -284,5 +295,6 @@ export default connect((state) => ({
     addTaskDescription,
     changeTaskStatus,
     addSubTask,
-    addTaskToProject
+    addTaskToProject,
+    addUserToTask
 })(Task)

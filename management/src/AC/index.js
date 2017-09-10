@@ -16,7 +16,8 @@ import {
     CHANGE_PROJECT_STATUS,
     SET_PROJECT_DAY_START,
     SET_PROJECT_DAY_END,
-    ADD_TASK_TO_PROJECT
+    ADD_TASK_TO_PROJECT,
+    ADD_USER_TO_TASK
 } from '../constants'
 
 import {push, replace} from 'react-router-redux'
@@ -108,6 +109,17 @@ export function loadAllTasks() {
         callAPI: 'http://127.0.0.1:3000/tasks'
     }
 }
+
+export function addUserToTask(id, userId) {
+    return{
+        type: ADD_USER_TO_TASK,
+        payload: {
+            id, userId
+        }
+    }
+}
+
+
 /* projects */
 export function setActiveProject(id) {
     return{
@@ -181,3 +193,4 @@ export function addTaskToProject(id, projectId) {
         }
     }
 }
+

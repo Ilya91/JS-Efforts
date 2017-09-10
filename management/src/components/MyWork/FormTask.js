@@ -65,7 +65,9 @@ class FormTask extends Component {
                 status:{
                     value: 0,
                     label: ''
-                }
+                },
+                authorId: '56c782f1e17f4f9311dfaa2c',
+                executors:['56c782f1978fdf9a0100df52']
             }
         });
     }
