@@ -4,6 +4,7 @@ import '../MyWork/Content.css'
 import './style.css'
 import ListOfTasks from './ListOfTasks'
 import ProjectDetails from './ProjectDetails'
+import Table from './Table'
 import FormTask from '../MyWork/FormTask'
 import Moment from 'react-moment';
 import { connect } from 'react-redux'
@@ -11,6 +12,7 @@ import moment from 'moment'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Task from '../MyWork/Task'
 import Select from 'react-select'
+import { getTasks } from '../functions'
 
 const options = [
     { value: 0, label: "Любой", color: '#fff', border: '1px solid #2196F3'},
@@ -136,7 +138,11 @@ class Project extends Component {
                                         />
                                     </TabPanel>
                                     <TabPanel>
-                                        <h2>Any content 2</h2>
+                                        <Table
+                                            project={project}
+                                            projectId={paramId}
+                                            tasks={getTasks(tasks, paramId)}
+                                        />
                                     </TabPanel>
                                     <TabPanel>
                                         <h2>временная шакала</h2>
@@ -174,5 +180,6 @@ class Project extends Component {
 export default connect((state) => ({
     tasks: state.tasks,
     projects: state.projects,
-    activeTask: state.activeTask
+    activeTask: state.activeTask,
+    users: state.users
 }), null)(Project)

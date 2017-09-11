@@ -4,3 +4,9 @@ export function getUserForTask(id, users){
     }
     return users.filter((user) => user.id === id)
 }
+
+export function getTasks(tasks, projectId = null){
+    return tasks ? ( projectId ? tasks.filter((task) => (
+        task.projectId === projectId
+    )) : tasks ) : null
+}

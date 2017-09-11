@@ -4,8 +4,7 @@ import './style.css'
 import Moment from 'react-moment';
 import moment from 'moment'
 import Collapsible from 'react-collapsible';
-import Item from './Item'
-
+import { getTasks } from '../functions'
 import { connect } from 'react-redux'
 import { setActiveTask, loadAllTasks } from '../../AC'
 import TaskItem from '../MyWork/TaskItem'
@@ -35,21 +34,15 @@ class ListOfTasks extends Component {
         setActiveTask(id)
     }
 
-    getTasks = () => {
-        const { tasks, projectId } = this.props
-        return tasks ? ( projectId ? tasks.filter((task) => (
-                        task.projectId === projectId
-                    )) : tasks ) : null
-    }
 
     filterTasks(status = 0, user = 0, tasks) {
         if(status !==0 && user !== 0){
             tasks = tasks.filter((task) => {
-                return task.status === status && task.userId === user
+                return task.status === status && task.executors.includes(user)
             })
         }else if(status === 0 && user !== 0){
             tasks = tasks.filter((task) => {
-                return task.userId === user
+                return task.executors.includes(user)
             })
         }else if(status !==0 && user === 0){
             tasks = tasks.filter((task) => {
@@ -62,8 +55,8 @@ class ListOfTasks extends Component {
     }
 
     render(){
-        const { filterStatus, filterUsers } = this.props
-        const tasks = this.filterTasks(filterStatus, filterUsers, this.getTasks())
+        const { filterStatus, filterUsers, tasksStore, projectId } = this.props
+        const tasks = this.filterTasks(filterStatus, filterUsers, getTasks(tasksStore, projectId))
         const tommorow = moment().add(1, 'days')
         const endThisWeek = moment().endOf('isoWeek')
         const startNextWeek = moment().add(1, 'weeks').startOf('isoWeek')
@@ -117,7 +110,7 @@ class ListOfTasks extends Component {
     }
 }
 export default connect((state) => ({
-    tasks: state.tasks,
+    tasksStore: state.tasks,
     subTasks: state.subTasks,
     activeTask: state.activeTask
 }), { setActiveTask, loadAllTasks })(ListOfTasks)

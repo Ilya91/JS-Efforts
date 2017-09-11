@@ -1,0 +1,29 @@
+.table-view{
+    width:100%;
+}
+.table-view td{
+    border:1px solid #C8C8C9;
+}
+.table-view thead{
+    background-color: #E6E7E9;
+    color: #969088;
+    font-size: 13px;
+}
+.table-view thead td{
+    padding:5px;
+}
+.first-cell{
+    width:40px;
+}
+.title-cell{
+    width:50%;
+}
+.project{
+    background-color: #F3F3F3;
+    color: #969088;
+    font-size: 14px;
+    font-weight:600;
+}
+.project td{
+    padding:5px;
+}
