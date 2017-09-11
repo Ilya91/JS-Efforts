@@ -610,6 +610,7 @@ button.task-status-toggle{
 }
 .task-users-list li{
     float: left;
+    margin-right:10px;
 }
 .task-users img, .project-users-list img{
     width:35px;

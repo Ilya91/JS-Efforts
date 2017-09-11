@@ -15,12 +15,12 @@ import { ADD_NEW_TASK,
 } from '../constants'
 import { Map, List } from 'immutable'
 
-export default ( taskState = DefaultTasks, action) => {
+export default ( taskState = localTasks, action) => {
     const { type, payload, response } = action
 
     switch (type) {
         case LOAD_ALL_TASKS:
-            return localTasks
+            return taskState
             /*return response.data*/
         case ADD_NEW_TASK: return [...taskState, payload.task ]
         case DELETE_NEW_TASK: return taskState.filter(task => task.id !== payload.id)

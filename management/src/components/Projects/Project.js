@@ -10,10 +10,63 @@ import { connect } from 'react-redux'
 import moment from 'moment'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Task from '../MyWork/Task'
+import Select from 'react-select'
+
+const options = [
+    { value: 0, label: "Любой", color: '#fff', border: '1px solid #2196F3'},
+    { value: 1, label: "Активна", color: '#2196F3', border: 'none'},
+    { value: 2, label: 'Завершена', color: '#8CC34B', border: 'none' },
+    { value: 3, label: 'Отложена', color: '#673BB7', border: 'none' },
+    { value: 4, label: 'Отменена', color: '#9E9E9E', border: 'none' }
+]
+
+const options2 = [
+    { id: 0, label: "Все"}
+]
 
 
 class Project extends Component {
-    state = { tabIndex: 0 }
+
+    getUsersForOptions = () => {
+        const { users } = this.props
+        return options2.concat(users)
+    }
+    state = {
+        tabIndex: 0,
+        selected: 0,
+        selectedUser: { id: 0, name: "Все"}
+    }
+    logChange = (val) => {
+        this.setState({
+            selected: val
+        })
+        console.log("Selected: " + JSON.stringify(val))
+    }
+
+    logChangeUser = (val) => {
+        this.setState({
+            selectedUser: val
+        })
+        console.log("Selected: " + JSON.stringify(val))
+    }
+
+    renderValue(option) {
+        return <span key={option.value}>СТАТУС: {option.label}</span>;
+    }
+
+
+    renderOption(option){
+        return <span key={option.value}><div className="selectSquare" style={{ backgroundColor: option.color, border: 'none'}}></div>{option.label}</span>;
+    }
+
+    renderValueUser(option) {
+        return <span key={option.value? option.value : option.id}>ИСПОЛНИТЕЛЬ: {option.label ? option.label : option.name}</span>;
+    }
+
+
+    renderOptionUser(option){
+        return <span key={option.value? option.value : option.id}>{option.label ? option.label : option.name}</span>;
+    }
 
     getProject(){
         const paramId = this.props.match.params.id
@@ -26,7 +79,7 @@ class Project extends Component {
     }
     render(){
         const paramId = this.props.match.params.id
-        const { tabIndex } = this.state
+        const { tabIndex, selected, selectedUser } = this.state
         const { activeTask, tasks } = this.props
         const project = this.getProject()
         return(
@@ -44,15 +97,43 @@ class Project extends Component {
                                         <Tab>ТАБЛИЦА</Tab>
                                         <Tab>ВРЕМЕННАЯ ШКАЛА</Tab>
                                     </TabList>
-                                        <div className="project-filters">
-                                            <ul>
-                                                <li>СТАТУС: Любой</li>
-                                                <li>ИСПОЛНИТЕЛЬ: Все</li>
-                                            </ul>
-                                        </div>
+                                    <div className="project-filters">
+                                        <ul>
+                                            <li>
+                                                <Select
+                                                    style={{ border: 'none'}}
+                                                    name="form-field-name"
+                                                    value={selected}
+                                                    options={options}
+                                                    onChange={this.logChange}
+                                                    clearable={false}
+                                                    placeholder={false}
+                                                    optionRenderer={this.renderOption}
+                                                    valueRenderer={this.renderValue}
+                                                />
+                                            </li>
+                                            <li>
+                                                <Select
+                                                    style={{ border: 'none'}}
+                                                    name="form-field-name"
+                                                    value={selectedUser}
+                                                    options={this.getUsersForOptions()}
+                                                    onChange={this.logChangeUser}
+                                                    clearable={false}
+                                                    placeholder={false}
+                                                    optionRenderer={this.renderOptionUser}
+                                                    valueRenderer={this.renderValueUser}
+                                                />
+                                            </li>
+                                        </ul>
+                                    </div>
                                     <TabPanel>
                                         <FormTask projectId={paramId}/>
-                                        <ListOfTasks projectId={paramId}/>
+                                        <ListOfTasks
+                                            filterStatus={this.state.selected.value}
+                                            filterUsers={this.state.selectedUser.id}
+                                            projectId={paramId}
+                                        />
                                     </TabPanel>
                                     <TabPanel>
                                         <h2>Any content 2</h2>
@@ -81,6 +162,8 @@ class Project extends Component {
                             complete={task.complete ? task.complete : ''}
                             status={task.status}
                             projectDetails={true}
+                            authorId={task.authorId}
+                            executors={task.executors}
                         />) : null }
                     </div>
                 </section>

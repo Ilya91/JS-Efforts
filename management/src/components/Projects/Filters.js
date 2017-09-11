@@ -2,12 +2,6 @@ import React, { Component } from 'react'
 import 'react-tabs/style/react-tabs.css';
 import '../MyWork/Content.css'
 import './style.css'
-import ListOfTasks from './ListOfTasks'
-import Filters from './Filters'
-import FormTask from '../MyWork/FormTask'
-import {arrToMap, mapToArr} from '../../helpers'
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import Task from '../MyWork/Task'
 import { connect } from 'react-redux'
 import Select from 'react-select'
 
@@ -24,7 +18,7 @@ const options2 = [
 ]
 
 
-class Projects extends Component {
+class Filters extends Component {
 
     getUsersForOptions = () => {
         const { users } = this.props
@@ -35,12 +29,12 @@ class Projects extends Component {
         selected: 0,
         selectedUser: { id: 0, name: "Все"}
     }
-    logChange = (val) => {
+/*    logChange = (val) => {
         this.setState({
             selected: val
         })
         console.log("Selected: " + JSON.stringify(val))
-    }
+    }*/
 
     logChangeUser = (val) => {
         this.setState({
@@ -68,24 +62,9 @@ class Projects extends Component {
     }
 
     render(){
-        const { tabIndex, selected, selectedUser } = this.state
-        const { activeTask, projects, tasks } = this.props
+        const { selected, selectedUser } = this.state
         return(
-            <div className="content-wrapper">
-                <section className="content">
-                    <div className="row">
-                        <section className={ tabIndex || !activeTask ? "col-lg-12" : "col-lg-6"}>
-                            <div className="box box-primary projects">
-                                <div className="box-body">
-                                    <h3 className="box-title">Проекты</h3>
-                                </div>
-                                <Tabs selectedIndex={tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
-                                    <TabList>
-                                        <Tab>СПИСОК</Tab>
-                                        <Tab>ТАБЛИЦА</Tab>
-                                        <Tab>ВРЕМЕННАЯ ШКАЛА</Tab>
-                                    </TabList>
-                                        <div className="project-filters">
+                                  <div className="project-filters">
                                             <ul>
                                                 <li>
                                                     <Select
@@ -93,14 +72,13 @@ class Projects extends Component {
                                                         name="form-field-name"
                                                         value={selected}
                                                         options={options}
-                                                        onChange={this.logChange}
+                                                        onChange={this.props.logChange}
                                                         clearable={false}
                                                         placeholder={false}
                                                         optionRenderer={this.renderOption}
                                                         valueRenderer={this.renderValue}
                                                     />
                                                 </li>
-
                                                 <li>
                                                     <Select
                                                         style={{ border: 'none'}}
@@ -116,46 +94,9 @@ class Projects extends Component {
                                                 </li>
                                             </ul>
                                         </div>
-                                    <TabPanel>
-                                        <FormTask/>
-                                        <ListOfTasks
-                                            projects={projects}
-                                            filterStatus={this.state.selected.value}
-                                            filterUsers={this.state.selectedUser.id}
-                                        />
-                                    </TabPanel>
-                                    <TabPanel>
-                                        table
-                                    </TabPanel>
-                                    <TabPanel>
-                                        <h2>временная шакала</h2>
-                                    </TabPanel>
-                                </Tabs>
-                            </div>
-                        </section>
-                        { (activeTask && !tabIndex) ? tasks.filter((task) =>
-                            activeTask === task.id
-                        ).map((task) => {
-                            return (<Task
-                            key={task.id}
-                            id={task.id}
-                            title={task.title}
-                            date={task.date}
-                            description={task.description ? task.description : ''}
-                            complete={task.complete ? task.complete : ''}
-                            status={task.status}
-                            authorId={task.authorId}
-                            executors={task.executors}
-                        />)}) : null }
-                    </div>
-                </section>
-            </div>
         )
     }
 }
 export default connect((state) => ({
-    tasks: state.tasks,
-    projects: state.projects,
-    activeTask: state.activeTask,
     users: state.users
-}), null)(Projects)
+}), null)(Filters)

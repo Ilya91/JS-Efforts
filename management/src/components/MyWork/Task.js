@@ -101,7 +101,7 @@ class Task extends Component {
         addTaskToProject(id, projectId)
     }
 
-    handleAddUserForProject = (userId) => (e)=> {
+    handleAddUserForTask = (userId) => (e)=> {
         const { id, addUserToTask } = this.props
         e.preventDefault()
         addUserToTask(id, userId)
@@ -208,7 +208,7 @@ class Task extends Component {
                                                             <a
                                                                 href=""
                                                                 id={listUser.id}
-                                                                onClick={this.handleAddUserForProject( listUser.id )}
+                                                                onClick={this.handleAddUserForTask( listUser.id )}
                                                                 className={ users ? (users.includes(listUser.id) ? 'active' : '') : null}
                                                                 >
                                                                 <img className="img-circle" src={ listUser.avatar } alt="img"/>
