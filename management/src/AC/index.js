@@ -17,7 +17,8 @@ import {
     SET_PROJECT_DAY_START,
     SET_PROJECT_DAY_END,
     ADD_TASK_TO_PROJECT,
-    ADD_USER_TO_TASK
+    ADD_USER_TO_TASK,
+    ADD_USER_TO_PROJECT
 } from '../constants'
 
 import {push, replace} from 'react-router-redux'
@@ -190,6 +191,15 @@ export function addTaskToProject(id, projectId) {
         type: ADD_TASK_TO_PROJECT,
         payload: {
             id, projectId
+        }
+    }
+}
+
+export function addUserToProject(id, userId) {
+    return{
+        type: ADD_USER_TO_PROJECT,
+        payload: {
+            id, userId
         }
     }
 }

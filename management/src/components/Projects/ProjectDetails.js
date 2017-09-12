@@ -12,7 +12,8 @@ import {
     addProjectDescription,
     changeProjectStatus,
     setProjectDayStart,
-    setProjectDayEnd
+    setProjectDayEnd,
+    addUserToProject
 } from '../../AC'
 import moment from 'moment';
 
@@ -29,7 +30,7 @@ class ProjectDetails extends Component {
 
     logChange = (val) => {
         const { project:{id}, changeProjectStatus } = this.props
-        changeProjectStatus(id, val.value)
+        changeProjectStatus(id, val)
     }
     handleDelete = (e) => {
         e.preventDefault()
@@ -61,6 +62,12 @@ class ProjectDetails extends Component {
     handleDayEndChange = (selectedDay) => {
         const { project:{id}, setProjectDayEnd } = this.props
         setProjectDayEnd(id, selectedDay.toDate())
+    }
+
+    handleAddUser = (userId) => (e) => {
+        e.preventDefault()
+        const { project:{id}, addUserToProject } = this.props
+        addUserToProject(id, userId)
     }
 
     render(){
@@ -105,8 +112,8 @@ class ProjectDetails extends Component {
                                                     <a
                                                         href=""
                                                         id={listUser.id}
-                                                        //onClick={this.handleAddUser(listUser.id)}
-                                                        //className={ users ? (users.includes(listUser.id) ? 'active' : '') : null}
+                                                        onClick={this.handleAddUser(listUser.id)}
+                                                        className={ users ? (users.includes(listUser.id) ? 'active' : '') : null}
                                                     >
                                                         <img className="img-circle" src={ listUser.avatar } alt="img"/>
                                                         <span>{ listUser.name }</span>
@@ -206,5 +213,6 @@ export default connect((state) => ({
     addProjectDescription,
     changeProjectStatus,
     setProjectDayStart,
-    setProjectDayEnd
+    setProjectDayEnd,
+    addUserToProject
 })(ProjectDetails)

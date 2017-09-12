@@ -2,58 +2,80 @@ import React, { Component } from 'react'
 import './Table.css'
 import moment from 'moment'
 import Moment from 'react-moment';
+import { getTasks, getUserForTask } from '../functions'
+import {arrToMap, mapToArr} from '../../helpers'
+import { connect } from 'react-redux'
 
 class Table extends Component {
 
-
     render(){
-        const { project, tasks } = this.props
+        const { tasksStore, projects, users } = this.props
+        var i = 1;
         return(
-            <table className={'table-view'}>
+            <table className={'table-view'}  cellSpacing="0" cellPadding="0">
                 <thead>
                     <tr>
                         <td className={'first-cell'}></td>
                         <td className={'title-cell'}>Заголовок</td>
-                        <td>Начало</td>
-                        <td>Срок выполне...</td>
-                        <td>Длите...</td>
-                        <td>Статус</td>
-                        <td>Исполнители</td>
+                        <td className={'third-cell'}>Начало</td>
+                        <td className={'four-cell'}>Срок выполне...</td>
+                        <td className={'fifth-cell'}>Длите...</td>
+                        <td className={'six-cell'}>Статус</td>
+                        <td className={'seven-cell'}>Исполнители</td>
                     </tr>
                 </thead>
                 <tbody>
-                <tr className={'project'}>
-                    <td className={'first-cell'}></td>
-                    <td>{project.title}</td>
-                    <td>
-                        <Moment locale="en" format="MMM D, YYYY">
-                            {project.dateStart}
-                        </Moment>
-                    </td>
-                    <td>
-                        <Moment locale="en" format="MMM D, YYYY">
-                            {project.dateEnd}
-                        </Moment>
-                    </td>
-                    <td>{project.dateStart && project.dateEnd ? moment(project.dateEnd).diff(moment(project.dateStart), 'days') + ' д.' : ''}</td>
-                    <td>{project.status}</td>
-                    <td>{project.executors}</td>
-                </tr>
-                    { tasks ? tasks.map((task) =>
-                        <tr key={task.id}>
+                <tr><td colSpan={'7'} className={'project-iterator'}>
+                { projects ? projects.map((project)  =>
+                    <table  key={project.id} cellSpacing="0" cellPadding="0">
+                        <tbody>
+                        <tr className={'project'}>
                             <td className={'first-cell'}></td>
-                            <td>{task.title}</td>
-                            <td>{task.complete ? task.complete.from : ''}</td>
-                            <td>{task.complete ? task.complete.to : ''}</td>
-                            <td>{task.complete ? task.complete.duration : ''}</td>
-                            <td></td>
-                            <td></td>
+                            <td className={'title-cell'}>{project.title}</td>
+                            <td className={'third-cell'}>
+                                {project.dateStart ?
+                                <Moment locale="en" format="MMM D, YYYY">
+                                    {project.dateStart}
+                                </Moment> : ''}
+                            </td>
+                            <td className={'four-cell'}>
+                                {project.dateEnd ?
+                                    <Moment locale="en" format="MMM D, YYYY">
+                                        {project.dateEnd}
+                                    </Moment> : ''}
+                            </td>
+                            <td className={'fifth-cell'}>{project.dateStart && project.dateEnd ? moment(project.dateEnd).diff(moment(project.dateStart), 'days') + ' д.' : ''}</td>
+                            <td className={'six-cell'}>{project.status.label}</td>
+                            <td className={'seven-cell'}>{project.executors}</td>
                         </tr>
+                        {getTasks(tasksStore, project.id) ? getTasks(tasksStore, project.id).map((task) =>
+                        <tr key={task.id} className={'task'}>
+                            <td className={'first-cell first-cell-task'}>{i++}</td>
+                            <td><div className={'task-table-title'}><span>&mdash;</span>{task.title}</div></td>
+                            <td className={'third-cell'}>{task.complete ? <Moment locale="en" format="MMM D, YYYY">
+                                {task.complete.from}
+                            </Moment> : ''}</td>
+                            <td  className={'four-cell'}>{task.complete ? <Moment locale="en" format="MMM D, YYYY">
+                                {task.complete.to}
+                            </Moment> : ''}</td>
+                            <td className={'fifth-cell'}>{task.complete ? task.complete.duration + ' д.' : ''}</td>
+                            <td className={'six-cell'}>{task.status.label}</td>
+                            <td className={'seven-cell'}>
+                                <ul className={'table-users'}>{ task.executors ? getUserForTask(task.executors, users).map((user) =>
+                                    <li key={user.id}>{ user.name }</li>) : ''}
+                                    </ul>
+                            </td>
+                        </tr>
+                    ) : 'task'}</tbody></table>
+
                     ) : ''}
-                   
+                </td></tr>
                 </tbody>
             </table>
         )
     }
 }
-export default Table
+export default connect((state) => ({
+    tasksStore: state.tasks,
+    users: state.users
+}), null)(Table)

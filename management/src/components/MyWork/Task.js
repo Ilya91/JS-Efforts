@@ -29,8 +29,8 @@ class Task extends Component {
             selected: status,
             addSubTaskActive: false
         })
-        changeTaskStatus(id, status.value)
-        console.log("Selected: " + JSON.stringify(status.value))
+        changeTaskStatus(id, status)
+        console.log("Selected: " + JSON.stringify(status))
 
     }
     handleDelete = (e) => {

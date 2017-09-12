@@ -84,6 +84,8 @@ class Project extends Component {
         const { tabIndex, selected, selectedUser } = this.state
         const { activeTask, tasks } = this.props
         const project = this.getProject()
+        const projectArr = []
+        projectArr.push(project)
         return(
             <div className="content-wrapper">
                 <section className="content">
@@ -139,9 +141,8 @@ class Project extends Component {
                                     </TabPanel>
                                     <TabPanel>
                                         <Table
-                                            project={project}
+                                            projects={projectArr}
                                             projectId={paramId}
-                                            tasks={getTasks(tasks, paramId)}
                                         />
                                     </TabPanel>
                                     <TabPanel>

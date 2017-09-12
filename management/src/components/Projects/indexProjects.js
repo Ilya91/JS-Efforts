@@ -10,6 +10,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Task from '../MyWork/Task'
 import { connect } from 'react-redux'
 import Select from 'react-select'
+import Table from './Table'
 
 const options = [
     { value: 0, label: "Любой", color: '#fff', border: '1px solid #2196F3'},
@@ -125,7 +126,10 @@ class Projects extends Component {
                                         />
                                     </TabPanel>
                                     <TabPanel>
-                                        table
+                                        <Table
+                                            projects={projects}
+                                            tasks={tasks}
+                                        />
                                     </TabPanel>
                                     <TabPanel>
                                         <h2>временная шакала</h2>
