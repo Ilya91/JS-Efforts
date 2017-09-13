@@ -16,6 +16,7 @@ import {
     addUserToProject
 } from '../../AC'
 import moment from 'moment';
+import { getUserForTask } from '../functions'
 
 const DAY_FORMAT = 'DD/MM/YYYY';
 
@@ -71,7 +72,7 @@ class ProjectDetails extends Component {
     }
 
     render(){
-        const { project:{title}, description, dateStart, dateEnd, status, users } = this.props
+        const { project:{title}, description, dateStart, dateEnd, status, users, executors } = this.props
         return(
                         <section className="col-lg-6">
                             <div className="box box-primary task-description">
@@ -98,9 +99,11 @@ class ProjectDetails extends Component {
                                             <span className='project-title-divider'>|</span>
                                         </div>
                                         <ul className="project-users-list">
-                                            <li>
-                                                <img className="img-circle" src="/public/dist/img/avatar04.png" alt="img"/>
-                                            </li>
+                                            { executors ? getUserForTask(executors, users).map((user) =>
+                                                <li key={user.id}>
+                                                    <img className="img-circle" src={user.avatar} alt="img"/>
+                                                </li>
+                                            ) : ''}
                                         </ul>
                                         <span data-toggle="dropdown" className="dropdown-toggle">
                                                     <i className="fa fa-plus"></i>

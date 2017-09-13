@@ -9,7 +9,8 @@ import {
     ADD_PROJECT_DESCRIPTION,
     CHANGE_PROJECT_STATUS,
     SET_PROJECT_DAY_START,
-    SET_PROJECT_DAY_END
+    SET_PROJECT_DAY_END,
+    ADD_USER_TO_PROJECT
 } from '../constants'
 import {arrToMap, mapToArr} from '../helpers'
 
@@ -66,6 +67,19 @@ export default ( projectState = localProjects, action) => {
                 }
             }
             return mapToArr(imm4)
+
+        case ADD_USER_TO_PROJECT:
+            projectState = arrToMap(projectState)
+            let project5 = projectState[payload.id]
+            const userId = payload.userId
+            let imm5 = {
+                ...projectState,
+                [payload.id]:{
+                    ...project5,
+                    executors: (project5.executors || []).concat(userId)
+                }
+            }
+            return mapToArr(imm5)
     }
     return projectState
 }

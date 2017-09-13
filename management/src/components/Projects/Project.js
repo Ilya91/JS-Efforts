@@ -157,6 +157,7 @@ class Project extends Component {
                             status={project.status}
                             dateStart={project.dateStart}
                             dateEnd={project.dateEnd}
+                            executors={project.executors}
                         />}
                         { (activeTask && !tabIndex) ? tasks.filter((task) =>
                             activeTask === task.id

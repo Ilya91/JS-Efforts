@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import 'react-tabs/style/react-tabs.css';
 import '../MyWork/Content.css'
 import './style.css'
+import './Tab.css'
 import ListOfTasks from './ListOfTasks'
 import Filters from './Filters'
 import FormTask from '../MyWork/FormTask'
@@ -68,6 +69,21 @@ class Projects extends Component {
         return <span key={option.value? option.value : option.id}>{option.label ? option.label : option.name}</span>;
     }
 
+    getClassTabs = () => {
+        const { tabIndex } = this.state
+        return tabIndex ? 'leftTabs' : ''
+    }
+
+    getClassHeader = () => {
+        const { tabIndex } = this.state
+        return tabIndex ? 'leftHeader' : ''
+    }
+
+    getClassFilters = () => {
+        const { tabIndex } = this.state
+        return tabIndex ? 'leftFilters' : ''
+    }
+
     render(){
         const { tabIndex, selected, selectedUser } = this.state
         const { activeTask, projects, tasks } = this.props
@@ -77,16 +93,18 @@ class Projects extends Component {
                     <div className="row">
                         <section className={ tabIndex || !activeTask ? "col-lg-12" : "col-lg-6"}>
                             <div className="box box-primary projects">
-                                <div className="box-body">
+                                <div className={"box-body " + this.getClassHeader()}>
                                     <h3 className="box-title">Проекты</h3>
                                 </div>
                                 <Tabs selectedIndex={tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
-                                    <TabList>
-                                        <Tab>СПИСОК</Tab>
-                                        <Tab>ТАБЛИЦА</Tab>
-                                        <Tab>ВРЕМЕННАЯ ШКАЛА</Tab>
-                                    </TabList>
-                                        <div className="project-filters">
+                                    <div className={this.getClassTabs()}>
+                                        <TabList>
+                                            <Tab>СПИСОК</Tab>
+                                            <Tab>ТАБЛИЦА</Tab>
+                                            <Tab>ВРЕМЕННАЯ ШКАЛА</Tab>
+                                        </TabList>
+                                    </div>
+                                        <div className={"project-filters " + this.getClassFilters()}>
                                             <ul>
                                                 <li>
                                                     <Select
