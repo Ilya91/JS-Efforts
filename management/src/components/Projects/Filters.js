@@ -29,18 +29,18 @@ class Filters extends Component {
         selected: 0,
         selectedUser: { id: 0, name: "Все"}
     }
-/*    logChange = (val) => {
+    logChange = (val) => {
         this.setState({
             selected: val
         })
-        console.log("Selected: " + JSON.stringify(val))
-    }*/
+        //console.log("Selected: " + JSON.stringify(val))
+    }
 
     logChangeUser = (val) => {
         this.setState({
             selectedUser: val
         })
-        console.log("Selected: " + JSON.stringify(val))
+        //console.log("Selected: " + JSON.stringify(val))
     }
 
     renderValue(option) {
@@ -63,37 +63,40 @@ class Filters extends Component {
 
     render(){
         const { selected, selectedUser } = this.state
+        const { getState } = this.props
+        getState(selected, selectedUser)
         return(
-                                  <div className="project-filters">
-                                            <ul>
-                                                <li>
-                                                    <Select
-                                                        style={{ border: 'none'}}
-                                                        name="form-field-name"
-                                                        value={selected}
-                                                        options={options}
-                                                        onChange={this.props.logChange}
-                                                        clearable={false}
-                                                        placeholder={false}
-                                                        optionRenderer={this.renderOption}
-                                                        valueRenderer={this.renderValue}
-                                                    />
-                                                </li>
-                                                <li>
-                                                    <Select
-                                                        style={{ border: 'none'}}
-                                                        name="form-field-name"
-                                                        value={selectedUser}
-                                                        options={this.getUsersForOptions()}
-                                                        onChange={this.logChangeUser}
-                                                        clearable={false}
-                                                        placeholder={false}
-                                                        optionRenderer={this.renderOptionUser}
-                                                        valueRenderer={this.renderValueUser}
-                                                    />
-                                                </li>
-                                            </ul>
-                                        </div>
+            <div className={"project-filters " + this.props.getClassFilters}>
+                <ul>
+                    <li>
+                        <Select
+                            style={{ border: 'none'}}
+                            name="form-field-name"
+                            value={selected}
+                            options={options}
+                            onChange={this.logChange}
+                            clearable={false}
+                            placeholder={false}
+                            optionRenderer={this.renderOption}
+                            valueRenderer={this.renderValue}
+                        />
+                    </li>
+
+                    <li>
+                        <Select
+                            style={{ border: 'none'}}
+                            name="form-field-name"
+                            value={selectedUser}
+                            options={this.getUsersForOptions()}
+                            onChange={this.logChangeUser}
+                            clearable={false}
+                            placeholder={false}
+                            optionRenderer={this.renderOptionUser}
+                            valueRenderer={this.renderValueUser}
+                        />
+                    </li>
+                </ul>
+            </div>
         )
     }
 }

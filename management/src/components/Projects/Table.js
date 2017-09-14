@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import './Table.css'
 import moment from 'moment'
 import Moment from 'react-moment';
-import { getTasks, getUserForTask } from '../functions'
+import { getTasks, getUserForTask, filterTasks } from '../functions'
 import {arrToMap, mapToArr} from '../../helpers'
 import { connect } from 'react-redux'
 
 class Table extends Component {
 
     render(){
-        const { tasksStore, projects, users } = this.props
+        const { filterStatus, filterUsers, tasksStore, projects, users } = this.props
         var i = 1;
         return(
             <table className={'table-view'}  cellSpacing="0" cellPadding="0">
@@ -46,9 +46,14 @@ class Table extends Component {
                             </td>
                             <td className={'fifth-cell'}>{project.dateStart && project.dateEnd ? moment(project.dateEnd).diff(moment(project.dateStart), 'days') + ' д.' : ''}</td>
                             <td className={'six-cell'}>{project.status.label}</td>
-                            <td className={'seven-cell'}>{project.executors}</td>
+                            <td className={'seven-cell'}>
+                                <ul className={'table-users'}>
+                                    { project.executors ? getUserForTask(project.executors, users).map((user) =>
+                                        <li key={user.id}>{ user.name }</li>) : ''}
+                                </ul>
+                            </td>
                         </tr>
-                        {getTasks(tasksStore, project.id) ? getTasks(tasksStore, project.id).map((task) =>
+                        {getTasks(tasksStore, project.id) ? filterTasks(filterStatus, filterUsers, getTasks(tasksStore, project.id)).map((task) =>
                         <tr key={task.id} className={'task'}>
                             <td className={'first-cell first-cell-task'}>{i++}</td>
                             <td><div className={'task-table-title'}><span>&mdash;</span>{task.title}</div></td>
