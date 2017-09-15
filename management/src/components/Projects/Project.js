@@ -31,10 +31,6 @@ const options2 = [
 
 class Project extends Component {
 
-    componentDidMount(){
-        console.log(this.props.children)
-    }
-
     getUsersForOptions = () => {
         const { users } = this.props
         return options2.concat(users)
@@ -172,7 +168,11 @@ class Project extends Component {
                                         />
                                     </TabPanel>
                                     <TabPanel>
-                                        <TimeRange/>
+                                        <TimeRange
+                                            projectId={paramId}
+                                            filterStatus={this.state.selected.value}
+                                            filterUsers={this.state.selectedUser.id}
+                                        />
                                     </TabPanel>
                                 </Tabs>
                             </div>
