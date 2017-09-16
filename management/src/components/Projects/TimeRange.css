@@ -1,11 +1,15 @@
 .time-container{
     width: 100%;
     overflow-x: scroll;
-    overflow-y: hidden;
+    overflow-y: scroll;
     white-space: nowrap;
+    height:580px;
 }
 .time-view, .time-view-project{
     table-layout: fixed;
+}
+.time-view-header{
+    background-color: #F6F6F6;
 }
 .time-view thead, .time-view tbody{
     text-align: center;
@@ -34,16 +38,17 @@ tr.daysOfWeek td{
     width:100%;
 }
 .weekend{
-    background-color: #e5e5e5;
-    border-bottom: 1px solid #e5e5e5!important;
+    background-color: #F3F3F3;
+    border-bottom: 1px solid #F3F3F3!important;
 }
-.activeTaskTime{
-    background-color: #659FD5;
+.projectsTimeRange .activeTaskTime{
+    background-color: #A9BDDE;
 }
 .nameOfTask{
     position: absolute;
     bottom:-18px;
     left:0;
+    color: #637CA4;
 }
 tbody tr.projectsTimeRange td{
     width: 20px;
@@ -56,5 +61,8 @@ tbody tr.projectsTimeRange td{
     height:0;
 }
 table.time-view-project tr .saturday{
-    border-right: 1px solid #adadad;
+    border-right: 1px solid #E9E9E9;
+}
+.time-container table.time-view-last tr td{
+    height:280px;
 }

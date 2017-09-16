@@ -41,11 +41,10 @@ class TimeRange extends Component {
         const { filterStatus, filterUsers, tasksStore, projectId, users } = this.props
         const dates = this.getDates(new Date('2017-09-15'), new Date('2017-12-01'))
         const weekends = this.getWekends(new Date('2017-09-15'), new Date('2017-12-01'))
-        console.log(moment(), '===', moment(moment()).isoWeekday(5))
         return(
             <div className={'time-container'}>
                 <table className={'time-view'} cellSpacing="0">
-                    <thead>
+                    <thead className={'time-view-header'}>
                     <tr>
                         { weekends.map((weekend) =>
                         <td colSpan={'7'}>{ moment(weekend).format('MMM DD YYYY') }</td>
@@ -75,7 +74,8 @@ class TimeRange extends Component {
                                     className={ (((moment(date).day() === 0 || moment(date).day() === 6) ? 'weekend' : '')
                                     || (task.complete ? (moment(date).isBetween((task.complete.from), (task.complete.to), 'day', '[]') ? 'activeTaskTime ' : '') : '')) + (moment(date).day() === 6 ? ' saturday' : '')
                                     }>
-                                    { moment(date).isSame(task.complete ? task.complete.from : null, 'day') ? <span className={'nameOfTask'}>{ task.title }</span> : '' }
+                                    { moment(date).isSame(task.complete ? task.complete.from : null, 'day') ? <span className={'nameOfTask'}>{ task.title } / { task.executors ? getUserForTask(task.executors, users).map((user) =>
+                                        <span key={user.id}>{ user.name } </span>) : ''}</span> : '' }
                                 </td>
                             )}
                         </tr>
@@ -86,6 +86,23 @@ class TimeRange extends Component {
                         </tr>
                     </tbody>
                 </table>) : ''}
+
+                <table className={'time-view time-view-project time-view-last'} cellSpacing="0" cellPadding={'0'}>
+                    <thead>
+                    <tr className={'middle daysOfWeek '}>
+                        { dates.map((date) =>
+                            <td className={ ((moment(date).day() === 0 || moment(date).day() === 6) ? 'weekend' : '')  + (moment(date).day() === 6 ? ' saturday' : '')}>{ moment(date).format('dd') }</td>
+                        )}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr className={'middle daysOfWeek '}>
+                        { dates.map((date) =>
+                            <td className={ ((moment(date).day() === 0 || moment(date).day() === 6) ? 'weekend' : '')  + (moment(date).day() === 6 ? ' saturday' : '')}>{ moment(date).format('dd') }</td>
+                        )}
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         )
     }
