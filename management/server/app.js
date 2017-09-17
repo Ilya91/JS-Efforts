@@ -1,11 +1,13 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import morgan from 'morgan';
 
 import { ObjectId } from 'mongodb';
 
 import { serverPort } from './config.json';
 import * as db from './utils/DataBaseUtils';
+import router from './router'
 
 
 // Initialization of express application
@@ -14,16 +16,21 @@ const app = express();
 // Set up connection of database
 db.setUpConnection()
 
-
+app.use(morgan('combined'))
 // Using bodyParser middleware
 app.use( bodyParser.json() );
 
 // Allow requests from any origin
-app.use(cors({ origin: '*' }));
+app.use(cors({ origin: '*' }))
+router(app)
 
 // RESTful api handlers
 app.get('/tasks', (req, res) => {
     db.listTasks().then(data => res.send(data))
+})
+
+app.get('/users', (req, res) => {
+    db.listUsers().then(data => res.send(data))
 })
 /*app.get('/tasks', (req, res) => {
     //db.listNotes().then(data => res.send(data));
