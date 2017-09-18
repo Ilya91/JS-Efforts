@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Header from '../Header'
+import Sidebar from '../Sidebar'
 import './Content.css'
 import FormTask from './FormTask'
 import Task from './Task'
@@ -65,6 +67,9 @@ class MyWork extends Component {
         const endNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
         const afterNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
         return(
+            <div>
+                <Header/>
+                <Sidebar/>
             <div className="content-wrapper">
                 <section className="content">
                     <div className="row">
@@ -172,6 +177,7 @@ class MyWork extends Component {
 
                     </div>
                 </section>
+            </div>
             </div>
         )
     }

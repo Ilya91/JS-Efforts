@@ -1,5 +1,5 @@
 const jwt = require('jwt-simple');
-const User = require('../models/user');
+const User = require('../models/User');
 const config = require('../config.json');
 
 function tokenForUser(user) {
@@ -14,8 +14,9 @@ exports.signin = function(req, res, next) {
 }
 
 exports.signup = function(req, res, next) {
-  const email = req.body.email;
-  const password = req.body.password;
+    const email = req.body.email
+    const password = req.body.password
+    const login = req.body.login
 
   if (!email || !password) {
     return res.status(422).send({ error: 'You must provide email and password'});
@@ -32,8 +33,9 @@ exports.signup = function(req, res, next) {
 
     // If a user with email does NOT exist, create and save user record
     const user = new User({
-      email: email,
-      password: password
+        email,
+        password,
+        login
     });
 
     user.save(function(err) {

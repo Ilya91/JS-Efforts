@@ -4,6 +4,8 @@ import '../MyWork/Content.css'
 import './style.css'
 import './Tab.css'
 import ListOfTasks from './ListOfTasks'
+import Header from '../Header'
+import Sidebar from '../Sidebar'
 import Filters from './Filters'
 import FormTask from '../MyWork/FormTask'
 import {arrToMap, mapToArr} from '../../helpers'
@@ -88,6 +90,9 @@ class Projects extends Component {
         const { tabIndex, selected, selectedUser } = this.state
         const { activeTask, projects, tasks } = this.props
         return(
+            <div>
+                <Header/>
+                <Sidebar projects={projects}/>
             <div className="content-wrapper">
                 <section className="content">
                     <div className="row">
@@ -169,8 +174,9 @@ class Projects extends Component {
                             authorId={task.authorId}
                             executors={task.executors}
                         />)}) : null }
-                    </div>
-                </section>
+                        </div>
+                    </section>
+                </div>
             </div>
         )
     }

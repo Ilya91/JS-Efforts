@@ -7,6 +7,8 @@ import ListOfTasks from './ListOfTasks'
 import ProjectDetails from './ProjectDetails'
 import Table from './Table'
 import FormTask from '../MyWork/FormTask'
+import Header from '../Header'
+import Sidebar from '../Sidebar'
 import Moment from 'react-moment';
 import { connect } from 'react-redux'
 import moment from 'moment'
@@ -100,11 +102,14 @@ class Project extends Component {
     render(){
         const paramId = this.props.match.params.id
         const { tabIndex, selected, selectedUser } = this.state
-        const { activeTask, tasks } = this.props
+        const { activeTask, tasks, projects } = this.props
         const project = this.getProject()
         const projectArr = []
         projectArr.push(project)
         return(
+            <div>
+                <Header/>
+                <Sidebar projects={projects}/>
             <div className="content-wrapper">
                 <section className="content">
                     <div className="row">
@@ -201,6 +206,7 @@ class Project extends Component {
                         />) : null }
                     </div>
                 </section>
+            </div>
             </div>
         )
     }

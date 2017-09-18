@@ -1,0 +1,13 @@
+body{
+    background-color: #d2d6de;
+}
+.wrapper .login-box{
+    margin:12% auto;
+}
+.login-box-body .login-logo{
+    margin-bottom: 0;
+}
+.login-logo h3.reg-header{
+    margin-top:-20px;
+    margin-bottom:20px;
+}

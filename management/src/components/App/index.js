@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import Sidebar from '../Sidebar'
-import Header from '../Header'
 import NotFound from '../routes/NotFound'
 import issues from '../routes/issues'
 import projects from '../routes/projects'
+import signin from '../routes/signin'
+import signup from '../routes/signup'
+import signout from '../routes/signout'
+import RequireAuth from '../auth/require_auth'
 import { connect } from 'react-redux'
 import './App.css'
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
@@ -25,11 +27,12 @@ class App extends Component {
         return(
                 <ConnectedRouter history = {history}>
                     <div>
-                        <Header/>
-                        <Sidebar projects={stateProjects}/>
                         <Switch>
+                            <Route path = "/signin" component = {signin} />
+                            <Route path = "/signup" component = {signup} />
+                            <Route path = "/signout" component = {signout} />
                             <Route path = "/projects" component = {projects} />
-                            <Route path = "/issues" component = {issues} />
+                            <Route path = "/issues" component = {RequireAuth(issues)} />
                             <Redirect from='/' to='/issues' exact/>
                             <Route path = "*" component = {NotFound}/>
                         </Switch>

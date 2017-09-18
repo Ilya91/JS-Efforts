@@ -28,7 +28,7 @@ class Header extends Component {
                                     <li className="user-body">
                                         <div className="row">
                                             <div className="col-xs-4 text-center">
-                                                <a href="#">Followers</a>
+                                                <a href="/signout">Sign Out</a>
                                             </div>
                                             <div className="col-xs-4 text-center">
                                                 <a href="#">Sales</a>
@@ -40,10 +40,10 @@ class Header extends Component {
                                     </li>
                                     <li className="user-footer">
                                         <div className="pull-left">
-                                            <a href="#" className="btn btn-default btn-flat">Profile</a>
+                                            <a href="/signin" className="btn btn-default btn-flat">Sign In</a>
                                         </div>
                                         <div className="pull-right">
-                                            <a href="#" className="btn btn-default btn-flat">Sign out</a>
+                                            <a href="/signup" className="btn btn-default btn-flat">Sign Up</a>
                                         </div>
                                     </li>
                                 </ul>

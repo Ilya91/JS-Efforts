@@ -18,10 +18,17 @@ import {
     SET_PROJECT_DAY_END,
     ADD_TASK_TO_PROJECT,
     ADD_USER_TO_TASK,
-    ADD_USER_TO_PROJECT
+    ADD_USER_TO_PROJECT,
+
+    AUTH_USER,
+    UNAUTH_USER,
+    AUTH_ERROR,
+    FETCH_MESSAGE
 } from '../constants'
 
 import {push, replace} from 'react-router-redux'
+import axios from 'axios'
+const ROOT_URL = 'http://127.0.0.1:3000';
 
 export function addNewTask(task) {
     return{
@@ -204,3 +211,67 @@ export function addUserToProject(id, userId) {
     }
 }
 
+
+/*AUTHENTICATION*/
+export function signinUser({ email, password }) {
+    return function(dispatch) {
+        // Submit email/password to the server
+        axios.post(`${ROOT_URL}/signin`, { email, password })
+            .then(response => {
+                // If request is good...
+                // - Update state to indicate user is authenticated
+                dispatch({ type: AUTH_USER });
+                // - Save the JWT token
+                localStorage.setItem('token', response.data.token);
+                // - redirect to the route '/feature'
+                dispatch(push('/issues'))
+            })
+            .catch(() => {
+                // If request is bad...
+                // - Show an error to the user
+                dispatch(authError('Bad Login Info'));
+            });
+    }
+}
+
+export function signupUser({ email, password, login }) {
+    console.log(email, password, login)
+    return function(dispatch) {
+        axios.post(`${ROOT_URL}/signup`, { email, password, login })
+            .then(response => {
+                dispatch({ type: AUTH_USER })
+                localStorage.setItem('token', response.data.token)
+                dispatch(push('/issues'))
+            })
+            .catch(response => dispatch(authError(response.data.error)));
+    }
+}
+
+export function authError(error) {
+    return {
+        type: AUTH_ERROR,
+        payload: error
+    };
+}
+
+export function signoutUser() {
+    return (dispatch) => {
+        dispatch({type: UNAUTH_USER})
+        localStorage.removeItem('token')
+        dispatch(replace('/signup'))
+    }
+}
+
+export function fetchMessage() {
+    return function(dispatch) {
+        axios.get(ROOT_URL, {
+            headers: { authorization: localStorage.getItem('token') }
+        })
+            .then(response => {
+                dispatch({
+                    type: FETCH_MESSAGE,
+                    payload: response.data.message
+                });
+            });
+    }
+}
