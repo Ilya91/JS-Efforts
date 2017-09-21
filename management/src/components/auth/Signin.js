@@ -15,7 +15,6 @@ class Signup extends Component {
                 <div className="login-box-body">
                     <div className="login-logo">
                         <img src="/public/dist/img/logo-white.png" alt=""/>
-                        {/*<h3 className={'reg-header'}>Вход</h3>*/}
                     </div>
                     <Form signin={true} onSubmit={this.submit} />
                 </div>

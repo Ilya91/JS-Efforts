@@ -9,8 +9,8 @@ class Signout extends Component {
   }
 
   render() {
-    return <div>Sorry to see you go...</div>;
+    return null
   }
 }
 
-export default connect(null, signoutUser)(Signout);
+export default connect(null, {signoutUser})(Signout);

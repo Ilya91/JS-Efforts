@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Header.css'
+import { Link } from 'react-router-dom'
 
 class Header extends Component {
     render(){
@@ -28,7 +29,7 @@ class Header extends Component {
                                     <li className="user-body">
                                         <div className="row">
                                             <div className="col-xs-4 text-center">
-                                                <a href="/signout">Sign Out</a>
+                                                <Link to="/signout">Out</Link>
                                             </div>
                                             <div className="col-xs-4 text-center">
                                                 <a href="#">Sales</a>

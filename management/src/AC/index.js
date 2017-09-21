@@ -239,9 +239,9 @@ export function signupUser({ email, password, login }) {
     return function(dispatch) {
         axios.post(`${ROOT_URL}/signup`, { email, password, login })
             .then(response => {
-                dispatch({ type: AUTH_USER })
-                localStorage.setItem('token', response.data.token)
-                dispatch(push('/issues'))
+                /*dispatch({ type: AUTH_USER })
+                localStorage.setItem('token', response.data.token)*/
+                dispatch(push('/signin'))
             })
             .catch(response => dispatch(authError(response.data.error)));
     }
@@ -258,7 +258,7 @@ export function signoutUser() {
     return (dispatch) => {
         dispatch({type: UNAUTH_USER})
         localStorage.removeItem('token')
-        dispatch(replace('/signup'))
+        dispatch(replace('/signin'))
     }
 }
 

@@ -31,7 +31,8 @@ class App extends Component {
                             <Route path = "/signin" component = {signin} />
                             <Route path = "/signup" component = {signup} />
                             <Route path = "/signout" component = {signout} />
-                            <Route path = "/projects" component = {projects} />
+                            {/*<Redirect from='/signout' to='/signin' exact/>*/}
+                            <Route path = "/projects" component = {RequireAuth(projects)} />
                             <Route path = "/issues" component = {RequireAuth(issues)} />
                             <Redirect from='/' to='/issues' exact/>
                             <Route path = "*" component = {NotFound}/>

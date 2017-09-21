@@ -1,5 +1,6 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
+import { Link } from 'react-router-dom'
 
 let Form = props => {
     const { handleSubmit } = props
@@ -15,6 +16,9 @@ let Form = props => {
                 <Field name="password" component="input" type="password" className="form-control" placeholder="Пароль" />
             </div>
             <div className="row">
+                <div className="col-xs-5  pull-left">
+                    <Link to="/signin">Вход</Link>
+                </div>
                 <div className="col-xs-5  pull-right">
                     <button type="submit" className="btn btn-primary btn-block">Регистрация</button>
                 </div>
@@ -24,7 +28,6 @@ let Form = props => {
 }
 
 Form = reduxForm({
-    // a unique name for the form
     form: 'signup'
 })(Form)
 
