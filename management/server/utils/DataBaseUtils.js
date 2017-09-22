@@ -20,8 +20,20 @@ export function listTasks(id) {
     return Task.find()
 }
 
-export function listUsers(id) {
+export function listUsers() {
     return User.find()
+}
+
+export function getUser(status) {
+    return User.findOne({status: status}, function(err,obj) { return obj })
+}
+
+export function getUserById(id) {
+    return User.findById(id, function (err, user) { return user } )
+}
+
+export function getUserByIdAndUpdate(id, status) {
+    return User.findByIdAndUpdate(id, { $set: { status } }, {new: true})
 }
 
 export function createNote(data) {

@@ -19,6 +19,7 @@ import {
     ADD_TASK_TO_PROJECT,
     ADD_USER_TO_TASK,
     ADD_USER_TO_PROJECT,
+    GET_ACTIVE_USER,
 
     AUTH_USER,
     UNAUTH_USER,
@@ -220,28 +221,34 @@ export function signinUser({ email, password }) {
             .then(response => {
                 // If request is good...
                 // - Update state to indicate user is authenticated
-                dispatch({ type: AUTH_USER });
+                let id = response.data.id ? response.data.id : null
+                dispatch({ type: AUTH_USER })
+                //dispatch({ type: GET_ACTIVE_USER, payload:{ id } })
                 // - Save the JWT token
-                localStorage.setItem('token', response.data.token);
+                localStorage.setItem('token', response.data.token)
                 // - redirect to the route '/feature'
                 dispatch(push('/issues'))
+                return id
+            }).then(response => {
+                axios.get(`${ROOT_URL}/users/${response}`, {
+                    params: {
+                        status: 1
+                    }
+                })
             })
             .catch(() => {
-                // If request is bad...
-                // - Show an error to the user
                 dispatch(authError('Bad Login Info'));
             });
     }
 }
 
 export function signupUser({ email, password, login }) {
-    console.log(email, password, login)
     return function(dispatch) {
         axios.post(`${ROOT_URL}/signup`, { email, password, login })
             .then(response => {
-                /*dispatch({ type: AUTH_USER })
-                localStorage.setItem('token', response.data.token)*/
+                let id = response.data.id ? response.data.id : null
                 dispatch(push('/signin'))
+                return id
             })
             .catch(response => dispatch(authError(response.data.error)));
     }
@@ -256,6 +263,14 @@ export function authError(error) {
 
 export function signoutUser() {
     return (dispatch) => {
+            axios.get(`${ROOT_URL}/users`, {
+                params: {
+                    status: 1
+                }
+            }).then(response => {
+                let id = response.data.id ? response.data.id : null
+                console.log(id)
+            })
         dispatch({type: UNAUTH_USER})
         localStorage.removeItem('token')
         dispatch(replace('/signin'))

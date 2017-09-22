@@ -30,8 +30,25 @@ app.get('/tasks', (req, res) => {
 })
 
 app.get('/users', (req, res) => {
-    db.listUsers().then(data => res.send(data))
+    console.log(req.query.status)
+    if(req.query.status){
+        db.getUser(req.query.status).then(data => res.send(data))
+    }else {
+        db.listUsers().then(data => res.send(data))
+    }
 })
+
+/*app.get('/users?status=1', (req, res) => {
+    db.getUserById(req.params.id).then(data => res.send(data));
+})*/
+
+app.get('/users/:id', (req, res) => {
+    if(req.query.status) {
+        db.getUserByIdAndUpdate(req.params.id, req.query.status).then(data => res.send(data))
+    }else {
+        db.getUserById(req.params.id).then(data => res.send(data));
+    }
+});
 /*app.get('/tasks', (req, res) => {
     //db.listNotes().then(data => res.send(data));
     let url = "mongodb://localhost:27017/tasks";
