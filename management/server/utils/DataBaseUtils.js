@@ -2,12 +2,13 @@ import mongoose from "mongoose"
 mongoose.set('debug', true)
 import config from '../config.json'
 import '../models/Task'
-
 import '../models/User'
+import '../models/SubTask'
 
 
 const Task = mongoose.model('Task')
 const User = mongoose.model('User')
+const SubTask = mongoose.model('SubTask')
 
 export function setUpConnection() {
     mongoose.Promise = global.Promise
@@ -16,10 +17,34 @@ export function setUpConnection() {
     })
 }
 
-export function listTasks(id) {
+/* tasks */
+export function listTasks() {
     return Task.find()
 }
 
+export function createTask(data) {
+    const task = new Task({
+        projectId: data.projectId,
+        title: data.title,
+        description: data.description,
+        date: data.date,
+        status: data.status,
+        authorId: data.authorId,
+        executors: data.executors,
+    });
+    return task.save()
+}
+
+export function deleteTask(id) {
+    return Task.findById(id).remove();
+}
+
+export function updateTask(id, data) {
+    console.log(id, data)
+    return Task.findByIdAndUpdate(id, { $set: data }, {new: true})
+}
+
+/* users */
 export function listUsers() {
     return User.find()
 }
@@ -36,18 +61,18 @@ export function getUserByIdAndUpdate(id, status) {
     return User.findByIdAndUpdate(id, { $set: { status } }, {new: true})
 }
 
-export function createNote(data) {
-    const note = new Note({
+
+/* subtasks */
+
+export function listSubTasks() {
+    return SubTask.find()
+}
+
+export function createSubTask(data) {
+    const task = new SubTask({
+        taskId: data.taskId,
         title: data.title,
-        text: data.text,
-        color: data.color,
-        createdAt: new Date()
-    });
-
-    return note.save()
+        users: data.users
+    })
+    return task.save()
 }
-
-export function deleteNote(id) {
-    return Note.findById(id).remove();
-}
-

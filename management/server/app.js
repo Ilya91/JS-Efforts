@@ -29,13 +29,29 @@ app.get('/tasks', (req, res) => {
     db.listTasks().then(data => res.send(data))
 })
 
+app.post('/tasks', (req, res) => {
+    db.createTask(req.body).then(data => res.send(data));
+})
+
+app.delete('/tasks/:id', (req, res) => {
+    db.deleteTask(req.params.id).then(data => res.send(data));
+})
+
+app.patch('/tasks/:id', (req, res) => {
+    console.log(req.body)
+    db.updateTask(req.params.id, req.body).then(data => res.send(data));
+})
+
 app.get('/users', (req, res) => {
-    console.log(req.query.status)
-    if(req.query.status){
-        db.getUser(req.query.status).then(data => res.send(data))
-    }else {
-        db.listUsers().then(data => res.send(data))
-    }
+    db.listUsers().then(data => res.send(data))
+})
+
+app.get('/subtasks', (req, res) => {
+    db.listSubTasks().then(data => res.send(data))
+})
+
+app.post('/subtasks', (req, res) => {
+    db.createSubTask(req.body).then(data => res.send(data));
 })
 
 /*app.get('/users?status=1', (req, res) => {
@@ -43,11 +59,7 @@ app.get('/users', (req, res) => {
 })*/
 
 app.get('/users/:id', (req, res) => {
-    if(req.query.status) {
-        db.getUserByIdAndUpdate(req.params.id, req.query.status).then(data => res.send(data))
-    }else {
-        db.getUserById(req.params.id).then(data => res.send(data));
-    }
+    db.getUserById(req.params.id).then(data => res.send(data));
 });
 /*app.get('/tasks', (req, res) => {
     //db.listNotes().then(data => res.send(data));

@@ -12,6 +12,10 @@ import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom
 import moment from 'moment';
 import history from '../../history'
 import { ConnectedRouter } from 'react-router-redux'
+import { loadAllTasks, loadAllUsers, loadAllSubTasks } from '../../AC'
+
+import jwt from 'jwt-simple'
+import config from '../../../server/config.json'
 
 moment.updateLocale('ru', {
     monthsShort : {
@@ -31,7 +35,6 @@ class App extends Component {
                             <Route path = "/signin" component = {signin} />
                             <Route path = "/signup" component = {signup} />
                             <Route path = "/signout" component = {signout} />
-                            {/*<Redirect from='/signout' to='/signin' exact/>*/}
                             <Route path = "/projects" component = {RequireAuth(projects)} />
                             <Route path = "/issues" component = {RequireAuth(issues)} />
                             <Redirect from='/' to='/issues' exact/>
@@ -42,7 +45,14 @@ class App extends Component {
         )
     }
 
-    componentDidUpdate() {
+    componentWillMount() {
+        const { loadAllTasks, loadAllUsers, loadAllSubTasks } = this.props
+        loadAllTasks()
+        loadAllUsers()
+        loadAllSubTasks()
+    }
+
+    /*componentDidUpdate() {
         this._updateLocalStorage();
     }
 
@@ -56,10 +66,10 @@ class App extends Component {
 
         let projectsStorage = JSON.stringify(stateProjects)
         localStorage.setItem('projects', projectsStorage)
-    }
+    }*/
 }
 export default connect((state) => ({
     stateProjects: state.projects,
     tasks: state.tasks,
     subTasks: state.subTasks
-}))(App)
+}),{ loadAllTasks, loadAllUsers, loadAllSubTasks })(App)

@@ -2,13 +2,14 @@ import {
     ADD_NEW_TASK,
     SET_ACTIVE_TASK,
     DELETE_NEW_TASK,
-    ADD_TASK_DESCRIPTION,
+    LOAD_ALL_SUBTASKS,
     CHANGE_TASK_STATUS,
     SET_TASK_DATERANGE,
     ADD_SUB_TASK,
     CHANGE_SUB_TASK_TITLE,
     ADD_SUB_TASK_USER,
     LOAD_ALL_TASKS,
+    LOAD_ALL_USERS,
     SET_ACTIVE_PROJECT,
     ADD_NEW_PROJECT,
     DELETE_PROJECT,
@@ -19,7 +20,6 @@ import {
     ADD_TASK_TO_PROJECT,
     ADD_USER_TO_TASK,
     ADD_USER_TO_PROJECT,
-    GET_ACTIVE_USER,
 
     AUTH_USER,
     UNAUTH_USER,
@@ -29,59 +29,122 @@ import {
 
 import {push, replace} from 'react-router-redux'
 import axios from 'axios'
-const ROOT_URL = 'http://127.0.0.1:3000';
+import api from '../api'
+const ROOT_URL = 'http://127.0.0.1:3000'
+
+
+export function loadAllTasks() {
+    return {
+        type: LOAD_ALL_TASKS,
+        callAPI: `${ROOT_URL}/tasks`
+    }
+}
+
+export function loadAllUsers() {
+    return {
+        type: LOAD_ALL_USERS,
+        callAPI: `${ROOT_URL}/users`
+    }
+}
+
+export function loadAllProjects() {
+    return {
+        type: LOAD_ALL_TASKS,
+        callAPI: `${ROOT_URL}/projects`
+    }
+}
+
+export function loadAllSubTasks() {
+    return {
+        type: LOAD_ALL_SUBTASKS,
+        callAPI: `${ROOT_URL}/subtasks`
+    }
+}
+
 
 export function addNewTask(task) {
-    return{
-        type: ADD_NEW_TASK,
-        payload: {
-            task
-        }
+    return function (dispatch) {
+        api.createTask(task)
+            .then(() => {
+                dispatch(
+                    {type: LOAD_ALL_TASKS, callAPI: `${ROOT_URL}/tasks`})
+            })
+            .catch(response => dispatch(authError(response.data.error)));
     }
 }
+/*export function loadAllTasks() {
+    return function(dispatch) {
+        axios.get(`${ROOT_URL}/tasks`)
+            .then(({data}) => {
+                dispatch(
+                    {type: LOAD_ALL_TASKS,
+                        payload:{
+                            data
+                        }
+                    })
+            })
+            .catch(response => dispatch(authError(response.data.error)));
+    }
+}*/
+
 
 export function deleteTask(id) {
-    return{
-        type: DELETE_NEW_TASK,
-        payload: {
-            id
-        }
+    return function (dispatch) {
+        api.deleteTask(id)
+            .then(() => {
+                dispatch({type: LOAD_ALL_TASKS, callAPI: `${ROOT_URL}/tasks`})
+                dispatch({type: DELETE_NEW_TASK})
+            })
+            .catch(response => dispatch(authError(response.data.error)));
     }
 }
-export function addTaskDescription(data) {
-    return{
-        type: ADD_TASK_DESCRIPTION,
-        payload: {
-            data
-        }
+export function addTaskDescription(id, data) {
+    return function (dispatch) {
+        api.updateTask(id, data)
+            .then(() => {
+                dispatch({type: LOAD_ALL_TASKS, callAPI: `${ROOT_URL}/tasks`})
+            })
+            .catch(response => dispatch(authError(response.data.error)));
     }
 }
 
 export function changeTaskStatus(id, status) {
-    return{
-        type: CHANGE_TASK_STATUS,
-        payload: {
-            id, status
-        }
+    return function (dispatch) {
+        api.updateTask(id, status)
+            .then(() => {
+                dispatch({type: LOAD_ALL_TASKS, callAPI: `${ROOT_URL}/tasks`})
+            })
+            .catch(response => dispatch(authError(response.data.error)));
+    }
+}
+
+export function addTaskToProject(id, projectId) {
+    return function (dispatch) {
+        api.updateTask(id, projectId)
+            .then(() => {
+                dispatch({type: LOAD_ALL_TASKS, callAPI: `${ROOT_URL}/tasks`})
+            })
+            .catch(response => dispatch(authError(response.data.error)));
     }
 }
 
 export function setTaskDateRange(id, complete) {
-    return{
-        type: SET_TASK_DATERANGE,
-        payload: {
-            id, complete
-        }
+    return function (dispatch) {
+        api.updateTask(id, complete)
+            .then(() => {
+                dispatch({type: LOAD_ALL_TASKS, callAPI: `${ROOT_URL}/tasks`})
+            })
+            .catch(response => dispatch(authError(response.data.error)));
     }
 }
 
-export function addSubTask(id, subtask) {
-    return{
-        type: ADD_SUB_TASK,
-        payload: {
-            id, subtask
-        },
-        generateId: true
+export function addSubTask(subtask) {
+    return function (dispatch) {
+        api.createSubTask(subtask)
+            .then(() => {
+                dispatch({type: LOAD_ALL_SUBTASKS, callAPI: `${ROOT_URL}/subtasks`})
+            })
+            .catch(response => dispatch(authError(response.data.error)));
     }
 }
 
@@ -109,13 +172,6 @@ export function setActiveTask(id) {
         payload: {
             id
         }
-    }
-}
-
-export function loadAllTasks() {
-    return {
-        type: LOAD_ALL_TASKS,
-        callAPI: 'http://127.0.0.1:3000/tasks'
     }
 }
 
@@ -194,14 +250,6 @@ export function setProjectDayEnd(id, dateEnd) {
     }
 }
 
-export function addTaskToProject(id, projectId) {
-    return{
-        type: ADD_TASK_TO_PROJECT,
-        payload: {
-            id, projectId
-        }
-    }
-}
 
 export function addUserToProject(id, userId) {
     return{
@@ -216,25 +264,11 @@ export function addUserToProject(id, userId) {
 /*AUTHENTICATION*/
 export function signinUser({ email, password }) {
     return function(dispatch) {
-        // Submit email/password to the server
         axios.post(`${ROOT_URL}/signin`, { email, password })
             .then(response => {
-                // If request is good...
-                // - Update state to indicate user is authenticated
-                let id = response.data.id ? response.data.id : null
                 dispatch({ type: AUTH_USER })
-                //dispatch({ type: GET_ACTIVE_USER, payload:{ id } })
-                // - Save the JWT token
                 localStorage.setItem('token', response.data.token)
-                // - redirect to the route '/feature'
                 dispatch(push('/issues'))
-                return id
-            }).then(response => {
-                axios.get(`${ROOT_URL}/users/${response}`, {
-                    params: {
-                        status: 1
-                    }
-                })
             })
             .catch(() => {
                 dispatch(authError('Bad Login Info'));
@@ -246,9 +280,7 @@ export function signupUser({ email, password, login }) {
     return function(dispatch) {
         axios.post(`${ROOT_URL}/signup`, { email, password, login })
             .then(response => {
-                let id = response.data.id ? response.data.id : null
                 dispatch(push('/signin'))
-                return id
             })
             .catch(response => dispatch(authError(response.data.error)));
     }
@@ -263,14 +295,6 @@ export function authError(error) {
 
 export function signoutUser() {
     return (dispatch) => {
-            axios.get(`${ROOT_URL}/users`, {
-                params: {
-                    status: 1
-                }
-            }).then(response => {
-                let id = response.data.id ? response.data.id : null
-                console.log(id)
-            })
         dispatch({type: UNAUTH_USER})
         localStorage.removeItem('token')
         dispatch(replace('/signin'))

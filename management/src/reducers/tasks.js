@@ -1,8 +1,9 @@
-import { tasks as DefaultTasks } from '../components/fixtures'
+/*import { tasks as DefaultTasks } from '../components/fixtures'
 let localTasks = JSON.parse(localStorage.getItem('tasks'));
 if(localTasks === null){
     localTasks = []
-}
+}*/
+
 import {arrToMap, mapToArr} from '../helpers'
 import { ADD_NEW_TASK,
         DELETE_NEW_TASK,
@@ -15,23 +16,22 @@ import { ADD_NEW_TASK,
 } from '../constants'
 import { Map, List } from 'immutable'
 
-export default ( taskState = localTasks, action) => {
+export default ( taskState = [], action) => {
     const { type, payload, response } = action
 
     switch (type) {
         case LOAD_ALL_TASKS:
-            return taskState
-            /*return response.data*/
+            return [ ...response.data ]
         case ADD_NEW_TASK: return [...taskState, payload.task ]
-        case DELETE_NEW_TASK: return taskState.filter(task => task.id !== payload.id)
-        case CHANGE_TASK_STATUS:
+        /*case DELETE_NEW_TASK: return taskState.filter(task => task.id !== payload.id)*/
+        /*case CHANGE_TASK_STATUS:
             const value = taskState.map(function (task) {
                 if(task.id === payload.id){
                     task.status = payload.status
                 }
                 return task
             })
-            return value
+            return value*/
         case ADD_TASK_DESCRIPTION:
             const deep = List(taskState)
             const deep2 = deep.updateIn(["id", payload.data.id], () => payload.data);

@@ -4,15 +4,15 @@ if(localSubTasks === null){
 }*/
 import {arrToMap, mapToArr} from '../helpers'
 import {
-    ADD_SUB_TASK,
+    LOAD_ALL_SUBTASKS,
     CHANGE_SUB_TASK_TITLE,
     ADD_SUB_TASK_USER
 } from '../constants'
 export default ( taskState = [], action) => {
-    const { type, payload } = action
-
+    const { type, payload, response } = action
     switch (type) {
-        case ADD_SUB_TASK: return [...taskState, payload.subtask ]
+        case LOAD_ALL_SUBTASKS:
+            return [ ...response.data ]
         case CHANGE_SUB_TASK_TITLE:
             const value = taskState.map(function (subtask) {
                 if(subtask.id === payload.id){

@@ -6,8 +6,7 @@ const bcrypt = require('bcrypt-nodejs');
 const UserSchema = new Schema({
     email: { type: String, unique: true, lowercase: true },
     password: String,
-    login: String,
-    status:Number
+    login: String
 });
 
 // On Save Hook, encrypt password
@@ -38,6 +37,12 @@ UserSchema.methods.comparePassword = function(candidatePassword, callback) {
     callback(null, isMatch);
   });
 }
+
+UserSchema.set('toJSON', {
+    virtuals: true,
+    versionKey:false,
+    transform: function (doc, ret) {   delete ret._id  }
+})
 
 let User
 if (mongoose.models.User) {

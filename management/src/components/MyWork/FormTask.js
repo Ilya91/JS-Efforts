@@ -47,7 +47,7 @@ class FormTask extends Component {
     }
 
     handleChange = (e) => {
-        const { projectId } = this.props
+        const { projectId, authorId } = this.props
         let today = new Date()
         let options = { month: 'long', day: 'numeric' }
         let date = today.toLocaleDateString("ru-RU", options)
@@ -58,16 +58,17 @@ class FormTask extends Component {
         }
         this.setState({
             task: {
+                id: (Date.now()).toString(),
                 projectId: projectId ? projectId : null,
                 title: e.target.value,
-                id: (Date.now()).toString(),
                 date: moment().toDate(),
                 status:{
                     value: 0,
                     label: ''
                 },
-                authorId: '56c782f1e17f4f9311dfaa2c',
-                executors:['56c782f1978fdf9a0100df52']
+                description: '',
+                authorId,
+                executors:[authorId]
             }
         });
     }
@@ -93,5 +94,6 @@ class FormTask extends Component {
     }
 }
 export default connect((state) => ({
-    task: state.task
+    task: state.task,
+    authorId: state.auth.user
 }), { addNewTask })(FormTask)

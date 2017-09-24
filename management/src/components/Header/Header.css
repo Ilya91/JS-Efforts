@@ -226,3 +226,25 @@
         right: 40px;
     }
 }
+ul.navbar-nav > .user-menu > .dropdown-menu > li.user-header{
+    text-align: left;
+    height:80px;
+    color: #000;
+}
+ul.navbar-nav > .user-menu > .dropdown-menu > li.user-header span{
+    margin-left:10px;
+}
+
+ul.navbar-nav > .user-menu > .dropdown-menu > li.user-header img{
+    height:60px;
+    width:60px;
+}
+
+ul.nav .open>a, ul.nav .open>a:focus, .navbar-custom-menu ul.nav >a:hover{
+    background-color:#4B5966;
+    color: #fff;
+}
+.navbar-custom-menu .user-menu > a:hover{
+    background-color:#4B5966;
+    color: #fff;
+}

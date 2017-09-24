@@ -29,3 +29,9 @@ export function filterTasks(status = 0, user = 0, tasks) {
     }
     return tasks
 }
+
+export function getActiveUser(users, id){
+    return users.filter((user) => (
+        user.id === id
+    ))[0]
+}

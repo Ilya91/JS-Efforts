@@ -197,12 +197,16 @@ class Example extends React.Component {
         const duration = moment(to).diff(moment(from), 'days')
 
         const complete = {
-            from: from,
-            to: to,
-            duration: duration
+            from,
+            to,
+            duration
+        }
+        const data = {
+            complete
         }
 
-        setTaskDateRange(id, complete)
+        console.log(data)
+        setTaskDateRange(id, data)
     }
 
     getClassName = () => {

@@ -60,7 +60,7 @@ class MyWork extends Component {
     }
 
     render(){
-        const { tasks, activeTask } = this.props
+        const { tasks, activeTask, activeUser } = this.props
         const startThisWeek = moment().startOf('isoWeek')
         const endThisWeek = moment().endOf('isoWeek')
         const startNextWeek = moment().add(1, 'weeks').startOf('isoWeek')
@@ -147,7 +147,7 @@ class MyWork extends Component {
                                         return null
                                     }else {
                                         return (
-                                            <div>
+                                            <div key={task.id}>
                                                 <div className="pre-box-footer"></div>
                                                 <div key={task.status.value} className="box-footer-task-list">
                                                     <i className="fa fa-check"></i>
@@ -182,14 +182,11 @@ class MyWork extends Component {
         )
     }
 
-    componentDidMount(){
-        this.props.loadAllTasks()
-    }
-
 }
 export default connect((state) => ({
     projects: state.projects,
     tasks: state.tasks,
     subTasks: state.subTasks,
-    activeTask: state.activeTask
+    activeTask: state.activeTask,
+    users: state.users
 }), { setActiveTask, loadAllTasks })(MyWork)

@@ -19,18 +19,21 @@ const options = [
 
 class Task extends Component {
     state = {
+        description: this.props.description,
         addSubTaskActive: false
     }
 
-    logChange = (status) => {
+    logChange = (data) => {
         const { id, changeTaskStatus } = this.props
         const { addSubTaskActive } = this.state
         this.setState({
-            selected: status,
-            addSubTaskActive: false
+            selected: data,
+            addSubTaskActive: false,
         })
+        const status = {
+            status: data
+        }
         changeTaskStatus(id, status)
-        console.log("Selected: " + JSON.stringify(status))
 
     }
     handleDelete = (e) => {
@@ -41,11 +44,11 @@ class Task extends Component {
 
     handleDescChange = (e) => {
         const { id, addTaskDescription } = this.props
-        const desc = e.target.value
+        const description = e.target.value
         const data = {
-            id, desc
+            description
         }
-        addTaskDescription( data )
+        addTaskDescription( id, data )
         const { addSubTaskActive } = this.state
         this.setState({
             addSubTaskActive: false
@@ -73,7 +76,7 @@ class Task extends Component {
             title: 'New sub task',
             users: null
         }
-        addSubTask(id, subtask)
+        addSubTask(subtask)
     }
 
     getNumberOfSubtasks = () => {
@@ -98,7 +101,11 @@ class Task extends Component {
     handleAddProject = (projectId) => (e) => {
         const { id, addTaskToProject } = this.props
         e.preventDefault()
-        addTaskToProject(id, projectId)
+        const data = {
+            projectId
+        }
+        console.log(data)
+        addTaskToProject(id, data)
     }
 
     handleAddUserForTask = (userId) => (e)=> {
@@ -120,7 +127,6 @@ class Task extends Component {
             id,
             title,
             date,
-            description,
             status,
             complete:{ to, from, duration },
             subTasks,
@@ -131,7 +137,7 @@ class Task extends Component {
             authorId,
             executors
         } = this.props
-        const { addSubTaskActive } = this.state
+        const { addSubTaskActive, description, selected } = this.state
         const project = this.getProjectForTask()
         return(
                         <section className="col-lg-6">
@@ -192,8 +198,8 @@ class Task extends Component {
                                                 <ul className="task-users-list">
                                                     { getUserForTask(executors, users).map((user) =>
                                                         <li key={user.id}>
-                                                            <img className="img-circle" src={ user.avatar } alt="img"/>
-                                                            <span>{ user.name }</span>
+                                                            <img className="img-circle" src="/public/dist/img/avatar04.png" alt="img"/>
+                                                            <span>{ user.login }</span>
                                                         </li>
                                                     )}
                                                 </ul>
@@ -211,8 +217,8 @@ class Task extends Component {
                                                                 onClick={this.handleAddUserForTask( listUser.id )}
                                                                 className={ users ? (users.includes(listUser.id) ? 'active' : '') : null}
                                                                 >
-                                                                <img className="img-circle" src={ listUser.avatar } alt="img"/>
-                                                                <span>{ listUser.name }</span>
+                                                                <img className="img-circle" src="/public/dist/img/avatar04.png" alt="img"/>
+                                                                <span>{ listUser.login }</span>
                                                             </a>
                                                         </li>
                                                     ) : null }
@@ -222,7 +228,7 @@ class Task extends Component {
                                             <td className="task-info">
                                                 <p>
                                                     <span>автор: </span>
-                                                    <span>{ getUserForTask(authorId, users).map((user) => user.name)}</span>
+                                                    <span>{ getUserForTask(authorId, users).map((user) => user.login)}</span>
                                                     , <span><Moment format="HH:mm">{ date }</Moment></span>
                                                 </p>
                                             </td>

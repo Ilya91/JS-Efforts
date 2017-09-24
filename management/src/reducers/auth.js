@@ -1,25 +1,29 @@
+import jwt from 'jwt-simple'
+import config from '../../server/config.json'
 import {
     AUTH_USER,
     UNAUTH_USER,
     AUTH_ERROR,
-    FETCH_MESSAGE,
-    GET_ACTIVE_USER
+    FETCH_MESSAGE
 } from '../constants'
+let localToken = localStorage.getItem('token')
+let decodedToken = null
+if(localToken){
+    decodedToken = jwt.decode(localToken, config.secret).sub
+}
+
 
 export default function(state = {}, action) {
     const { type, payload, response } = action
     switch(type) {
         case AUTH_USER:
-            return { ...state, error: '', authenticated: true}
-        case GET_ACTIVE_USER:
-            return { ...state, error: '', authenticated: true, id: payload.id}
+            return { ...state, error: '', authenticated: true, user: decodedToken}
         case UNAUTH_USER:
-            return { ...state, authenticated: false, id: null }
+            return { ...state, authenticated: false, user: null }
         case AUTH_ERROR:
             return { ...state, error: payload }
         case FETCH_MESSAGE:
             return { ...state, message: payload }
     }
-
     return state;
 }
