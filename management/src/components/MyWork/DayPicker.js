@@ -4,7 +4,7 @@ import DayPicker, { DateUtils } from 'react-day-picker';
 import LocaleUtils from 'react-day-picker/moment';
 import 'moment/locale/ru';
 import { connect } from 'react-redux'
-import { setTaskDateRange } from '../../AC'
+import { changeTaskDetails } from '../../AC'
 
 import 'react-day-picker/lib/style.css';
 
@@ -192,7 +192,7 @@ class Example extends React.Component {
     }
 
     handleClickOk = () => {
-        const { setTaskDateRange, id } = this.props
+        const { changeTaskDetails, id } = this.props
         const { from, to } = this.state
         const duration = moment(to).diff(moment(from), 'days')
 
@@ -206,7 +206,7 @@ class Example extends React.Component {
         }
 
         console.log(data)
-        setTaskDateRange(id, data)
+        changeTaskDetails(id, data)
     }
 
     getClassName = () => {
@@ -215,4 +215,4 @@ class Example extends React.Component {
 }
 export default connect((state) => ({
     activeTask: state.activeTask
-}),{ setTaskDateRange })(Example)
+}),{ changeTaskDetails })(Example)

@@ -41,7 +41,6 @@ class Sidebar extends Component {
         this.setState({
             project: {
                 title: e.target.value,
-                id: (Date.now()).toString(),
                 date: moment().toDate(),
                 status:{
                     value: 0,
@@ -58,6 +57,7 @@ class Sidebar extends Component {
         const { project } = this.state
         e.preventDefault()
         if(project.title !== ''){
+            console.log(project)
             addNewProject(project)
             this.setState({
                 project: {

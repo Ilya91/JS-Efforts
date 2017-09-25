@@ -25,6 +25,7 @@ app.use(cors({ origin: '*' }))
 router(app)
 
 // RESTful api handlers
+/* tasks */
 app.get('/tasks', (req, res) => {
     db.listTasks().then(data => res.send(data))
 })
@@ -38,14 +39,21 @@ app.delete('/tasks/:id', (req, res) => {
 })
 
 app.patch('/tasks/:id', (req, res) => {
-    console.log(req.body)
     db.updateTask(req.params.id, req.body).then(data => res.send(data));
 })
 
+
+/* users */
 app.get('/users', (req, res) => {
     db.listUsers().then(data => res.send(data))
 })
 
+app.get('/users/:id', (req, res) => {
+    db.getUserById(req.params.id).then(data => res.send(data));
+});
+
+
+/* subtasks */
 app.get('/subtasks', (req, res) => {
     db.listSubTasks().then(data => res.send(data))
 })
@@ -54,46 +62,29 @@ app.post('/subtasks', (req, res) => {
     db.createSubTask(req.body).then(data => res.send(data));
 })
 
-/*app.get('/users?status=1', (req, res) => {
-    db.getUserById(req.params.id).then(data => res.send(data));
-})*/
+app.patch('/subtasks/:id', (req, res) => {
+    console.log(req.body)
+    db.updateSubTask(req.params.id, req.body).then(data => res.send(data));
+})
 
-app.get('/users/:id', (req, res) => {
-    db.getUserById(req.params.id).then(data => res.send(data));
-});
-/*app.get('/tasks', (req, res) => {
-    //db.listNotes().then(data => res.send(data));
-    let url = "mongodb://localhost:27017/tasks";
-    MongoClient.connect(url, function(err, db) {
-        if (err) throw err;
-        db.collection("tasks").find({}).toArray(function(err, result) {
-            if (err) throw err;
-            res.send(result);
-            db.close();
-        });
-    });
-});*/
 
-/*app.get('/projects/:id', (req, res) => {
-    //db.listNotes().then(data => res.send(data));
-    MongoClient.connect(url, function(err, db) {
-        if (err) throw err;
-        var objectId = ObjectId(req.params.id);
-        db.collection("projects").find({"_id": objectId}).toArray(function(err, result) {
-            if (err) throw err;
-            res.send(result);
-            db.close();
-        });
-    });
-});*/
+/* projects */
+app.get('/projects', (req, res) => {
+    db.listProjects().then(data => res.send(data))
+})
 
-/*app.post('/projects', (req, res) => {
-    db.createNote(req.body).then(data => res.send(data));
-});
+app.post('/projects', (req, res) => {
+    db.createProject(req.body).then(data => res.send(data));
+})
 
 app.delete('/projects/:id', (req, res) => {
-    db.deleteNote(req.params.id).then(data => res.send(data));
-});*/
+    db.deleteProject(req.params.id).then(data => res.send(data));
+})
+
+app.patch('/projects/:id', (req, res) => {
+    db.updateProject(req.params.id, req.body).then(data => res.send(data));
+})
+
 
 const server = app.listen(serverPort, function() {
     console.log(`Server is up and running on port ${serverPort}`);

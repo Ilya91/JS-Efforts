@@ -4,11 +4,13 @@ import config from '../config.json'
 import '../models/Task'
 import '../models/User'
 import '../models/SubTask'
+import '../models/Project'
 
 
 const Task = mongoose.model('Task')
 const User = mongoose.model('User')
 const SubTask = mongoose.model('SubTask')
+const Project = mongoose.model('Project')
 
 export function setUpConnection() {
     mongoose.Promise = global.Promise
@@ -40,7 +42,6 @@ export function deleteTask(id) {
 }
 
 export function updateTask(id, data) {
-    console.log(id, data)
     return Task.findByIdAndUpdate(id, { $set: data }, {new: true})
 }
 
@@ -75,4 +76,36 @@ export function createSubTask(data) {
         users: data.users
     })
     return task.save()
+}
+
+export function updateSubTask(id, data) {
+    console.log(id, data)
+    return SubTask.findByIdAndUpdate(id, { $set: data }, {new: true})
+}
+
+/* projects */
+
+export function listProjects() {
+    return Project.find()
+}
+
+export function createProject(data) {
+    const project = new Project({
+        title: data.title,
+        date: data.date,
+        dateStart: data.dateStart,
+        dateEnd: data.dateEnd,
+        description: data.description,
+        status: data.status,
+        executors: data.executors
+    })
+    return project.save()
+}
+
+export function deleteProject(id) {
+    return Project.findById(id).remove();
+}
+
+export function updateProject(id, data) {
+    return Project.findByIdAndUpdate(id, { $set: data }, {new: true})
 }

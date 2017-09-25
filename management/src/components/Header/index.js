@@ -13,6 +13,7 @@ class Header extends Component {
     render(){
         const { users, id } = this.props
         const user = this.getActiveUser(users, id)
+        console.log(user)
         return(
             <header className="main-header">
                 <nav className="navbar navbar-static-top">

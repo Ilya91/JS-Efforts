@@ -612,7 +612,7 @@ button.task-status-toggle{
     float: left;
     margin-right:10px;
 }
-.task-users img, .project-users-list img{
+.task-users img, .project-users-list img, .dropdownUsers img{
     width:35px;
     margin-right: 7px;
 }
@@ -856,7 +856,7 @@ li input[type=radio]{
 }
 
 ul.dropdownUsers{
-    left:38px;
+    left:132px;
     top:20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     min-width:200px;
@@ -948,6 +948,7 @@ ul.dropdownUsers{
 .project-users-list li{
     float: left;
     list-style: none;
+    margin-right:15px;
 }
 .panel-project ul.dropdownUsers{
     position: absolute;
@@ -988,10 +989,6 @@ ul.dropdownUsers{
     background: transparent;
     border-color: #b3b3b3 #ccc #d9d9d9;
     cursor: pointer;
-}
-.project-add-description textarea{
-    border: none;
-    padding:10px 20px 0 20px;
 }
 
 span.projectTitle{

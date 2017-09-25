@@ -1,9 +1,3 @@
-/*import { tasks as DefaultTasks } from '../components/fixtures'
-let localTasks = JSON.parse(localStorage.getItem('tasks'));
-if(localTasks === null){
-    localTasks = []
-}*/
-
 import {arrToMap, mapToArr} from '../helpers'
 import { ADD_NEW_TASK,
         DELETE_NEW_TASK,

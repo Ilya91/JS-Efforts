@@ -37,7 +37,7 @@ class Projects extends Component {
     state = {
         tabIndex: 0,
         selected: 0,
-        selectedUser: { id: 0, name: "Все"}
+        selectedUser: { id: 0, login: "Все"}
     }
     logChange = (val) => {
         this.setState({
@@ -50,7 +50,7 @@ class Projects extends Component {
         this.setState({
             selectedUser: val
         })
-        console.log("Selected: " + JSON.stringify(val))
+        //console.log("Selected: " + JSON.stringify(val))
     }
 
     renderValue(option) {
@@ -63,12 +63,12 @@ class Projects extends Component {
     }
 
     renderValueUser(option) {
-        return <span key={option.value? option.value : option.id}>ИСПОЛНИТЕЛЬ: {option.label ? option.label : option.name}</span>;
+        return <span key={option.value? option.value : option.id}>ИСПОЛНИТЕЛЬ: {option.label ? option.label : option.login}</span>;
     }
 
 
     renderOptionUser(option){
-        return <span key={option.value? option.value : option.id}>{option.label ? option.label : option.name}</span>;
+        return <span key={option.value? option.value : option.id}>{option.label ? option.label : option.login}</span>;
     }
 
     getClassTabs = () => {
@@ -166,6 +166,7 @@ class Projects extends Component {
                             return (<Task
                             key={task.id}
                             id={task.id}
+                            projectId={task.projectId}
                             title={task.title}
                             date={task.date}
                             description={task.description ? task.description : ''}

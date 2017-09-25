@@ -1,9 +1,5 @@
-import { projects as DefaultProjects } from '../components/fixtures'
-let localProjects = JSON.parse(localStorage.getItem('projects'));
-if(localProjects === null){
-    localProjects = []
-}
 import {
+    LOAD_ALL_PROJECTS,
     ADD_NEW_PROJECT,
     DELETE_PROJECT,
     ADD_PROJECT_DESCRIPTION,
@@ -14,10 +10,11 @@ import {
 } from '../constants'
 import {arrToMap, mapToArr} from '../helpers'
 
-export default ( projectState = localProjects, action) => {
+export default ( projectState = [], action) => {
     const { type, payload, response } = action
 
     switch (type) {
+        case LOAD_ALL_PROJECTS: return [ ...response.data ]
         case ADD_NEW_PROJECT: return [...projectState, payload.project ]
         case DELETE_PROJECT: return projectState.filter(project => project.id !== payload.id)
         case ADD_PROJECT_DESCRIPTION:

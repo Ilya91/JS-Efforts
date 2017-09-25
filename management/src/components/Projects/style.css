@@ -71,9 +71,6 @@
     color: #8F9298;
     font-size:12px;
 }
-.project-add-description{
-    border-top: 1px solid #E3E3E4;
-}
 .project-filters .Select-control{
     background:none;
 }
@@ -107,4 +104,18 @@
     position: absolute;
     left:0;
     top: 30px;
+}
+.panel-project tr:last-child > td{
+    padding:5px 0 5px 20px;
+}
+table.form-description-project{
+    width:100%;
+    border: 1px solid #E3E3E4;
+}
+
+.form-description-project .project-add-description textarea{
+    border: none;
+}
+.task-description .form-description-project td{
+    padding:10px 20px 10px 20px;
 }

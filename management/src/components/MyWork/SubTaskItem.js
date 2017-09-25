@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Moment from 'react-moment';
-import { changeSubTaskTitle, addSubTaskUser } from '../../AC'
+import Moment from 'react-moment'
+import { changeSubTaskDetails } from '../../AC'
 import {connect} from 'react-redux'
 
 class SubTaskItem extends Component {
@@ -22,9 +22,12 @@ class SubTaskItem extends Component {
 
     handleEditSubmit = (e) => {
         const { isOpenInputTitle, taskTitle } = this.state
-        const { changeSubTaskTitle, id } = this.props
+        const { changeSubTaskDetails, id } = this.props
         e.preventDefault()
-        changeSubTaskTitle(id, taskTitle)
+        const data = {
+            title:taskTitle
+        }
+        changeSubTaskDetails(id, data)
         this.setState({
             isOpenInputTitle: false
         })
@@ -37,10 +40,15 @@ class SubTaskItem extends Component {
     }
 
     handleAddUser = (userId) => (e) => {
-        const { id, addSubTaskUser } = this.props
+        const { id, changeSubTaskDetails, users } = this.props
         e.preventDefault()
-        addSubTaskUser(id, userId)
-        console.log(id)
+        if(!users.includes(userId)){
+            let arr = [...users, userId]
+            const data = {
+                users:arr
+            }
+            changeSubTaskDetails(id, data)
+        }
     }
 
     render(){
@@ -57,8 +65,8 @@ class SubTaskItem extends Component {
                                 users.includes(userList.id)
                             ).map((userList) =>
                                 <li key={userList.name}>
-                                    <img className="img-circle" src={ userList.avatar } alt=""/>
-                                    { userList.name }
+                                    <img className="img-circle" src='/public/dist/img/avatar04.png' alt=""/>
+                                    { userList.login }
                                 </li>)
                             }
                         </ul> : null
@@ -72,8 +80,8 @@ class SubTaskItem extends Component {
                                     id={listUser.id}
                                     onClick={this.handleAddUser(listUser.id)}
                                     className={ users ? (users.includes(listUser.id) ? 'active' : '') : null}>
-                                    <img className="img-circle" src={ listUser.avatar } alt="img"/>
-                                    <span>{ listUser.name }</span>
+                                    <img className="img-circle" src='/public/dist/img/avatar04.png' alt="img"/>
+                                    <span>{ listUser.login }</span>
                                 </a>
                             </li>
                         ) : null }
@@ -105,4 +113,4 @@ class SubTaskItem extends Component {
         }
     }
 }
-export default connect(null, { changeSubTaskTitle, addSubTaskUser })(SubTaskItem)
+export default connect(null, { changeSubTaskDetails })(SubTaskItem)

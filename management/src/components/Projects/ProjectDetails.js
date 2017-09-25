@@ -9,11 +9,7 @@ import 'react-select/dist/react-select.css';
 import {
     deleteProject,
     setActiveProject,
-    addProjectDescription,
-    changeProjectStatus,
-    setProjectDayStart,
-    setProjectDayEnd,
-    addUserToProject
+    changeProjectDetails
 } from '../../AC'
 import moment from 'moment';
 import { getUserForTask } from '../functions'
@@ -28,10 +24,17 @@ const options = [
 ];
 
 class ProjectDetails extends Component {
+    state = {
+        description: this.props.description,
+        executors: []
+    }
 
     logChange = (val) => {
-        const { project:{id}, changeProjectStatus } = this.props
-        changeProjectStatus(id, val)
+        const { project:{id}, changeProjectDetails } = this.props
+        const data = {
+            status: val
+        }
+        changeProjectDetails(id, data)
     }
     handleDelete = (e) => {
         e.preventDefault()
@@ -40,10 +43,21 @@ class ProjectDetails extends Component {
         deleteProject(project.id)
     }
 
+    handleEnterDescription = (e) => {
+        const { project:{id}, changeProjectDetails } = this.props
+        e.preventDefault()
+        const description = this.state.description
+        const data = {
+            description
+        }
+        changeProjectDetails( id, data )
+    }
+
     handleProjectDescChange = (e) => {
-        const { project:{id}, addProjectDescription } = this.props
-        let desc = e.target.value
-        addProjectDescription( id, desc )
+        let description = e.target.value
+        this.setState({
+            description
+        })
     }
 
     renderValue(option) {
@@ -56,23 +70,36 @@ class ProjectDetails extends Component {
     }
 
     handleDayStartChange = (selectedDay) => {
-        const { project:{id}, setProjectDayStart } = this.props
-        setProjectDayStart(id, selectedDay.toDate())
+        const { project:{id}, changeProjectDetails } = this.props
+        const data = {
+            dateStart: selectedDay.toDate()
+        }
+        changeProjectDetails(id, data)
     }
 
     handleDayEndChange = (selectedDay) => {
-        const { project:{id}, setProjectDayEnd } = this.props
-        setProjectDayEnd(id, selectedDay.toDate())
+        const { project:{id}, changeProjectDetails } = this.props
+        const data = {
+            dateEnd: selectedDay.toDate()
+        }
+        changeProjectDetails(id, data)
     }
 
     handleAddUser = (userId) => (e) => {
+        const { project:{id}, changeProjectDetails, executors } = this.props
         e.preventDefault()
-        const { project:{id}, addUserToProject } = this.props
-        addUserToProject(id, userId)
+        if(!executors.includes(userId)){
+            let arr = [...executors, userId]
+            const data = {
+                executors:arr
+            }
+            changeProjectDetails(id, data)
+        }
     }
 
     render(){
-        const { project:{title}, description, dateStart, dateEnd, status, users, executors } = this.props
+        const { description } = this.state
+        const { project:{title}, dateStart, dateEnd, status, users, executors } = this.props
         return(
                         <section className="col-lg-6">
                             <div className="box box-primary task-description">
@@ -101,7 +128,8 @@ class ProjectDetails extends Component {
                                         <ul className="project-users-list">
                                             { executors ? getUserForTask(executors, users).map((user) =>
                                                 <li key={user.id}>
-                                                    <img className="img-circle" src={user.avatar} alt="img"/>
+                                                    <img className="img-circle" src="/public/dist/img/avatar04.png" alt="img"/>
+                                                    <span>{ user.login }</span>
                                                 </li>
                                             ) : ''}
                                         </ul>
@@ -111,17 +139,17 @@ class ProjectDetails extends Component {
                                         <ul className="dropdown-menu dropdownUsers">
                                             <p>Добавьте пользователя</p>
                                             { users ? users.map((listUser) =>
-                                                <li key={listUser.id}>
+                                                !executors.includes(listUser.id) ? <li key={listUser.id}>
                                                     <a
                                                         href=""
                                                         id={listUser.id}
                                                         onClick={this.handleAddUser(listUser.id)}
                                                         className={ users ? (users.includes(listUser.id) ? 'active' : '') : null}
                                                     >
-                                                        <img className="img-circle" src={ listUser.avatar } alt="img"/>
-                                                        <span>{ listUser.name }</span>
+                                                        <img className="img-circle" src="/public/dist/img/avatar04.png" alt="img"/>
+                                                        <span>{ listUser.login }</span>
                                                     </a>
-                                                </li>
+                                                </li> : null
                                             ) : null }
                                         </ul>
                                         </td>
@@ -180,9 +208,13 @@ class ProjectDetails extends Component {
                                             </div>
                                         </td>
                                     </tr>
+                                    </tbody>
+                                </table>
+                                <table className={'form-description-project'}>
+                                    <tbody>
                                     <tr>
                                         <td>
-                                            <form className="project-add-description">
+                                            <form className="project-add-description"  onSubmit={this.handleEnterDescription}>
                                             <textarea
                                                 onChange={this.handleProjectDescChange}
                                                 style={{ resize: 'none' }}
@@ -191,14 +223,10 @@ class ProjectDetails extends Component {
                                                 placeholder="Нажмите, чтобы добавить описание"
                                                 value={ description }>
                                             </textarea>
+                                                <button  type="submit" className={'btn btn-default pull-right'}>Save</button>
                                             </form>
                                         </td>
                                     </tr>
-                                    </tbody>
-                                </table>
-                                <table className='panel-task'>
-                                    <tbody>
-
                                     </tbody>
                                 </table>
                             </div>
@@ -213,9 +241,5 @@ export default connect((state) => ({
 }), {
     deleteProject,
     setActiveProject,
-    addProjectDescription,
-    changeProjectStatus,
-    setProjectDayStart,
-    setProjectDayEnd,
-    addUserToProject
+    changeProjectDetails
 })(ProjectDetails)

@@ -5,7 +5,7 @@ import Select from 'react-select'
 import DayPicker from './DayPicker'
 import SubTaskItem from './SubTaskItem'
 import 'react-select/dist/react-select.css'
-import { deleteTask, addTaskDescription, changeTaskStatus, addSubTask, addTaskToProject, addUserToTask } from '../../AC'
+import { deleteTask, changeTaskDetails, addSubTask, addUserToTask } from '../../AC'
 import { getUserForTask } from '../functions'
 import Moment from 'react-moment'
 import moment from 'moment'
@@ -19,21 +19,18 @@ const options = [
 
 class Task extends Component {
     state = {
-        description: this.props.description,
-        addSubTaskActive: false
+        description: this.props.description
     }
 
     logChange = (data) => {
-        const { id, changeTaskStatus } = this.props
-        const { addSubTaskActive } = this.state
+        const { id, changeTaskDetails } = this.props
         this.setState({
-            selected: data,
-            addSubTaskActive: false,
+            selected: data
         })
         const status = {
             status: data
         }
-        changeTaskStatus(id, status)
+        changeTaskDetails(id, status)
 
     }
     handleDelete = (e) => {
@@ -43,16 +40,21 @@ class Task extends Component {
     }
 
     handleDescChange = (e) => {
-        const { id, addTaskDescription } = this.props
         const description = e.target.value
+        this.setState({
+            description
+        })
+    }
+
+    handleEnterDescription = (e) => {
+        const { id, changeTaskDetails } = this.props
+        e.preventDefault()
+        const description = this.state.description
+        console.log(description)
         const data = {
             description
         }
-        addTaskDescription( id, data )
-        const { addSubTaskActive } = this.state
-        this.setState({
-            addSubTaskActive: false
-        })
+        changeTaskDetails( id, data )
     }
 
     renderValue(option) {
@@ -66,7 +68,6 @@ class Task extends Component {
 
     handleAddSubTask = () => {
         const { id, addSubTask } = this.props
-        const { addSubTaskActive } = this.state
         this.setState({
             addSubTaskActive: true
         })
@@ -74,7 +75,7 @@ class Task extends Component {
             id: (Date.now() + Math.random()).toString(),
             taskId: id,
             title: 'New sub task',
-            users: null
+            users: []
         }
         addSubTask(subtask)
     }
@@ -99,19 +100,24 @@ class Task extends Component {
     }
 
     handleAddProject = (projectId) => (e) => {
-        const { id, addTaskToProject } = this.props
+        const { id, changeTaskDetails } = this.props
         e.preventDefault()
         const data = {
             projectId
         }
-        console.log(data)
-        addTaskToProject(id, data)
+        changeTaskDetails(id, data)
     }
 
     handleAddUserForTask = (userId) => (e)=> {
-        const { id, addUserToTask } = this.props
+        const { id, changeTaskDetails, executors } = this.props
         e.preventDefault()
-        addUserToTask(id, userId)
+        if(!executors.includes(userId)){
+            let arr = [...executors, userId]
+            const data = {
+                executors:arr
+            }
+            changeTaskDetails(id, data)
+        }
     }
 
     getProjectForTask(){
@@ -137,7 +143,7 @@ class Task extends Component {
             authorId,
             executors
         } = this.props
-        const { addSubTaskActive, description, selected } = this.state
+        const { description } = this.state
         const project = this.getProjectForTask()
         return(
                         <section className="col-lg-6">
@@ -210,7 +216,7 @@ class Task extends Component {
                                                 <ul className="dropdown-menu dropdownUsers">
                                                     <p>Добавьте пользователя</p>
                                                     { users ? users.map((listUser) =>
-                                                        <li key={listUser.id}>
+                                                        !executors.includes(listUser.id) ? <li key={listUser.id}>
                                                             <a
                                                                 href=""
                                                                 id={listUser.id}
@@ -220,7 +226,7 @@ class Task extends Component {
                                                                 <img className="img-circle" src="/public/dist/img/avatar04.png" alt="img"/>
                                                                 <span>{ listUser.login }</span>
                                                             </a>
-                                                        </li>
+                                                        </li> : ''
                                                     ) : null }
 
                                                 </ul>
@@ -244,15 +250,15 @@ class Task extends Component {
                                                     </a>
                                                 </div>
                                                 <DayPicker id={ id } complete={this.getCompleteValue()}/>
-                                                <div className={"addSubTask" + (addSubTaskActive ? ' addSubTaskActive' : '')} onClick={this.handleAddSubTask}>
+                                                <div className={"addSubTask"} onClick={this.handleAddSubTask}>
                                                     <span>
                                                         <i className="glyphicon glyphicon-list">
-                                                        </i>{ addSubTaskActive ? this.getNumberOfSubtasks() + ' subtasks' : 'Добавить подзадачу'}
+                                                        </i>{ this.getNumberOfSubtasks() > 0  ? this.getNumberOfSubtasks() + ' subtasks' : 'Добавить подзадачу'}
                                                     </span>
                                                 </div>
                                             </td>
                                         </tr>
-                                        { addSubTaskActive ?
+                                        { subTasks ?
                                             <tr>
                                                 <td colSpan="3" id="idListSubs">
                                                         { subTasks ? <ul className="listSubTasks">{subTasks.filter((subTask) =>
@@ -271,7 +277,7 @@ class Task extends Component {
                                         }
                                     <tr>
                                         <td colSpan="3">
-                                        <form className="task-add-description">
+                                        <form className="task-add-description" onSubmit={this.handleEnterDescription}>
                                             <textarea
                                                 onChange={this.handleDescChange}
                                                 style={{ resize: 'none' }}
@@ -280,6 +286,7 @@ class Task extends Component {
                                                 placeholder="Нажмите, чтобы добавить описание"
                                                 value={ description }>
                                             </textarea>
+                                            <button  type="submit" className={'btn btn-default pull-right'}>Save</button>
                                         </form>
                                         </td>
                                     </tr>
@@ -298,9 +305,7 @@ export default connect((state) => ({
     users: state.users
 }), {
     deleteTask,
-    addTaskDescription,
-    changeTaskStatus,
+    changeTaskDetails,
     addSubTask,
-    addTaskToProject,
     addUserToTask
 })(Task)

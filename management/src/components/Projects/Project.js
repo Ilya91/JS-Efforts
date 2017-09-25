@@ -40,20 +40,20 @@ class Project extends Component {
     state = {
         tabIndex: 0,
         selected: 0,
-        selectedUser: { id: 0, name: "Все"}
+        selectedUser: { id: 0, login: "Все"}
     }
     logChange = (val) => {
         this.setState({
             selected: val
         })
-        console.log("Selected: " + JSON.stringify(val))
+        //console.log("Selected: " + JSON.stringify(val))
     }
 
     logChangeUser = (val) => {
         this.setState({
             selectedUser: val
         })
-        console.log("Selected: " + JSON.stringify(val))
+        //console.log("Selected: " + JSON.stringify(val))
     }
 
     renderValue(option) {
@@ -66,12 +66,12 @@ class Project extends Component {
     }
 
     renderValueUser(option) {
-        return <span key={option.value? option.value : option.id}>ИСПОЛНИТЕЛЬ: {option.label ? option.label : option.name}</span>;
+        return <span key={option.value? option.value : option.id}>ИСПОЛНИТЕЛЬ: {option.label ? option.label : option.login}</span>;
     }
 
 
     renderOptionUser(option){
-        return <span key={option.value? option.value : option.id}>{option.label ? option.label : option.name}</span>;
+        return <span key={option.value? option.value : option.id}>{option.label ? option.label : option.login}</span>;
     }
 
     getClassTabs = () => {
@@ -182,14 +182,14 @@ class Project extends Component {
                                 </Tabs>
                             </div>
                         </section>
-                        { (tabIndex || activeTask) ? null : <ProjectDetails
+                        { (tabIndex || activeTask) ? null : (project ? <ProjectDetails
                             project={project}
                             description={project.description}
                             status={project.status}
                             dateStart={project.dateStart}
                             dateEnd={project.dateEnd}
                             executors={project.executors}
-                        />}
+                        /> : null)}
                         { (activeTask && !tabIndex) ? tasks.filter((task) =>
                             activeTask === task.id
                         ).map((task) => <Task

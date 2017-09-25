@@ -1,7 +1,3 @@
-/*let localSubTasks = JSON.parse(localStorage.getItem('subTasks'))
-if(localSubTasks === null){
-    localSubTasks = []
-}*/
 import {arrToMap, mapToArr} from '../helpers'
 import {
     LOAD_ALL_SUBTASKS,

@@ -12,7 +12,7 @@ import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom
 import moment from 'moment';
 import history from '../../history'
 import { ConnectedRouter } from 'react-router-redux'
-import { loadAllTasks, loadAllUsers, loadAllSubTasks } from '../../AC'
+import { loadAllTasks, loadAllUsers, loadAllSubTasks, loadAllProjects } from '../../AC'
 
 import jwt from 'jwt-simple'
 import config from '../../../server/config.json'
@@ -46,10 +46,11 @@ class App extends Component {
     }
 
     componentWillMount() {
-        const { loadAllTasks, loadAllUsers, loadAllSubTasks } = this.props
+        const { loadAllTasks, loadAllUsers, loadAllSubTasks, loadAllProjects } = this.props
         loadAllTasks()
         loadAllUsers()
         loadAllSubTasks()
+        loadAllProjects()
     }
 
     /*componentDidUpdate() {
@@ -72,4 +73,4 @@ export default connect((state) => ({
     stateProjects: state.projects,
     tasks: state.tasks,
     subTasks: state.subTasks
-}),{ loadAllTasks, loadAllUsers, loadAllSubTasks })(App)
+}),{ loadAllTasks, loadAllUsers, loadAllSubTasks, loadAllProjects })(App)

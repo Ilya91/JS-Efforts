@@ -1,5 +1,5 @@
 import {
-    ADD_NEW_TASK,
+    LOAD_ALL_PROJECTS,
     SET_ACTIVE_TASK,
     DELETE_NEW_TASK,
     LOAD_ALL_SUBTASKS,
@@ -49,7 +49,7 @@ export function loadAllUsers() {
 
 export function loadAllProjects() {
     return {
-        type: LOAD_ALL_TASKS,
+        type: LOAD_ALL_PROJECTS,
         callAPI: `${ROOT_URL}/projects`
     }
 }
@@ -72,21 +72,6 @@ export function addNewTask(task) {
             .catch(response => dispatch(authError(response.data.error)));
     }
 }
-/*export function loadAllTasks() {
-    return function(dispatch) {
-        axios.get(`${ROOT_URL}/tasks`)
-            .then(({data}) => {
-                dispatch(
-                    {type: LOAD_ALL_TASKS,
-                        payload:{
-                            data
-                        }
-                    })
-            })
-            .catch(response => dispatch(authError(response.data.error)));
-    }
-}*/
-
 
 export function deleteTask(id) {
     return function (dispatch) {
@@ -98,39 +83,9 @@ export function deleteTask(id) {
             .catch(response => dispatch(authError(response.data.error)));
     }
 }
-export function addTaskDescription(id, data) {
+export function changeTaskDetails(id, data) {
     return function (dispatch) {
         api.updateTask(id, data)
-            .then(() => {
-                dispatch({type: LOAD_ALL_TASKS, callAPI: `${ROOT_URL}/tasks`})
-            })
-            .catch(response => dispatch(authError(response.data.error)));
-    }
-}
-
-export function changeTaskStatus(id, status) {
-    return function (dispatch) {
-        api.updateTask(id, status)
-            .then(() => {
-                dispatch({type: LOAD_ALL_TASKS, callAPI: `${ROOT_URL}/tasks`})
-            })
-            .catch(response => dispatch(authError(response.data.error)));
-    }
-}
-
-export function addTaskToProject(id, projectId) {
-    return function (dispatch) {
-        api.updateTask(id, projectId)
-            .then(() => {
-                dispatch({type: LOAD_ALL_TASKS, callAPI: `${ROOT_URL}/tasks`})
-            })
-            .catch(response => dispatch(authError(response.data.error)));
-    }
-}
-
-export function setTaskDateRange(id, complete) {
-    return function (dispatch) {
-        api.updateTask(id, complete)
             .then(() => {
                 dispatch({type: LOAD_ALL_TASKS, callAPI: `${ROOT_URL}/tasks`})
             })
@@ -148,21 +103,13 @@ export function addSubTask(subtask) {
     }
 }
 
-export function changeSubTaskTitle(id, title) {
-    return{
-        type: CHANGE_SUB_TASK_TITLE,
-        payload: {
-            id, title
-        }
-    }
-}
-
-export function addSubTaskUser(id, userId) {
-    return{
-        type: ADD_SUB_TASK_USER,
-        payload: {
-            id, userId
-        }
+export function changeSubTaskDetails(id, data) {
+    return function (dispatch) {
+        api.updateSubTask(id, data)
+            .then(() => {
+                dispatch({type: LOAD_ALL_SUBTASKS, callAPI: `${ROOT_URL}/subtasks`})
+            })
+            .catch(response => dispatch(authError(response.data.error)));
     }
 }
 
@@ -196,70 +143,35 @@ export function setActiveProject(id) {
 }
 
 export function addNewProject(project) {
-    return{
-        type: ADD_NEW_PROJECT,
-        payload: {
-            project
-        }
+    return function (dispatch) {
+        api.createProject(project)
+            .then(() => {
+                dispatch(
+                    {type: LOAD_ALL_PROJECTS, callAPI: `${ROOT_URL}/projects`})
+            })
+            .catch(response => dispatch(authError(response.data.error)));
     }
 }
 export function deleteProject(id) {
-    return (dispatch) => {
-        dispatch(replace('/projects'))
-        dispatch({
-            type: DELETE_PROJECT,
-            payload: { id }
-        })
-
+    return function (dispatch) {
+        api.deleteProject(id)
+            .then(() => {
+                dispatch({type: LOAD_ALL_PROJECTS, callAPI: `${ROOT_URL}/projects`})
+                dispatch(replace('/projects'))
+            })
+            .catch(response => dispatch(authError(response.data.error)));
     }
 }
 
-export function addProjectDescription(id, desc) {
-    return{
-        type: ADD_PROJECT_DESCRIPTION,
-        payload: {
-            id, desc
-        }
+export function changeProjectDetails(id, data) {
+    return function (dispatch) {
+        api.updateProject(id, data)
+            .then(() => {
+                dispatch({type: LOAD_ALL_PROJECTS, callAPI: `${ROOT_URL}/projects`})
+            })
+            .catch(response => dispatch(authError(response.data.error)));
     }
 }
-
-export function changeProjectStatus(id, status) {
-    return{
-        type: CHANGE_PROJECT_STATUS,
-        payload: {
-            id, status
-        }
-    }
-}
-
-export function setProjectDayStart(id, dateStart) {
-    return{
-        type: SET_PROJECT_DAY_START,
-        payload: {
-            id, dateStart
-        }
-    }
-}
-
-export function setProjectDayEnd(id, dateEnd) {
-    return{
-        type: SET_PROJECT_DAY_END,
-        payload: {
-            id, dateEnd
-        }
-    }
-}
-
-
-export function addUserToProject(id, userId) {
-    return{
-        type: ADD_USER_TO_PROJECT,
-        payload: {
-            id, userId
-        }
-    }
-}
-
 
 /*AUTHENTICATION*/
 export function signinUser({ email, password }) {
