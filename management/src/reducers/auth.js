@@ -17,7 +17,7 @@ export default function(state = {}, action) {
     const { type, payload, response } = action
     switch(type) {
         case AUTH_USER:
-            return { ...state, error: '', authenticated: true, user: decodedToken}
+            return { ...state, error: '', authenticated: true, user: payload.id }
         case UNAUTH_USER:
             return { ...state, authenticated: false, user: null }
         case AUTH_ERROR:

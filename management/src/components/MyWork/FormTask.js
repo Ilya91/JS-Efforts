@@ -81,7 +81,7 @@ class FormTask extends Component {
                 { taskInputOpen ?
                     <div className={ 'form-group ' + (error ? classError : '') }>
                     <form onSubmit={this.handleSubmit}>
-                        <input type="text" className="form-control" onChange={this.handleChange} value={title}/>
+                        <input type="text" className="form-control" onChange={this.handleChange} value={title} autoFocus/>
                     </form>{ error ? 'Input can not be empty!' : '' }
 
                     </div>:

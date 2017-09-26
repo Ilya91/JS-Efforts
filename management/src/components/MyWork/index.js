@@ -8,9 +8,13 @@ import OtherDays from './OtherDays'
 import { connect } from 'react-redux'
 import Moment from 'react-moment';
 import moment from 'moment'
+import { AUTH_USER } from '../../constants'
 
 import { setActiveTask, loadAllTasks } from '../../AC'
 import TaskItem from './TaskItem'
+
+import jwt from 'jwt-simple'
+import config from '../../../server/config.json'
 
 class MyWork extends Component {
 
@@ -57,6 +61,14 @@ class MyWork extends Component {
     handleClickTask = (id) => ev => {
         const { setActiveTask } = this.props
         setActiveTask(id)
+    }
+
+    componentDidMount(){
+        let localToken = localStorage.getItem('token')
+        if (localToken) {
+            let id = jwt.decode(localToken, config.secret).sub
+            store.dispatch({ type: AUTH_USER, payload:{ id } })
+        }
     }
 
     render(){

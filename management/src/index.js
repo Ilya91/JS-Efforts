@@ -5,11 +5,13 @@ import store from './store'
 import { Provider } from 'react-redux'
 import { AUTH_USER } from './constants'
 
-const token = localStorage.getItem('token');
-// If we have a token, consider the user to be signed in
-if (token) {
-    // we need to update application state
-    store.dispatch({ type: AUTH_USER })
+import jwt from 'jwt-simple'
+import config from '../server/config.json'
+
+let localToken = localStorage.getItem('token')
+if (localToken) {
+    let id = jwt.decode(localToken, config.secret).sub
+    store.dispatch({ type: AUTH_USER, payload:{ id } })
 }
 
 

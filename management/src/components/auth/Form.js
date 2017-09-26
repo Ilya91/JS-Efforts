@@ -31,4 +31,4 @@ Form = reduxForm({
     form: 'signup'
 })(Form)
 
-export default Form;
+export default Form

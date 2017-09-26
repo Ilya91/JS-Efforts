@@ -49,7 +49,7 @@ class Table extends Component {
                             <td className={'seven-cell'}>
                                 <ul className={'table-users'}>
                                     { project.executors ? getUserForTask(project.executors, users).map((user) =>
-                                        <li key={user.id}>{ user.name }</li>) : ''}
+                                        <li key={user.id}>{ user.login }</li>) : ''}
                                 </ul>
                             </td>
                         </tr>
@@ -67,7 +67,7 @@ class Table extends Component {
                             <td className={'six-cell'}>{task.status.label}</td>
                             <td className={'seven-cell'}>
                                 <ul className={'table-users'}>{ task.executors ? getUserForTask(task.executors, users).map((user) =>
-                                    <li key={user.id}>{ user.name }</li>) : ''}
+                                    <li key={user.id}>{ user.login }</li>) : ''}
                                     </ul>
                             </td>
                         </tr>

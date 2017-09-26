@@ -106,7 +106,6 @@ class Projects extends Component {
                                         <TabList>
                                             <Tab>СПИСОК</Tab>
                                             <Tab>ТАБЛИЦА</Tab>
-                                            <Tab>ВРЕМЕННАЯ ШКАЛА</Tab>
                                         </TabList>
                                     </div>
                                         <div className={"project-filters " + this.getClassFilters()}>
@@ -152,10 +151,9 @@ class Projects extends Component {
                                         <Table
                                             projects={projects}
                                             tasks={tasks}
+                                            filterStatus={this.state.selected.value}
+                                            filterUsers={this.state.selectedUser.id}
                                         />
-                                    </TabPanel>
-                                    <TabPanel>
-                                        <h2>временная шакала</h2>
                                     </TabPanel>
                                 </Tabs>
                             </div>

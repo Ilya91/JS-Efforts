@@ -50,7 +50,6 @@ class Task extends Component {
         const { id, changeTaskDetails } = this.props
         e.preventDefault()
         const description = this.state.description
-        console.log(description)
         const data = {
             description
         }

@@ -55,7 +55,7 @@ class SubTaskItem extends Component {
         const { id, title, users, onClick, usersList } = this.props
         const { isOpenInputTitle, taskTitle } = this.state
         return(
-            <li onClick={onClick} id={id} className="subTaskItem">
+            <li onClick={onClick} id={id} className="subTaskItem" key={id}>
                 <input type="checkbox"/>
                     <span data-toggle="dropdown" className="dropdown-toggle">
                         <i className="fa fa-user-plus"></i>
@@ -64,7 +64,7 @@ class SubTaskItem extends Component {
                             { usersList.filter((userList) =>
                                 users.includes(userList.id)
                             ).map((userList) =>
-                                <li key={userList.name}>
+                                <li key={userList.id}>
                                     <img className="img-circle" src='/public/dist/img/avatar04.png' alt=""/>
                                     { userList.login }
                                 </li>)
@@ -75,8 +75,7 @@ class SubTaskItem extends Component {
                         <p>Добавьте пользователя</p>
                         { usersList ? usersList.map((listUser) =>
                             <li key={listUser.id}>
-                                <a
-                                    href=""
+                                <a href=""
                                     id={listUser.id}
                                     onClick={this.handleAddUser(listUser.id)}
                                     className={ users ? (users.includes(listUser.id) ? 'active' : '') : null}>

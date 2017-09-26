@@ -75,7 +75,7 @@ class TimeRange extends Component {
                                     || (task.complete ? (moment(date).isBetween((task.complete.from), (task.complete.to), 'day', '[]') ? 'activeTaskTime ' : '') : '')) + (moment(date).day() === 6 ? ' saturday' : '')
                                     }>
                                     { moment(date).isSame(task.complete ? task.complete.from : null, 'day') ? <span className={'nameOfTask'}>{ task.title } / { task.executors ? getUserForTask(task.executors, users).map((user) =>
-                                        <span key={user.id}>{ user.name } </span>) : ''}</span> : '' }
+                                        <span key={user.id}>{ user.login } </span>) : ''}</span> : '' }
                                 </td>
                             )}
                         </tr>

@@ -14,9 +14,6 @@ import history from '../../history'
 import { ConnectedRouter } from 'react-router-redux'
 import { loadAllTasks, loadAllUsers, loadAllSubTasks, loadAllProjects } from '../../AC'
 
-import jwt from 'jwt-simple'
-import config from '../../../server/config.json'
-
 moment.updateLocale('ru', {
     monthsShort : {
         format: 'Янв_Фев_Мар_Апр_Мая_Июня_Июля_Авг_Сен_Окт_Ноя_Дек'.split('_'),
@@ -52,22 +49,6 @@ class App extends Component {
         loadAllSubTasks()
         loadAllProjects()
     }
-
-    /*componentDidUpdate() {
-        this._updateLocalStorage();
-    }
-
-    _updateLocalStorage() {
-        const { tasks, subTasks, stateProjects } = this.props
-        let tasksStorage = JSON.stringify(tasks)
-        localStorage.setItem('tasks', tasksStorage)
-
-        let subTasksStorage = JSON.stringify(subTasks)
-        localStorage.setItem('subTasks', subTasksStorage)
-
-        let projectsStorage = JSON.stringify(stateProjects)
-        localStorage.setItem('projects', projectsStorage)
-    }*/
 }
 export default connect((state) => ({
     stateProjects: state.projects,
