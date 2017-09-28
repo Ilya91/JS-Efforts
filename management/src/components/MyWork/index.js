@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Header from '../Header'
-import Sidebar from '../Sidebar'
 import './Content.css'
 import FormTask from './FormTask'
 import Task from './Task'
@@ -8,13 +6,9 @@ import OtherDays from './OtherDays'
 import { connect } from 'react-redux'
 import Moment from 'react-moment';
 import moment from 'moment'
-import { AUTH_USER } from '../../constants'
 
 import { setActiveTask, loadAllTasks } from '../../AC'
 import TaskItem from './TaskItem'
-
-import jwt from 'jwt-simple'
-import config from '../../../server/config.json'
 
 class MyWork extends Component {
 
@@ -63,14 +57,6 @@ class MyWork extends Component {
         setActiveTask(id)
     }
 
-    componentDidMount(){
-        let localToken = localStorage.getItem('token')
-        if (localToken) {
-            let id = jwt.decode(localToken, config.secret).sub
-            store.dispatch({ type: AUTH_USER, payload:{ id } })
-        }
-    }
-
     render(){
         const { tasks, activeTask, activeUser } = this.props
         const startThisWeek = moment().startOf('isoWeek')
@@ -79,12 +65,7 @@ class MyWork extends Component {
         const endNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
         const afterNextWeek = moment().add(1, 'weeks').endOf('isoWeek')
         return(
-            <div>
-                <Header/>
-                <Sidebar/>
-            <div className="content-wrapper">
-                <section className="content">
-                    <div className="row">
+                    <div>
                         <section className={ activeTask ? "col-lg-6" : "col-lg-8"}>
                             <div className="box box-primary">
                                 <div className="box-header">
@@ -188,9 +169,6 @@ class MyWork extends Component {
                         />) : <OtherDays getNumberOfTasks={ this.getNumberOfTasks }/>  }
 
                     </div>
-                </section>
-            </div>
-            </div>
         )
     }
 

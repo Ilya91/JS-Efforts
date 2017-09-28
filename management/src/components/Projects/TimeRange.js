@@ -1,16 +1,10 @@
 import React, { Component } from 'react'
 import './TimeRange.css'
 import moment from 'moment'
-import Moment from 'react-moment';
 import { getTasks, getUserForTask, filterTasks } from '../functions'
-import {arrToMap, mapToArr} from '../../helpers'
 import { connect } from 'react-redux'
 
 class TimeRange extends Component {
-
-    componentDidMount() {
-        console.log(this.refs.projectTr)
-    }
 
     getDates(startDate, stopDate) {
         let dateArray = []
@@ -47,12 +41,12 @@ class TimeRange extends Component {
                     <thead className={'time-view-header'}>
                     <tr>
                         { weekends.map((weekend) =>
-                        <td colSpan={'7'}>{ moment(weekend).format('MMM DD YYYY') }</td>
+                        <td key={weekend} colSpan={'7'}>{ moment(weekend).format('MMM DD YYYY') }</td>
                         )}
                     </tr>
                     <tr className={'daysOfWeek'}>
                         { dates.map((date) =>
-                            <td>{ moment(date).format('dd') }</td>
+                            <td key={date}>{ moment(date).format('dd') }</td>
                         )}
                     </tr>
                     </thead>
@@ -63,14 +57,14 @@ class TimeRange extends Component {
                     <thead>
                         <tr className={'middle daysOfWeek '}>
                             { dates.map((date) =>
-                                <td className={ ((moment(date).day() === 0 || moment(date).day() === 6) ? 'weekend' : '')  + (moment(date).day() === 6 ? ' saturday' : '')}>{ moment(date).format('dd') }</td>
+                                <td key={date} className={ ((moment(date).day() === 0 || moment(date).day() === 6) ? 'weekend' : '')  + (moment(date).day() === 6 ? ' saturday' : '')}>{ moment(date).format('dd') }</td>
                             )}
                         </tr>
                     </thead>
                     <tbody>
                         <tr className={'projectsTimeRange'} ref="projectTr">
                             { dates.map((date) =>
-                                <td
+                                <td key={date}
                                     className={ (((moment(date).day() === 0 || moment(date).day() === 6) ? 'weekend' : '')
                                     || (task.complete ? (moment(date).isBetween((task.complete.from), (task.complete.to), 'day', '[]') ? 'activeTaskTime ' : '') : '')) + (moment(date).day() === 6 ? ' saturday' : '')
                                     }>
@@ -81,7 +75,7 @@ class TimeRange extends Component {
                         </tr>
                         <tr className={'middle daysOfWeek '}>
                             { dates.map((date) =>
-                                <td className={ ((moment(date).day() === 0 || moment(date).day() === 6) ? 'weekend' : '')  + (moment(date).day() === 6 ? ' saturday' : '')}>{ moment(date).format('dd') }</td>
+                                <td key={date} className={ ((moment(date).day() === 0 || moment(date).day() === 6) ? 'weekend' : '')  + (moment(date).day() === 6 ? ' saturday' : '')}>{ moment(date).format('dd') }</td>
                             )}
                         </tr>
                     </tbody>
@@ -91,14 +85,14 @@ class TimeRange extends Component {
                     <thead>
                     <tr className={'middle daysOfWeek '}>
                         { dates.map((date) =>
-                            <td className={ ((moment(date).day() === 0 || moment(date).day() === 6) ? 'weekend' : '')  + (moment(date).day() === 6 ? ' saturday' : '')}>{ moment(date).format('dd') }</td>
+                            <td key={date} className={ ((moment(date).day() === 0 || moment(date).day() === 6) ? 'weekend' : '')  + (moment(date).day() === 6 ? ' saturday' : '')}>{ moment(date).format('dd') }</td>
                         )}
                     </tr>
                     </thead>
                     <tbody>
                     <tr className={'middle daysOfWeek '}>
                         { dates.map((date) =>
-                            <td className={ ((moment(date).day() === 0 || moment(date).day() === 6) ? 'weekend' : '')  + (moment(date).day() === 6 ? ' saturday' : '')}>{ moment(date).format('dd') }</td>
+                            <td key={date} className={ ((moment(date).day() === 0 || moment(date).day() === 6) ? 'weekend' : '')  + (moment(date).day() === 6 ? ' saturday' : '')}>{ moment(date).format('dd') }</td>
                         )}
                     </tr>
                     </tbody>

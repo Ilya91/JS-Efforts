@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import NotFound from '../routes/NotFound'
-import issues from '../routes/issues'
-import projects from '../routes/projects'
 import signin from '../routes/signin'
+import root from '../routes/root'
 import signup from '../routes/signup'
 import signout from '../routes/signout'
 import RequireAuth from '../auth/require_auth'
@@ -24,7 +22,6 @@ moment.locale('ru');
 
 class App extends Component {
     render(){
-        const { stateProjects } = this.props
         return(
                 <ConnectedRouter history = {history}>
                     <div>
@@ -32,10 +29,8 @@ class App extends Component {
                             <Route path = "/signin" component = {signin} />
                             <Route path = "/signup" component = {signup} />
                             <Route path = "/signout" component = {signout} />
-                            <Route path = "/projects" component = {RequireAuth(projects)} />
-                            <Route path = "/issues" component = {RequireAuth(issues)} />
                             <Redirect from='/' to='/issues' exact/>
-                            <Route path = "*" component = {NotFound}/>
+                            <Route path = "/" component = {RequireAuth(root)} />
                         </Switch>
                     </div>
                 </ConnectedRouter>
@@ -50,8 +45,4 @@ class App extends Component {
         loadAllProjects()
     }
 }
-export default connect((state) => ({
-    stateProjects: state.projects,
-    tasks: state.tasks,
-    subTasks: state.subTasks
-}),{ loadAllTasks, loadAllUsers, loadAllSubTasks, loadAllProjects })(App)
+export default connect(null,{ loadAllTasks, loadAllUsers, loadAllSubTasks, loadAllProjects })(App)

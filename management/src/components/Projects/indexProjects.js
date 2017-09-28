@@ -4,11 +4,7 @@ import '../MyWork/Content.css'
 import './style.css'
 import './Tab.css'
 import ListOfTasks from './ListOfTasks'
-import Header from '../Header'
-import Sidebar from '../Sidebar'
-import Filters from './Filters'
 import FormTask from '../MyWork/FormTask'
-import {arrToMap, mapToArr} from '../../helpers'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Task from '../MyWork/Task'
 import { connect } from 'react-redux'
@@ -43,14 +39,12 @@ class Projects extends Component {
         this.setState({
             selected: val
         })
-        console.log("Selected: " + JSON.stringify(val))
     }
 
     logChangeUser = (val) => {
         this.setState({
             selectedUser: val
         })
-        //console.log("Selected: " + JSON.stringify(val))
     }
 
     renderValue(option) {
@@ -90,12 +84,7 @@ class Projects extends Component {
         const { tabIndex, selected, selectedUser } = this.state
         const { activeTask, projects, tasks } = this.props
         return(
-            <div>
-                <Header/>
-                <Sidebar projects={projects}/>
-            <div className="content-wrapper">
-                <section className="content">
-                    <div className="row">
+                    <div>
                         <section className={ tabIndex || !activeTask ? "col-lg-12" : "col-lg-6"}>
                             <div className="box box-primary projects">
                                 <div className={"box-body " + this.getClassHeader()}>
@@ -174,9 +163,6 @@ class Projects extends Component {
                             executors={task.executors}
                         />)}) : null }
                         </div>
-                    </section>
-                </div>
-            </div>
         )
     }
 }

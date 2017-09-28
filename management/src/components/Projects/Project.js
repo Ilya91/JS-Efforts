@@ -107,12 +107,7 @@ class Project extends Component {
         const projectArr = []
         projectArr.push(project)
         return(
-            <div>
-                <Header/>
-                <Sidebar projects={projects}/>
-            <div className="content-wrapper">
-                <section className="content">
-                    <div className="row">
+                    <div>
                         <section className={ tabIndex ? "col-lg-12" : "col-lg-6"}>
                             <div className="box box-primary projects">
                                 <div className={"box-body " + this.getClassHeader()}>
@@ -205,9 +200,6 @@ class Project extends Component {
                             executors={task.executors}
                         />) : null }
                     </div>
-                </section>
-            </div>
-            </div>
         )
     }
 }

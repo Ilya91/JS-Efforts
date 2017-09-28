@@ -181,6 +181,8 @@ export function signinUser({ email, password }) {
                 localStorage.setItem('token', response.data.token)
                 let id = response.data.id
                 dispatch({ type: AUTH_USER, payload:{ id } })
+                dispatch({type: LOAD_ALL_USERS, callAPI: `${ROOT_URL}/users`
+                })
                 dispatch(push('/issues'))
             })
             .catch(() => {

@@ -79,7 +79,7 @@ class Sidebar extends Component {
         const { inputAddProject, project:{title}, error } = this.state
         const { projects } = this.props
         return(
-            <aside className="main-sidebar">
+            <aside className="main-sidebar" style={{height: '100%'}}>
                 <section className="sidebar">
                     <div className="searchTasks">
                         <form action="#" method="get" className="sidebar-form">
@@ -127,4 +127,6 @@ class Sidebar extends Component {
         )
     }
 }
-export default connect(null, { setActiveProject, setActiveTask, addNewProject }, null, { pure: false })(Sidebar)
+export default connect((state) => ({
+    projects: state.projects
+}), { setActiveProject, setActiveTask, addNewProject }, null, { pure: false })(Sidebar)

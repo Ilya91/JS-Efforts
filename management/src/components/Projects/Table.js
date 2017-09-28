@@ -3,7 +3,6 @@ import './Table.css'
 import moment from 'moment'
 import Moment from 'react-moment';
 import { getTasks, getUserForTask, filterTasks } from '../functions'
-import {arrToMap, mapToArr} from '../../helpers'
 import { connect } from 'react-redux'
 
 class Table extends Component {
