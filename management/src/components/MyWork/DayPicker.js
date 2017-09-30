@@ -40,9 +40,6 @@ class Example extends React.Component {
     handleOptionChange = ( e ) => {
         const option = e.target.value
         const today = new Date()
-        /*const day = new Date()
-        const range = DateUtils.addDayToRange(day, this.state)
-        this.setState(range)*/
 
         switch (option){
             case 'option':
@@ -204,8 +201,6 @@ class Example extends React.Component {
         const data = {
             complete
         }
-
-        console.log(data)
         changeTaskDetails(id, data)
     }
 

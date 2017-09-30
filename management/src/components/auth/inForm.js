@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { Component} from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { Link } from 'react-router-dom'
 
-let Form = props => {
-    const { handleSubmit } = props
+class Form extends Component{
+    render(){
+    const { handleSubmit } = this.props
     return (
         <form onSubmit={ handleSubmit }>
             <div className="form-group has-feedback">
@@ -22,6 +23,7 @@ let Form = props => {
             </div>
         </form>
     )
+}
 }
 
 Form = reduxForm({

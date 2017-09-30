@@ -9,10 +9,10 @@ import {routerMiddleware} from 'react-router-redux'
 import history from '../history'
 
 const store = createStore(reducer, composeWithDevTools(
-    applyMiddleware(routerMiddleware(history), thunk, logger, idGenerator, api)
+    applyMiddleware(routerMiddleware(history), thunk, /*logger,*/ idGenerator, api)
 ))
 
 // only for dev
-window.store = store
+//window.store = store
 
 export default store

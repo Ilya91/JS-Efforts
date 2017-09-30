@@ -57,7 +57,6 @@ class Sidebar extends Component {
         const { project } = this.state
         e.preventDefault()
         if(project.title !== ''){
-            console.log(project)
             addNewProject(project)
             this.setState({
                 project: {
